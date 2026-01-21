@@ -30,12 +30,21 @@ export default function PageHeader({
       hoverEffect="highlight"
       className={`mb-10 ${isCenter ? "text-center" : ""} ${className}`}
     >
-      <Label className="mb-3 text-slate-500">{label}</Label>
-      <Heading level="h1" className={subtitle ? "mb-6 text-primary" : "text-primary"}>
+      <Label className="mb-3 text-gray-400">{label}</Label>
+      <Heading
+        level="h1"
+        className={subtitle ? "mb-6" : ""}
+        style={{
+          background: "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}
+      >
         {title}
       </Heading>
       {subtitle && (
-        <Heading level="h3" className="text-slate-300">
+        <Heading level="h3" className="text-gray-300">
           {subtitle}
         </Heading>
       )}

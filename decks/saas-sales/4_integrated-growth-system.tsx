@@ -39,7 +39,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
         <PageHeader label="OUR APPROACH" title="THE INTEGRATED GROWTH SYSTEM" />
 
         {/* 3-column grid */}
-        <Grid cols={3} gap={8} className="px-16" animation="stagger">
+        <Grid cols={3} gap={8} animation="stagger">
           {steps.map((step, index) => (
             <Box
               key={index}
@@ -55,7 +55,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
 
               {/* Number badge */}
               <div className="mb-4 flex justify-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-slate-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-neutral-950">
                   {step.number}
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
               </Heading>
 
               {/* Description */}
-              <Body size="sm" className="text-slate-400">
+              <Body size="sm" className="text-gray-400">
                 {step.description}
               </Body>
             </Box>

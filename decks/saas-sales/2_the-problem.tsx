@@ -17,9 +17,9 @@ export default function TheProblemSlide({ slideNumber }: { slideNumber: number }
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="h-full flex gap-10 items-center">
+      <div className="h-full flex gap-20 items-center">
         {/* Left side - Content */}
-        <div className="flex flex-col justify-center w-full mx-auto">
+        <div className="flex flex-col justify-center w-full max-w-[640px] mx-auto">
           <PageHeader
             label="THE PROBLEM"
             title="Inconsistent Pipeline"
@@ -37,7 +37,7 @@ export default function TheProblemSlide({ slideNumber }: { slideNumber: number }
                 hoverEffect="highlight"
               >
                 <AlertTriangle className="mt-1 h-6 w-6 shrink-0 text-primary" />
-                <Body size="lg" className="text-slate-300">
+                <Body size="lg" className="text-gray-300">
                   {problem.text}
                 </Body>
               </Box>
@@ -52,7 +52,7 @@ export default function TheProblemSlide({ slideNumber }: { slideNumber: number }
         hoverEffect="highlight"
         className="relative h-full max-w-2xl ml-auto z-10"
       >
-          <Image src="/hero4.jpg" alt="Hero Image" width={1000} height={1000} className="h-full object-cover border border-neutral-700" />
+          <Image src="/hero5.jpg" alt="Hero Image" width={500} height={500} className="h-full object-cover border border-neutral-700 rounded-2xl shadow-xl" />
       </Box>
       </div>
     </Slide>

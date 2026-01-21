@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import DeckPresentation from "~/components/DeckPresentation";
+import { ThemeProvider } from "~/components/ThemeProvider";
 import { getDecks } from "~/lib/getDecks";
+import { defaultTheme, type DeckTheme } from "~/lib/theme";
 
 interface DeckPageProps {
   params: Promise<{ deckId: string }>;
@@ -20,7 +22,23 @@ export default async function DeckPage({ params }: DeckPageProps) {
     const deck = (await import(`../../../decks/${deckId}/deck`)) as {
       default: React.ReactElement[];
     };
-    return <DeckPresentation slides={deck.default} deckId={deckId} />;
+
+    // Try to import the deck's theme, fall back to default
+    let theme: DeckTheme = defaultTheme;
+    try {
+      const themeModule = (await import(`../../../decks/${deckId}/theme`)) as {
+        theme: DeckTheme;
+      };
+      theme = themeModule.theme;
+    } catch {
+      // No theme file found, use default
+    }
+
+    return (
+      <ThemeProvider theme={theme}>
+        <DeckPresentation slides={deck.default} deckId={deckId} />
+      </ThemeProvider>
+    );
   } catch (error) {
     console.error(`Error loading deck: ${deckId}`, error);
     notFound();

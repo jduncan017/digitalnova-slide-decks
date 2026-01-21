@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { type ReactNode } from "react";
+import { type ReactNode, type CSSProperties } from "react";
 import { textHover, baseFilter } from "~/lib/animations";
 
 type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -10,6 +10,7 @@ interface HeadingProps {
   level?: HeadingLevel;
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   animation?:
     | "fade"
     | "slideUp"
@@ -60,6 +61,7 @@ export default function Heading({
   level = "h2",
   children,
   className = "",
+  style,
   animation = "none",
   delay = 0,
 }: HeadingProps) {
@@ -78,7 +80,7 @@ export default function Heading({
         filter: textHover.transition,
       }}
     >
-      <Component className={`${baseStyles} ${className}`}>{children}</Component>
+      <Component className={`${baseStyles} ${className}`} style={style}>{children}</Component>
     </motion.div>
   );
 }

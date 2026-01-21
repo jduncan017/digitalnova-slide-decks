@@ -45,13 +45,13 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center px-16">
+      <div className="flex h-full flex-col justify-center">
         <PageHeader label="HOW IT WORKS" title="YOUR 90-DAY ROADMAP" />
 
         {/* Timeline with 3 boxes */}
         <div className="relative">
           {/* Connecting line */}
-          <div className="absolute left-0 right-0 top-10 h-0.25 bg-slate-700">
+          <div className="absolute left-0 right-0 top-10 h-0.25 bg-gray-500">
             <div className="h-full w-full bg-primary/30"></div>
           </div>
 
@@ -62,7 +62,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
                 {/* Dot on timeline */}
                 <Box animation="scale" delay={0.3 + index * 0.15} hoverEffect="none" className="mb-8 flex justify-center">
                   <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border-6 border-neutral-950 bg-primary">
-                    <span className="text-2xl font-bold text-slate-900">
+                    <span className="text-2xl font-bold text-neutral-950">
                       {index + 1}
                     </span>
                   </div>
@@ -83,7 +83,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
                     {phase.items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
-                        className="flex items-start gap-2 text-slate-300"
+                        className="flex items-start gap-2 text-gray-300"
                       >
                         <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <Body size="sm" as="span">{item}</Body>

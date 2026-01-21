@@ -4,7 +4,6 @@ import {
   Heading,
   Body,
   Box,
-  Grid,
   PageHeader,
 } from "~/components/slide-components";
 import { Mail, Globe, Phone } from "lucide-react";
@@ -27,9 +26,9 @@ export default function LetsBuildSlide({ slideNumber }: { slideNumber: number })
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <Grid cols={2} gap={16} className="h-full" animation="none">
+      <div className="h-full flex gap-20 items-center">
         {/* Left side - CTA text */}
-        <div className="flex flex-col justify-center pl-16">
+        <div className="flex flex-col justify-center max-w-[640px]">
           <PageHeader
             label="QUESTIONS?"
             title="LET'S BUILD YOUR GROWTH SYSTEM"
@@ -40,7 +39,7 @@ export default function LetsBuildSlide({ slideNumber }: { slideNumber: number })
             {contactItems.map((item, index) => (
               <div key={index} className="flex items-center gap-4">
                 {item.icon}
-                <Body size="lg" className="text-slate-300">
+                <Body size="lg" className="text-gray-300">
                   {item.text}
                 </Body>
               </div>
@@ -49,7 +48,7 @@ export default function LetsBuildSlide({ slideNumber }: { slideNumber: number })
 
           {/* Profile */}
           <Box animation="fade" delay={0.6} className="mt-12 flex items-center gap-4" hoverEffect="highlight">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-700">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-700">
               <Image
                 src="/joshua-duncan.png"
                 alt="Joshua Duncan"
@@ -62,30 +61,23 @@ export default function LetsBuildSlide({ slideNumber }: { slideNumber: number })
               <Heading level="h3" className="text-xl font-bold text-white">
                 Josh Duncan
               </Heading>
-              <Body size="sm" className="text-slate-400">
+              <Body size="sm" className="text-gray-400">
                 Founder, DigitalNova Studio
               </Body>
             </div>
           </Box>
         </div>
 
-        {/* Right side - Image placeholder */}
-        <Box
-          animation="fade"
-          delay={0.5}
-          hoverEffect="highlight"
-          className="flex items-center justify-center rounded-2xl bg-linear-to-br from-slate-700 to-slate-800"
-        >
-          <div className="text-center text-slate-600">
-            <Image
-              src="/joshua-duncan.png"
-              alt="Team Photo"
-              width={120}
-              height={120}
-            />
-          </div>
-        </Box>
-      </Grid>
+         {/* Right side - Image */}
+         <Box
+        animation="fade"
+        delay={0.4}
+        hoverEffect="highlight"
+        className="relative h-full max-w-2xl ml-auto z-10"
+      >
+          <Image src="/hero.jpg" alt="Hero Image" width={500} height={500} className="h-full object-cover border border-neutral-700 rounded-2xl shadow-xl" />
+      </Box>
+      </div>
     </Slide>
   );
 }

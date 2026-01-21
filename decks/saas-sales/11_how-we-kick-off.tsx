@@ -69,7 +69,7 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
                       {step.title}
                     </Heading>
                     <div className="inline-block">
-                      <Label className="rounded-full bg-primary px-3 py-1.5 text-slate-900">
+                      <Label className="rounded-full bg-primary px-3 py-1.5 text-neutral-950">
                         {step.badge}
                       </Label>
                     </div>
@@ -80,7 +80,7 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
                     {step.items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
-                        className="flex items-start gap-2 text-slate-300"
+                        className="flex items-start gap-2 text-gray-300"
                       >
                         <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <Body size="sm" as="span">{item}</Body>

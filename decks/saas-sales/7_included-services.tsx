@@ -54,7 +54,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center px-16">
+      <div className="flex h-full flex-col justify-center">
         <PageHeader label="WHAT YOU GET (ONGOING)" title="INCLUDED SERVICES" />
 
         {/* Service grid - 2 columns */}
@@ -80,7 +80,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
                 {category.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="flex items-start gap-3 text-slate-300"
+                    className="flex items-start gap-3 text-gray-300"
                   >
                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <Body size="sm" as="span">{item}</Body>

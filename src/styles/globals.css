@@ -4,8 +4,27 @@
   --font-sans: var(--font-nimbus-sans), "inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  /* Brand Colors */
-  --color-primary: #765cd5; /* amber-500 - can be changed to any color */
+  /* Theme Colors - Defaults here, overridden by ThemeProvider inline styles */
+  /* Primary brand colors (Indigo - default) */
+  --color-primary: #6366f1;
+  --color-primary-light: #a5b4fc;
+
+  /* Slide backgrounds */
+  --color-slide-bg-from: #09090b;
+  --color-slide-bg-to: #18181b;
+  --color-outer-bg: #27272a;
+
+  /* Neutral colors (boxes, cards, borders) - Zinc palette */
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #3f3f46;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  --color-neutral-950: #09090b;
+
+  /* Gray colors (text, subtle elements) - Zinc palette */
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
 }
 
 /* Typography System - Base Styles */

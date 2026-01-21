@@ -3,293 +3,191 @@
 ## Goal
 Create a per-deck theming system that allows quick customization of colors and branding for different clients. Target: 15 minutes to prepare a personalized deck for a sales call.
 
+**STATUS: ✅ COMPLETED**
+
 ---
 
-## Phase 1: Define Theme Structure
+## How It Works (Final Implementation)
 
-### 1.1 Create theme type definition
+### Architecture Overview
+
+```
+1. Request → src/app/[deckId]/page.tsx
+   └─ Loads deck slides from decks/[deckId]/deck.tsx
+   └─ Loads theme from decks/[deckId]/theme.ts (or uses defaultTheme)
+   └─ Wraps in <ThemeProvider theme={theme}>
+
+2. ThemeProvider sets CSS variables via inline styles
+   └─ Sets --color-primary, --color-neutral-800, etc. directly
+   └─ Inline styles override @theme defaults in globals.css
+   └─ Also provides React context for clientLogo/clientName
+
+3. globals.css @theme block defines fallback defaults
+   └─ These are used if no ThemeProvider wraps the content
+
+4. Components use standard Tailwind classes
+   └─ className="bg-primary" uses var(--color-primary)
+   └─ className="text-gray-300" uses var(--color-gray-300)
+```
+
+### Theme-Aware Color Classes
+
+| Tailwind Class | Theme Property | Usage |
+|----------------|----------------|-------|
+| `bg-primary`, `text-primary`, `border-primary` | `primary` | Accent color |
+| `from-slide-bg-from`, `to-slide-bg-to` | `slideBg.from/to` | Slide background gradient |
+| `bg-outer-bg` | `outerBg` | Background outside slide |
+| `bg-neutral-600` through `bg-neutral-950` | `neutral.*` | Box backgrounds, borders |
+| `text-gray-300`, `text-gray-400`, `text-gray-500` | `gray.*` | Text colors |
+
+---
+
+## Completed Implementation
+
+### ✅ Phase 1: Theme Structure
 
 **File:** `src/lib/theme.ts`
 
-Define the shape of a theme configuration:
-
 ```ts
 export interface DeckTheme {
-  // Brand colors
-  primary: string;        // Accent color (buttons, highlights, icons)
-
-  // Backgrounds
-  slideBg: string;        // Main slide background (currently neutral-950 to neutral-900)
-
-  // Neutrals (for boxes, cards)
+  primary: string;           // Accent color
+  slideBg: {
+    from: string;            // Gradient start
+    to: string;              // Gradient end
+  };
+  outerBg: string;           // Background outside slide
   neutral: {
-    50: string;
-    100: string;
-    200: string;
-    // ... etc
+    600: string;
+    700: string;
     800: string;
     900: string;
     950: string;
   };
-
-  // Grays (for text, borders)
   gray: {
     300: string;
     400: string;
     500: string;
-    600: string;
-    700: string;
   };
-
-  // Client branding
-  clientLogo?: string;    // Path to client logo (replaces your logo on hero)
-  clientName?: string;    // Client name for personalization
+  clientLogo?: string;       // Path to client logo
+  clientName?: string;       // Client name for alt text
 }
+
+export const defaultTheme: DeckTheme = { /* defaults */ };
+export function createTheme(overrides: Partial<DeckTheme>): DeckTheme { /* helper */ }
 ```
 
-### 1.2 Create default theme
-
-**File:** `src/lib/theme.ts`
-
-Export a default theme based on current styling:
-
-```ts
-export const defaultTheme: DeckTheme = {
-  primary: "#22c55e",  // Current green (or whatever your current primary is)
-
-  slideBg: "from-neutral-950 to-neutral-900",
-
-  neutral: {
-    700: "#404040",
-    800: "#262626",
-    900: "#171717",
-    950: "#0a0a0a",
-  },
-
-  gray: {
-    300: "#d1d5db",
-    400: "#9ca3af",
-    500: "#6b7280",
-    600: "#4b5563",
-    700: "#374151",
-  },
-
-  clientLogo: undefined,
-  clientName: undefined,
-};
-```
-
----
-
-## Phase 2: Theme Provider & CSS Variables
-
-### 2.1 Create ThemeProvider component
+### ✅ Phase 2: ThemeProvider & CSS Variables
 
 **File:** `src/components/ThemeProvider.tsx`
 
-A wrapper component that:
-1. Accepts a theme config
-2. Applies CSS custom properties to a container div
-3. Wraps children
-
-```tsx
-export function ThemeProvider({ theme, children }: { theme: DeckTheme; children: ReactNode }) {
-  const cssVars = {
-    '--color-primary': theme.primary,
-    '--color-slide-bg-from': theme.slideBg.from,
-    '--color-slide-bg-to': theme.slideBg.to,
-    '--color-neutral-700': theme.neutral[700],
-    // ... etc
-  };
-
-  return (
-    <div style={cssVars}>
-      {children}
-    </div>
-  );
-}
-```
-
-### 2.2 Update Tailwind/CSS to use variables
+- Sets `--color-*` CSS variables directly via inline styles
+- Provides React context for accessing theme values (e.g., `clientLogo`)
+- Uses `useTheme()` hook to access theme in components
 
 **File:** `src/styles/globals.css`
 
-Map CSS variables to Tailwind theme colors:
+- `@theme` block defines default values
+- ThemeProvider inline styles override these defaults
 
-```css
-@theme {
-  --color-primary: var(--theme-primary, #22c55e);
-  --color-neutral-800: var(--theme-neutral-800, #262626);
-  /* etc */
-}
-```
+### ✅ Phase 3: Updated Components
 
-This way, existing `text-primary`, `bg-neutral-800` classes automatically use theme values.
+| Component | Changes |
+|-----------|---------|
+| `DeckPresentation.tsx` | Uses `bg-outer-bg`, `from-slide-bg-from`, `to-slide-bg-to` |
+| `Slide.tsx` | Uses `bg-gray-500`, `text-gray-500` |
+| `Box.tsx` | Uses `from-neutral-600 to-neutral-800` for gradient variants |
+| `Logo.tsx` | Accepts `src` and `alt` props for custom logos |
 
----
-
-## Phase 3: Update Components to Use Theme
-
-### 3.1 Components to update
-
-| Component | Current Hardcoded Values | Change To |
-|-----------|-------------------------|-----------|
-| `DeckPresentation.tsx` | `bg-neutral-800`, `from-neutral-950 to-neutral-900` | CSS vars |
-| `Slide.tsx` | Background colors | CSS vars |
-| `Box.tsx` | `from-zinc-600 to-zinc-800` in gradient variant | CSS vars |
-| `PageHeader.tsx` | `text-slate-500` | CSS var for gray |
-| All slides | `text-primary`, `text-slate-300`, etc. | Already use Tailwind, will inherit |
-
-### 3.2 Update Box gradient variant
-
-The Box component's `gradient` and `highlight` variants use hardcoded colors:
-
-```ts
-// Current
-gradient: "rounded-lg bg-linear-to-br from-zinc-600 to-zinc-800 p-6",
-
-// Updated to use CSS vars (via Tailwind theme)
-gradient: "rounded-lg bg-linear-to-br from-neutral-600 to-neutral-800 p-6",
-```
-
----
-
-## Phase 4: Per-Deck Theme Configuration
-
-### 4.1 Create theme file for existing deck
+### ✅ Phase 4: Per-Deck Theme Configuration
 
 **File:** `decks/saas-sales/theme.ts`
 
 ```ts
-import { defaultTheme, type DeckTheme } from "~/lib/theme";
+import { createTheme } from "~/lib/theme";
 
-export const theme: DeckTheme = {
-  ...defaultTheme,
-  // Override for this specific deck/client
-  primary: "#22c55e",
-  clientLogo: "/logos/client-logo.png",
-  clientName: "Acme Corp",
-};
+export const theme = createTheme({
+  primary: "#70B5D8",
+  slideBg: { from: "#0a0a0a", to: "#171717" },
+  outerBg: "#262626",
+  neutral: { 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717", 950: "#0a0a0a" },
+  gray: { 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373" },
+  clientLogo: "/logo.png",
+  clientName: "DigitalNova Studio",
+});
 ```
 
-### 4.2 Update deck.tsx to use theme
+**File:** `src/app/[deckId]/page.tsx`
 
-**File:** `decks/saas-sales/deck.tsx`
+- Dynamically imports deck's theme.ts
+- Falls back to defaultTheme if no theme file exists
+- Wraps DeckPresentation with ThemeProvider
 
-```tsx
-import { ThemeProvider } from "~/components/ThemeProvider";
-import { theme } from "./theme";
-
-// Wrap slides with ThemeProvider
-```
-
----
-
-## Phase 5: Hero Slide Client Logo
-
-### 5.1 Update HeroSlide to accept client logo
+### ✅ Phase 5: Hero Slide Client Logo
 
 **File:** `decks/saas-sales/1_hero.tsx`
 
-- Accept `clientLogo` prop from theme
-- If `clientLogo` exists, show it instead of your logo
-- Your logo remains in the footer (Slide.tsx) unchanged
+- Uses `useTheme()` hook to access theme
+- Passes `theme.clientLogo` and `theme.clientName` to Logo component
 
-### 5.2 Pass theme to hero slide
+### ✅ Phase 6: Slide Color Updates
 
-The hero slide gets the client logo from the deck's theme config.
+All slides in `decks/saas-sales/` updated to use theme-aware colors:
+- `text-slate-*` → `text-gray-*`
+- `bg-slate-*` → `bg-neutral-*`
+- `text-slate-900` (on primary bg) → `text-neutral-950`
 
 ---
 
-## Phase 6: Content File (Optional Enhancement)
+## How to Create a New Themed Deck
 
-### 6.1 Create content structure for dynamic slides
+1. **Create deck folder:** `mkdir decks/new-client`
 
-**File:** `decks/saas-sales/content.ts`
-
+2. **Create theme.ts:**
 ```ts
-export const content = {
-  hero: {
-    title: "SaaS Growth System",
-    subtitle: "Predictable Growth for SaaS Companies",
-  },
-  pricing: {
-    tiers: [/* ... */],
-  },
-};
+import { createTheme } from "~/lib/theme";
+
+export const theme = createTheme({
+  primary: "#22c55e",  // Client's brand color
+  clientLogo: "/logos/new-client.png",
+  clientName: "New Client Inc",
+  // Override any other colors as needed
+});
 ```
 
-### 6.2 Slides that should use content file
+3. **Create deck.tsx:** Import slides and export array
 
-| Slide | Dynamic Content |
-|-------|-----------------|
-| Hero | Title, subtitle |
-| Problem | Problem statements (maybe) |
-| Pricing/Tiers | Pricing data, features |
-
-### 6.3 Slides that stay hardcoded
-
-| Slide | Reason |
-|-------|--------|
-| Integrated Growth System | Same for all clients |
-| 90-Day Roadmap | Same process |
-| Included Services | Same offering |
-| How We Kick Off | Same onboarding |
-| Results | Same case studies |
+4. **Access at:** `/new-client`
 
 ---
 
-## Implementation Order
+## Files Created/Modified
 
-### Step 1: Theme foundation
-- [ ] Create `src/lib/theme.ts` with types and default theme
-- [ ] Create `ThemeProvider` component
+**New files:**
+- ✅ `src/lib/theme.ts`
+- ✅ `src/components/ThemeProvider.tsx`
+- ✅ `decks/saas-sales/theme.ts`
 
-### Step 2: CSS variable integration
-- [ ] Update `globals.css` to define CSS variables
-- [ ] Ensure Tailwind uses these variables
-
-### Step 3: Update core components
-- [ ] Update `DeckPresentation.tsx` backgrounds
-- [ ] Update `Slide.tsx` backgrounds
-- [ ] Update `Box.tsx` gradient colors
-
-### Step 4: Wire up deck theming
-- [ ] Create `decks/saas-sales/theme.ts`
-- [ ] Update `decks/saas-sales/deck.tsx` to use ThemeProvider
-- [ ] Update app router to pass theme through
-
-### Step 5: Hero client logo
-- [ ] Update `1_hero.tsx` to accept/display client logo
-- [ ] Test with sample client logo
-
-### Step 6: Test & refine
-- [ ] Create a second theme to test color switching
-- [ ] Verify all components respond to theme changes
-- [ ] Document the workflow for creating new decks
+**Modified files:**
+- ✅ `src/styles/globals.css`
+- ✅ `src/app/[deckId]/page.tsx`
+- ✅ `src/components/DeckPresentation.tsx`
+- ✅ `src/components/Slide.tsx`
+- ✅ `src/components/slide-components/Box.tsx`
+- ✅ `src/components/slide-components/Logo.tsx`
+- ✅ `decks/saas-sales/1_hero.tsx`
+- ✅ `decks/saas-sales/2_the-problem.tsx`
+- ✅ `decks/saas-sales/4_integrated-growth-system.tsx`
+- ✅ `decks/saas-sales/5_90-day-roadmap.tsx`
+- ✅ `decks/saas-sales/6_service-tiers.tsx`
+- ✅ `decks/saas-sales/7_included-services.tsx`
+- ✅ `decks/saas-sales/11_how-we-kick-off.tsx`
+- ✅ `decks/saas-sales/12_lets-build.tsx`
 
 ---
 
-## Future Enhancements (Not in Scope Now)
+## Future Enhancements (Not in Scope)
 
 - CLI to scaffold new decks
 - Content file for dynamic slide copy
 - Slide template library (generic versions of current slides)
 - Theme preset library (pre-made color schemes)
-
----
-
-## Files to Create/Modify
-
-**New files:**
-- `src/lib/theme.ts`
-- `src/components/ThemeProvider.tsx`
-- `decks/saas-sales/theme.ts`
-
-**Files to modify:**
-- `src/styles/globals.css`
-- `src/components/DeckPresentation.tsx`
-- `src/components/Slide.tsx`
-- `src/components/slide-components/Box.tsx`
-- `decks/saas-sales/deck.tsx`
-- `decks/saas-sales/1_hero.tsx`

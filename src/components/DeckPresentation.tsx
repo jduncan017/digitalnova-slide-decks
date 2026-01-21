@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, type ReactElement } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
-import Slide from "./Slide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface DeckPresentationProps {
@@ -69,10 +68,10 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
   return (
     <div
       {...swipeHandlers}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-neutral-800"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-outer-bg"
     >
       {/* 16:9 Slide Container */}
-      <div className="relative shadow-2xl h-full max-h-[56.25vw] border border-neutral-700 w-full max-w-[177.78vh] bg-linear-to-b from-neutral-950 to-neutral-900">
+      <div className="relative shadow-2xl h-full max-h-[min(56.25vw,900px)] border border-neutral-700 w-full max-w-[min(177.78vh,1600px)] bg-linear-to-b from-slide-bg-from to-slide-bg-to">
         {/* Slide content */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -83,7 +82,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
             transition={{ duration: 0.3 }}
             className="h-full w-full"
           >
-            <Slide className="px-20 pt-20 pb-28">{slides[currentSlide]}</Slide>
+            {slides[currentSlide]}
           </motion.div>
         </AnimatePresence>
 

@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface LogoProps {
-  text?: string;
+  /** Custom logo source - defaults to Digital Nova logo */
+  src?: string;
+  /** Alt text for the logo */
+  alt?: string;
   className?: string;
   animation?: "fade" | "slideDown" | "none";
   delay?: number;
@@ -27,6 +30,8 @@ const animations = {
 };
 
 export default function Logo({
+  src = "/logo.png",
+  alt = "Logo",
   className = "",
   animation = "fade",
   delay = 0,
@@ -42,8 +47,8 @@ export default function Logo({
       className={`flex items-center gap-2 ${className}`}
     >
       <Image
-        src="/logo.png"
-        alt="DigitalNova Studio"
+        src={src}
+        alt={alt}
         width={height * 4}
         height={height}
         className="object-contain"

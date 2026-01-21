@@ -13,16 +13,137 @@ An interactive pitch deck presentation platform built with Next.js. This project
 - **Routing**: Dynamic routes via `[deckId]` parameter
 
 ### Directory Structure
-- **`decks/`**: Each client gets their own folder containing a `deck.tsx` file with slide definitions
-- **`components/slide-components/`**: Reusable, animated components for building slides
-- **`app/[deckId]/`**: Dynamic route that loads and presents decks
+- **`decks/`**: Each client gets their own folder containing:
+  - `deck.tsx` - Slide definitions (required)
+  - `theme.ts` - Custom theme/colors (optional)
+- **`src/lib/theme.ts`**: Global theme types and `createTheme()` helper
+- **`src/components/ThemeProvider.tsx`**: React context + CSS variable injection
+- **`src/components/slide-components/`**: Reusable, animated components for building slides
+- **`src/app/[deckId]/`**: Dynamic route that loads deck, theme, and presents
 
 ### How It Works
 1. Each client deck is a folder in `decks/` (e.g., `decks/acme-corp/`)
 2. Inside each folder is a `deck.tsx` file that exports an array of React elements (slides)
-3. The dynamic route `/[deckId]` loads the corresponding deck and renders it with `DeckPresentation`
-4. Users navigate through slides using keyboard arrows or swipe gestures
-5. All slides support animated components with customizable timing and effects
+3. Each deck can have an optional `theme.ts` file for custom colors and branding
+4. The dynamic route `/[deckId]` loads the deck, theme, and renders with `DeckPresentation`
+5. Users navigate through slides using keyboard arrows or swipe gestures
+6. All slides support animated components with customizable timing and effects
+
+## Theming System
+
+The theming system allows per-deck customization of colors and client branding. Target: 15 minutes to prepare a personalized deck for a sales call.
+
+### Theme File Structure
+
+**`src/lib/theme.ts`** (Global)
+- Defines the `DeckTheme` TypeScript interface
+- Exports `defaultTheme` with fallback values
+- Exports `createTheme()` helper for easy overrides
+
+**`decks/[deckId]/theme.ts`** (Per-deck)
+- Imports `createTheme` from the global file
+- Overrides any values needed for that specific deck/client
+
+### Available Theme Properties
+
+```ts
+interface DeckTheme {
+  primary: string;           // Accent color (buttons, highlights)
+  slideBg: {
+    from: string;            // Slide background gradient start
+    to: string;              // Slide background gradient end
+  };
+  outerBg: string;           // Background outside the slide container
+  neutral: {
+    600: string;             // Box gradients (lighter)
+    700: string;             // Borders
+    800: string;             // Box gradients (darker)
+    900: string;             // Dark backgrounds
+    950: string;             // Darkest backgrounds
+  };
+  gray: {
+    300: string;             // Light text
+    400: string;             // Medium text
+    500: string;             // Muted text, dividers
+  };
+  clientLogo?: string;       // Path to client logo (shown on hero)
+  clientName?: string;       // Client name for alt text
+}
+```
+
+### Creating a Custom Theme
+
+```ts
+// decks/acme-corp/theme.ts
+import { createTheme } from "~/lib/theme";
+
+export const theme = createTheme({
+  primary: "#22c55e",  // Green accent
+  slideBg: {
+    from: "#1a1a2e",
+    to: "#16213e",
+  },
+  neutral: {
+    600: "#4a4a6a",
+    700: "#3a3a5a",
+    800: "#2a2a4a",
+    900: "#1a1a3a",
+    950: "#0a0a2a",
+  },
+  gray: {
+    300: "#c0c0d0",
+    400: "#9090a0",
+    500: "#606080",
+  },
+  clientLogo: "/logos/acme.png",
+  clientName: "Acme Corp",
+});
+```
+
+### How Theming Works (Rendering Flow)
+
+```
+1. Request → src/app/[deckId]/page.tsx
+   └─ Loads deck slides from decks/[deckId]/deck.tsx
+   └─ Loads theme from decks/[deckId]/theme.ts (or uses defaultTheme)
+   └─ Wraps in <ThemeProvider theme={theme}>
+
+2. ThemeProvider applies CSS variables
+   └─ Sets inline styles: --theme-primary, --theme-neutral-800, etc.
+   └─ Provides React context for clientLogo/clientName
+
+3. globals.css @theme block bridges CSS vars → Tailwind
+   └─ Maps: --color-neutral-800: var(--theme-neutral-800, #262626)
+   └─ Tailwind generates utility classes from these
+
+4. Components use standard Tailwind classes
+   └─ className="bg-neutral-800" automatically uses theme value
+```
+
+### Theme-Aware Components
+
+These components automatically respond to theme changes:
+- `DeckPresentation` - Uses `bg-outer-bg`, `from-slide-bg-from`, `to-slide-bg-to`
+- `Slide` - Uses `bg-gray-500`, `text-gray-500`
+- `Box` - Uses `from-neutral-600`, `to-neutral-800` for gradient variants
+- `Logo` - Accepts `src` prop, hero slide passes `clientLogo` from theme
+
+### Accessing Theme in Components
+
+```tsx
+"use client";
+import { useTheme } from "~/components/ThemeProvider";
+
+export default function MyComponent() {
+  const theme = useTheme();
+
+  return (
+    <div>
+      {theme.clientName && <p>Prepared for {theme.clientName}</p>}
+    </div>
+  );
+}
+```
 
 ## Typography System
 
@@ -129,15 +250,26 @@ All components support:
    mkdir decks/new-client
    ```
 
-2. Create `decks/new-client/deck.tsx`:
+2. Create `decks/new-client/theme.ts` (optional but recommended):
    ```tsx
-   import { TextBox, Box, Section, Grid } from "@/components/slide-components";
+   import { createTheme } from "~/lib/theme";
+
+   export const theme = createTheme({
+     primary: "#22c55e",  // Client's brand color
+     clientLogo: "/logos/new-client.png",
+     clientName: "New Client Inc",
+   });
+   ```
+
+3. Create `decks/new-client/deck.tsx`:
+   ```tsx
+   import { Box, Heading, Body } from "~/components/slide-components";
 
    const slides = [
      <div key="slide-1" className="text-center">
-       <TextBox animation="slideDown">
-         <h1 className="text-7xl font-bold text-white">Title</h1>
-       </TextBox>
+       <Box animation="slideDown">
+         <Heading level="h1">Title</Heading>
+       </Box>
      </div>,
      // ... more slides
    ];
@@ -145,7 +277,7 @@ All components support:
    export default slides;
    ```
 
-3. Access at `/new-client`
+4. Access at `/new-client`
 
 ## Common Patterns
 
@@ -216,12 +348,18 @@ All components support:
 
 ## Styling Guidelines
 
-### Colors
-- Background gradient: `from-slate-900 to-slate-800`
+### Theme-Aware Colors (automatically respond to deck theme)
+- Slide background: `from-slide-bg-from to-slide-bg-to`
+- Outer background: `bg-outer-bg`
+- Accent/primary: `text-primary`, `bg-primary`, `border-primary`
+- Box backgrounds: `from-neutral-600 to-neutral-800`
+- Borders: `border-neutral-700`
+- Muted text/dividers: `text-gray-500`, `bg-gray-500`
+
+### Static Colors (not themed)
 - Primary text: `text-white`
 - Secondary text: `text-slate-300`
 - Tertiary text: `text-slate-400`
-- Accent: `text-blue-400` or `bg-blue-600`
 
 ### Typography
 - Large headings: `text-7xl` or `text-6xl`

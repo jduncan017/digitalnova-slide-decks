@@ -20,15 +20,15 @@ export default function Slide({
     <div
       className={`flex h-full w-full items-center justify-center ${className}`}
     >
-      <div className="slide-content w-full h-full">{children}</div>
-      <div className="absolute z-0 bottom-0 left-0 right-0 h-28 px-20 gap-8 flex items-center justify-between">
+      <div className="slide-content w-full h-full px-28 pt-20 pb-32 max-w-[1540px]">{children}</div>
+      <div className="absolute z-0 bottom-4 w-full h-28 px-28 gap-8 flex items-center justify-between max-w-[1540px]">
       {showLogo && (
         <div className="logo">
-          <Image src="/icon-metal-light.png" alt="Logo" width={40} height={40} />
+          <Image src="/logo.png" alt="DigitalNova Logo" width={280} height={40} />
         </div>
       )}
-      <div className="h-0.25 w-full bg-zinc-500" />
-      <p className="text-neutral-500 text-body-xl">{slideNumber}</p>
+      <div className="h-0.25 w-full bg-gray-500" />
+      <p className="text-gray-500 text-body-xl">{slideNumber}</p>
       </div>
     </div>
   );

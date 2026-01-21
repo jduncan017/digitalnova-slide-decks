@@ -57,7 +57,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center px-16">
+      <div className="flex h-full flex-col justify-center">
         <PageHeader label="CHOOSE YOUR GROWTH PATH" title="SERVICE TIERS" />
 
         {/* Pricing cards */}
@@ -72,7 +72,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
             >
               {tier.recommended && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-primary px-4 py-1 text-sm font-bold text-slate-900">
+                  <span className="rounded-full bg-primary px-4 py-1 text-sm font-bold text-neutral-950">
                     Recommended
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
               <Heading level="h3" className="mb-2 text-xl font-bold text-white">
                 {tier.title}
               </Heading>
-              <Body size="sm" className="mb-6 min-h-16 text-slate-400">
+              <Body size="sm" className="mb-6 min-h-16 text-gray-400">
                 {tier.subtitle}
               </Body>
 
@@ -91,7 +91,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
                     {tier.price}
                   </span>
                   {tier.period && (
-                    <span className="text-slate-400">{tier.period}</span>
+                    <span className="text-gray-400">{tier.period}</span>
                   )}
                 </div>
                 {tier.monthly && (
@@ -103,7 +103,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
                 {tier.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
-                    className="flex items-start gap-2 text-slate-300"
+                    className="flex items-start gap-2 text-gray-300"
                   >
                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <Body size="sm" as="span">{feature}</Body>
@@ -123,7 +123,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
           variant="gradient"
         >
           <Info className="h-6 w-6 shrink-0 text-primary" />
-          <Body size="sm" className="text-slate-300">
+          <Body size="sm" className="text-gray-300">
             <span className="font-semibold">PAY QUARTERLY: Save $1,500 on setup</span>{" "}
             (applies to all tiers)
           </Body>
