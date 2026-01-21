@@ -10,13 +10,13 @@
 
 /* Typography System - Base Styles */
 h1 {
-  font-size: 3.5rem; /* 64px */
+  font-size: 3rem; /* 64px */
   line-height: 1.1;
   font-weight: 300;
 }
 
 h2 {
-  font-size: 2.75rem; /* 60px */
+  font-size: 2.5rem; /* 60px */
   line-height: 1.1;
   font-weight: 700;
 }
