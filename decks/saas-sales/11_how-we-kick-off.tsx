@@ -1,0 +1,117 @@
+import Slide from "~/components/Slide";
+import {
+  Heading,
+  Body,
+  Label,
+  Box,
+  Grid,
+} from "~/components/slide-components";
+
+export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number }) {
+  const steps = [
+    {
+      number: "1",
+      title: "Deposit",
+      badge: "$1,000 Deposit",
+      items: [
+        "Secures your project start date immediately",
+        "Full amount credited to your first invoice",
+        "Triggers formal onboarding process",
+      ],
+    },
+    {
+      number: "2",
+      title: "Proposal",
+      badge: "Within 48 Hours",
+      items: [
+        "Outline of exact scope & deliverables",
+        "Clear payment schedule & milestones",
+        "Documentation of custom requirements",
+      ],
+    },
+    {
+      number: "3",
+      title: "Project Kickoff",
+      badge: "Within 1 Week",
+      items: [
+        "Deep-dive strategy workshop",
+        "Technical account setups & access",
+        "Content gathering & design kickoff",
+      ],
+    },
+  ];
+
+  return (
+    <Slide showLogo slideNumber={slideNumber}>
+      <div className="flex h-full flex-col px-16">
+        {/* Header */}
+        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-8 text-center">
+          <Label className="text-slate-500">NEXT STEPS</Label>
+          <Heading level="h1" className="text-primary">
+            HOW WE KICK OFF
+          </Heading>
+        </Box>
+
+        {/* Steps with timeline */}
+        <div className="relative">
+          <Grid cols={3} gap={8} className="relative" animation="none">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                {/* Card */}
+                <Box
+                  animation="slideUp"
+                  delay={0.5 + index * 0.15}
+                  className={`rounded-2xl p-8 ${
+                    index === 0
+                      ? "border-2 border-primary bg-slate-800"
+                      : "border border-slate-700 bg-slate-800/50"
+                  }`}
+                >
+                  {/* Title and badge */}
+                  <div className="mb-6 text-center">
+                    <Heading level="h3" className="mb-3 text-xl font-bold text-white">
+                    <span className="text-primary">
+                     {`${step.number} `}
+                    </span>
+                      {step.title}
+                    </Heading>
+                    <div className="inline-block">
+                      <Label className="rounded-full bg-primary px-3 py-1.5 text-slate-900">
+                        {step.badge}
+                      </Label>
+                    </div>
+                  </div>
+
+                  {/* Items */}
+                  <ul className="space-y-3">
+                    {step.items.map((item, itemIndex) => (
+                      <li
+                        key={itemIndex}
+                        className="flex items-start gap-2 text-slate-300"
+                      >
+                        <svg
+                          className="mt-0.5 h-5 w-5 shrink-0 text-primary"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <Body size="sm" as="span">{item}</Body>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+              </div>
+            ))}
+          </Grid>
+        </div>
+      </div>
+    </Slide>
+  );
+}
