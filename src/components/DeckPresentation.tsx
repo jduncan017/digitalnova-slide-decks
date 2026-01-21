@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, type ReactElement } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 import Slide from "./Slide";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface DeckPresentationProps {
   slides: ReactElement[];
@@ -96,19 +97,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
                 className="text-white/50 transition-colors hover:text-white"
                 aria-label="Previous slide"
               >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
+                <ChevronLeft className="h-6 w-6" />
               </button>
             )}
 
@@ -135,19 +124,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
                 className="text-white/50 transition-colors hover:text-white"
                 aria-label="Next slide"
               >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                <ChevronRight className="h-6 w-6" />
               </button>
             )}
           </div>

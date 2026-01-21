@@ -6,6 +6,7 @@ import {
   Grid,
   PageHeader,
 } from "~/components/slide-components";
+import { Check, Info } from "lucide-react";
 
 export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number }) {
   const tiers = [
@@ -104,19 +105,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
                     key={featureIndex}
                     className="flex items-start gap-2 text-slate-300"
                   >
-                    <svg
-                      className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <Body size="sm" as="span">{feature}</Body>
                   </li>
                 ))}
@@ -133,15 +122,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
           className="flex items-center justify-center gap-3"
           variant="gradient"
         >
-          <div className="shrink-0 text-primary">
-            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+          <Info className="h-6 w-6 shrink-0 text-primary" />
           <Body size="sm" className="text-slate-300">
             <span className="font-semibold">PAY QUARTERLY: Save $1,500 on setup</span>{" "}
             (applies to all tiers)

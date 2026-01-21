@@ -7,6 +7,7 @@ import {
   Grid,
   PageHeader,
 } from "~/components/slide-components";
+import { Check } from "lucide-react";
 
 export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
   const phases = [
@@ -84,19 +85,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
                         key={itemIndex}
                         className="flex items-start gap-2 text-slate-300"
                       >
-                        <svg
-                          className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                         <Body size="sm" as="span">{item}</Body>
                       </li>
                     ))}

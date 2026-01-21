@@ -6,6 +6,7 @@ import {
   Grid,
   PageHeader,
 } from "~/components/slide-components";
+import { Lightbulb, Monitor, TrendingUp } from "lucide-react";
 
 export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumber: number }) {
   const steps = [
@@ -14,63 +15,21 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
       title: "Brand Strategy",
       description:
         "Position your SaaS to stand out and attract your Ideal Customer Profile (ICP).",
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-          />
-        </svg>
-      ),
+      icon: <Lightbulb className="h-12 w-12" />,
     },
     {
       number: "2",
       title: "Conversion Website",
       description:
         "Pages built specifically to turn visitors into qualified demos.",
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
+      icon: <Monitor className="h-12 w-12" />,
     },
     {
       number: "3",
       title: "Paid Acquisition",
       description:
         "Google Ads campaigns that consistently deliver demos at predictable cost.",
-      icon: (
-        <svg
-          className="h-12 w-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-          />
-        </svg>
-      ),
+      icon: <TrendingUp className="h-12 w-12" />,
     },
   ];
 
