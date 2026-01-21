@@ -5,6 +5,7 @@ import {
   Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
@@ -44,13 +45,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center px-16">
-        {/* Header */}
-        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-8 text-center">
-          <Label className="mb-2 text-slate-500">HOW IT WORKS</Label>
-          <Heading level="h1" className="text-primary">
-            YOUR 90-DAY ROADMAP
-          </Heading>
-        </Box>
+        <PageHeader label="HOW IT WORKS" title="YOUR 90-DAY ROADMAP" />
 
         {/* Timeline with 3 boxes */}
         <div className="relative">
@@ -76,7 +71,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
                 <Box
                   animation="slideUp"
                   delay={0.5 + index * 0.15}
-                  className="rounded-lg bg-linear-to-br from-zinc-600 to-zinc-800 p-6"
+                  variant="gradient"
                 >
                   <Label className="mb-2 text-primary">{phase.month}</Label>
                   <Heading level="h4" className="mb-6 text-xl font-bold text-white">

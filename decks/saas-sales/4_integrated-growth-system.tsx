@@ -2,9 +2,9 @@ import Slide from "~/components/Slide";
 import {
   Heading,
   Body,
-  Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumber: number }) {
@@ -77,13 +77,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center">
-        {/* Header */}
-        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-12 text-center">
-          <Label className="mb-4 text-slate-500">OUR APPROACH</Label>
-          <Heading level="h1" className="text-primary">
-            THE INTEGRATED GROWTH SYSTEM
-          </Heading>
-        </Box>
+        <PageHeader label="OUR APPROACH" title="THE INTEGRATED GROWTH SYSTEM" />
 
         {/* 3-column grid */}
         <Grid cols={3} gap={8} className="px-16" animation="stagger">
@@ -92,7 +86,8 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
               key={index}
               animation="slideUp"
               delay={0.4 + index * 0.15}
-              className="rounded-2xl bg-slate-800/50 p-8 text-center"
+              variant="gradient"
+              className="p-8 text-center"
             >
               {/* Icon at top */}
               <div className="mb-6 flex justify-center text-primary">

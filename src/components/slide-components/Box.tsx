@@ -18,7 +18,15 @@ interface BoxProps {
   delay?: number;
   /** "lift" for containers with bg/border, "highlight" for text-only containers */
   hoverEffect?: "lift" | "highlight" | "none";
+  /** Visual variant: none (unstyled), gradient (zinc gradient bg), highlight (gradient bg + primary border) */
+  variant?: "none" | "gradient" | "highlight";
 }
+
+const variants = {
+  none: "",
+  gradient: "rounded-lg bg-linear-to-br from-zinc-600 to-zinc-800 p-6",
+  highlight: "rounded-lg border-2 border-primary bg-linear-to-br from-zinc-600 to-zinc-800 p-6",
+};
 
 const animations = {
   fade: {
@@ -63,9 +71,11 @@ export default function Box({
   animation = "fade",
   delay = 0,
   hoverEffect = "lift",
+  variant = "none",
 }: BoxProps) {
   const animationVariant = animations[animation];
   const hover = hoverEffects[hoverEffect];
+  const variantStyles = variants[variant];
 
   return (
     <motion.div
@@ -78,7 +88,7 @@ export default function Box({
         y: hover.transition,
         filter: hover.transition,
       }}
-      className={`cursor-pointer select-none ${className}`}
+      className={`cursor-pointer select-none ${variantStyles} ${className}`}
     >
       {children}
     </motion.div>

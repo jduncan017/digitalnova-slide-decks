@@ -3,9 +3,9 @@ import Image from "next/image";
 import {
   Heading,
   Body,
-  Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function LetsBuildSlide({ slideNumber }: { slideNumber: number }) {
@@ -71,13 +71,11 @@ export default function LetsBuildSlide({ slideNumber }: { slideNumber: number })
       <Grid cols={2} gap={16} className="h-full" animation="none">
         {/* Left side - CTA text */}
         <div className="flex flex-col justify-center pl-16">
-          <Box animation="slideRight" delay={0.2} hoverEffect="highlight">
-            <Label className="mb-4 text-slate-500">QUESTIONS?</Label>
-
-            <Heading level="h1" className="mb-8 text-primary">
-              LET&apos;S BUILD YOUR GROWTH SYSTEM
-            </Heading>
-          </Box>
+          <PageHeader
+            label="QUESTIONS?"
+            title="LET'S BUILD YOUR GROWTH SYSTEM"
+            align="left"
+          />
 
           <Box animation="slideUp" delay={0.4} className="space-y-6" hoverEffect="highlight">
             {contactItems.map((item, index) => (

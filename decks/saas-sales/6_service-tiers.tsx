@@ -2,9 +2,9 @@ import Slide from "~/components/Slide";
 import {
   Heading,
   Body,
-  Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number }) {
@@ -57,13 +57,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center px-16">
-        {/* Header */}
-        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-12 text-center">
-          <Label className="mb-4 text-slate-500">CHOOSE YOUR GROWTH PATH</Label>
-          <Heading level="h1" className="text-primary">
-            SERVICE TIERS
-          </Heading>
-        </Box>
+        <PageHeader label="CHOOSE YOUR GROWTH PATH" title="SERVICE TIERS" />
 
         {/* Pricing cards */}
         <Grid cols={3} gap={8} className="mb-8" animation="none">
@@ -72,11 +66,8 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
               key={index}
               animation="slideUp"
               delay={0.4 + index * 0.15}
-              className={`relative flex h-full flex-col rounded-2xl p-8 ${
-                tier.recommended
-                  ? "border-2 border-primary bg-slate-800"
-                  : "border border-slate-700 bg-slate-800/50"
-              }`}
+              variant={tier.recommended ? "highlight" : "gradient"}
+              className="relative flex h-full flex-col rounded-2xl p-8"
             >
               {tier.recommended && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -139,7 +130,8 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
           animation="fade"
           delay={1}
           hoverEffect="highlight"
-          className="flex items-center justify-center gap-3 rounded-2xl border border-primary/30 bg-slate-800/50 p-4"
+          className="flex items-center justify-center gap-3"
+          variant="gradient"
         >
           <div className="shrink-0 text-primary">
             <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">

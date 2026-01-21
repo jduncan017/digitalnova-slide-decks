@@ -5,6 +5,7 @@ import {
   Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number }) {
@@ -44,13 +45,7 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col px-16">
-        {/* Header */}
-        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-8 text-center">
-          <Label className="text-slate-500">NEXT STEPS</Label>
-          <Heading level="h1" className="text-primary">
-            HOW WE KICK OFF
-          </Heading>
-        </Box>
+        <PageHeader label="NEXT STEPS" title="HOW WE KICK OFF" />
 
         {/* Steps with timeline */}
         <div className="relative">
@@ -61,11 +56,8 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
                 <Box
                   animation="slideUp"
                   delay={0.5 + index * 0.15}
-                  className={`rounded-2xl p-8 ${
-                    index === 0
-                      ? "border-2 border-primary bg-slate-800"
-                      : "border border-slate-700 bg-slate-800/50"
-                  }`}
+                  variant={index === 0 ? "highlight" : "gradient"}
+                  className="rounded-2xl p-8"
                 >
                   {/* Title and badge */}
                   <div className="mb-6 text-center">

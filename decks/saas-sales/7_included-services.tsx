@@ -2,9 +2,9 @@ import Slide from "~/components/Slide";
 import {
   Heading,
   Body,
-  Label,
   Box,
   Grid,
+  PageHeader,
 } from "~/components/slide-components";
 
 export default function IncludedServicesSlide({ slideNumber }: { slideNumber: number }) {
@@ -116,13 +116,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center px-16">
-        {/* Header */}
-        <Box animation="slideDown" delay={0.2} hoverEffect="highlight" className="mb-12 text-center">
-          <Label className="mb-2 text-slate-500">WHAT YOU GET (ONGOING)</Label>
-          <Heading level="h1" className="text-primary">
-            INCLUDED SERVICES
-          </Heading>
-        </Box>
+        <PageHeader label="WHAT YOU GET (ONGOING)" title="INCLUDED SERVICES" />
 
         {/* Service grid - 2 columns */}
         <Grid cols={2} gap={4} animation="none">
@@ -131,7 +125,8 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
               key={index}
               animation="slideUp"
               delay={0.4 + index * 0.1}
-              className="h-full rounded-xl border border-slate-700 bg-slate-800/50 p-8"
+              variant="gradient"
+              className="h-full p-8"
             >
               <div className="mb-6 flex items-center gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/20 text-primary">

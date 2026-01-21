@@ -12,6 +12,4 @@ export { default as Label } from "./Label";
 
 // Specialized Components
 export { default as Logo } from "./Logo";
-export { default as HeroTitle } from "./HeroTitle";
-export { default as ProblemList } from "./ProblemList";
-export { default as AccentBox } from "./AccentBox";
+export { default as PageHeader } from "./PageHeader";

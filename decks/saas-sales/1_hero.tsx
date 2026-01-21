@@ -6,7 +6,7 @@ import {
 } from "~/components/slide-components";
 import Image from "next/image";
 
-export default function HeroSlide({ slideNumber }: { slideNumber: number }) {
+export default function HeroSlide() {
   return (
     <div className="h-full flex gap-10 items-center">
       {/* Left side - Content */}

@@ -1,9 +1,8 @@
 import Slide from "~/components/Slide";
 import {
-  Heading,
   Body,
-  Label,
   Box,
+  PageHeader,
 } from "~/components/slide-components";
 import Image from "next/image";
 
@@ -20,18 +19,12 @@ export default function TheProblemSlide({ slideNumber }: { slideNumber: number }
       <div className="h-full flex gap-10 items-center">
         {/* Left side - Content */}
         <div className="flex flex-col justify-center w-full mx-auto">
-          <Box animation="slideRight" delay={0.2} hoverEffect="highlight">
-            <Label className="mb-4 text-slate-500">THE PROBLEM</Label>
-
-            <Heading level="h1" className="mb-8 text-primary">
-              Inconsistent Pipeline
-            </Heading>
-
-            <Heading level="h3" className="mb-12 text-slate-300">
-              You&apos;ve built an incredible product. But your pipeline is
-              inconsistent.
-            </Heading>
-          </Box>
+          <PageHeader
+            label="THE PROBLEM"
+            title="Inconsistent Pipeline"
+            subtitle="You've built an incredible product. But your pipeline is inconsistent."
+            align="left"
+          />
 
           <div className="space-y-4">
             {problems.map((problem, index) => (
