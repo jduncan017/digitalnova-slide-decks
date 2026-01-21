@@ -13,8 +13,8 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
     {
       title: "PAID ACQUISITION",
       subtitle: "For SaaS with existing website that needs qualified demos",
-      price: "$1,500",
-      period: "/mo",
+      price: "$2,500 Setup",
+      monthly: "+ $1,500/mo",
       features: [
         "Ad campaigns",
         "Landing pages",
@@ -57,11 +57,11 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center">
+      <div className="flex h-full flex-col justify-center items-center">
         <PageHeader label="CHOOSE YOUR GROWTH PATH" title="SERVICE TIERS" />
 
         {/* Pricing cards */}
-        <Grid cols={3} gap={8} className="mb-8" animation="none">
+        <Grid cols={3} gap={4} className="mb-4 max-w-[1280px]" animation="none">
           {tiers.map((tier, index) => (
             <Box
               key={index}
@@ -81,21 +81,18 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
               <Heading level="h3" className="mb-2 text-xl font-bold text-white">
                 {tier.title}
               </Heading>
-              <Body size="sm" className="mb-6 min-h-16 text-gray-400">
+              <Body size="sm" className="mb-2 min-h-16 text-gray-400">
                 {tier.subtitle}
               </Body>
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-primary">
+                  <span className="text-3xl font-bold text-primary">
                     {tier.price}
                   </span>
-                  {tier.period && (
-                    <span className="text-gray-400">{tier.period}</span>
-                  )}
                 </div>
                 {tier.monthly && (
-                  <div className="mt-1 text-lg text-primary">{tier.monthly}</div>
+                  <div className="mt-1 text-lg text-primary/80 italic">{tier.monthly}</div>
                 )}
               </div>
 
@@ -119,7 +116,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
           animation="fade"
           delay={1}
           hoverEffect="highlight"
-          className="flex items-center justify-center gap-3"
+          className="flex items-center justify-center gap-3 w-full max-w-[1280px]"
           variant="gradient"
         >
           <Info className="h-6 w-6 shrink-0 text-primary" />

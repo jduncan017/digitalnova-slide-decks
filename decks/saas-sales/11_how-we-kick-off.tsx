@@ -12,33 +12,36 @@ import { Check } from "lucide-react";
 export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number }) {
   const steps = [
     {
-      number: "1",
+      number: "1.",
       title: "Deposit",
       badge: "$1,000 Deposit",
       items: [
-        "Secures your project start date immediately",
+        "Secure your project start date",
         "Full amount credited to your first invoice",
         "Triggers formal onboarding process",
+        "Fully refundable before project kickoff"
       ],
     },
     {
-      number: "2",
+      number: "2.",
       title: "Proposal",
       badge: "Within 48 Hours",
       items: [
         "Outline of exact scope & deliverables",
         "Clear payment schedule & milestones",
         "Documentation of custom requirements",
+        "Contract delivered to be signed"
       ],
     },
     {
-      number: "3",
+      number: "3.",
       title: "Project Kickoff",
       badge: "Within 1 Week",
       items: [
         "Deep-dive strategy workshop",
         "Technical account setups & access",
         "Content gathering & design kickoff",
+        "We take it from there!"
       ],
     },
   ];
@@ -50,7 +53,7 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
 
         {/* Steps with timeline */}
         <div className="relative">
-          <Grid cols={3} gap={8} className="relative" animation="none">
+          <Grid cols={3} gap={4} className="relative" animation="none">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Card */}
@@ -62,21 +65,18 @@ export default function HowWeKickOffSlide({ slideNumber }: { slideNumber: number
                 >
                   {/* Title and badge */}
                   <div className="mb-6 text-center">
-                    <Heading level="h3" className="mb-3 text-xl font-bold text-white">
-                    <span className="text-primary">
-                     {`${step.number} `}
-                    </span>
+                    <Heading level="h3" className="mb-2 text-white">
                       {step.title}
                     </Heading>
                     <div className="inline-block">
-                      <Label className="rounded-full bg-primary px-3 py-1.5 text-neutral-950">
+                      <Label className="rounded-full px-2 py-1 text-primary-light">
                         {step.badge}
                       </Label>
                     </div>
                   </div>
 
                   {/* Items */}
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {step.items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}

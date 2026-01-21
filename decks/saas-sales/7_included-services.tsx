@@ -12,7 +12,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
   const serviceCategories = [
     {
       title: "PAID ACQUISITION",
-      icon: <Zap className="h-10 w-10" />,
+      icon: <Zap className="h-6 w-6" />,
       items: [
         "Google Ads campaign management",
         "Keyword research & expansion",
@@ -22,7 +22,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
     },
     {
       title: "PERFORMANCE OPTIMIZATION",
-      icon: <BarChart3 className="h-10 w-10" />,
+      icon: <BarChart3 className="h-6 w-6" />,
       items: [
         "Weekly performance reports",
         "A/B testing (copy, creative, offers)",
@@ -32,7 +32,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
     },
     {
       title: "TECHNICAL MANAGEMENT",
-      icon: <Settings className="h-10 w-10" />,
+      icon: <Settings className="h-6 w-6" />,
       items: [
         "CRM integration (HubSpot, Salesforce)",
         "Demo booking automation",
@@ -42,7 +42,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
     },
     {
       title: "CREATIVE ASSETS",
-      icon: <Palette className="h-10 w-10" />,
+      icon: <Palette className="h-6 w-6" />,
       items: [
         "Ad creative (images, headlines)",
         "Landing page design",
@@ -54,11 +54,11 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center">
+      <div className="flex h-full flex-col justify-center items-center">
         <PageHeader label="WHAT YOU GET (ONGOING)" title="INCLUDED SERVICES" />
 
         {/* Service grid - 2 columns */}
-        <Grid cols={2} gap={4} animation="none">
+        <Grid cols={2} gap={4} animation="none" className="max-w-[1280px]">
           {serviceCategories.map((category, index) => (
             <Box
               key={index}
@@ -68,7 +68,7 @@ export default function IncludedServicesSlide({ slideNumber }: { slideNumber: nu
               className="h-full p-8"
             >
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/20 text-primary">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   {category.icon}
                 </div>
                 <Heading level="h3" className="text-xl font-bold text-white">

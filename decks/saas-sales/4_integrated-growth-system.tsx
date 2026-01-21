@@ -11,21 +11,18 @@ import { Lightbulb, Monitor, TrendingUp } from "lucide-react";
 export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumber: number }) {
   const steps = [
     {
-      number: "1",
       title: "Brand Strategy",
       description:
         "Position your SaaS to stand out and attract your Ideal Customer Profile (ICP).",
       icon: <Lightbulb className="h-12 w-12" />,
     },
     {
-      number: "2",
       title: "Conversion Website",
       description:
         "Pages built specifically to turn visitors into qualified demos.",
       icon: <Monitor className="h-12 w-12" />,
     },
     {
-      number: "3",
       title: "Paid Acquisition",
       description:
         "Google Ads campaigns that consistently deliver demos at predictable cost.",
@@ -35,11 +32,11 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
 
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center">
+      <div className="flex h-full flex-col justify-center items-center">
         <PageHeader label="OUR APPROACH" title="THE INTEGRATED GROWTH SYSTEM" />
 
         {/* 3-column grid */}
-        <Grid cols={3} gap={8} animation="stagger">
+        <Grid cols={3} gap={8} animation="stagger" className="max-w-[1280px]">
           {steps.map((step, index) => (
             <Box
               key={index}
@@ -51,13 +48,6 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
               {/* Icon at top */}
               <div className="mb-6 flex justify-center text-primary">
                 {step.icon}
-              </div>
-
-              {/* Number badge */}
-              <div className="mb-4 flex justify-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-neutral-950">
-                  {step.number}
-                </div>
               </div>
 
               {/* Title */}
@@ -75,7 +65,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
 
         {/* Bottom tagline */}
         <Box animation="fade" delay={1} hoverEffect="highlight" className="mt-12 text-center">
-          <Body size="lg" className="font-semibold text-primary">
+          <Body size="lg" className="font-light text-primary-light italic tracking-wider">
             One partner. One system. Predictable results.
           </Body>
         </Box>

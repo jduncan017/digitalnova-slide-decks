@@ -30,7 +30,7 @@ export default function PageHeader({
       hoverEffect="highlight"
       className={`mb-10 ${isCenter ? "text-center" : ""} ${className}`}
     >
-      <Label className="mb-3 text-gray-400">{label}</Label>
+      <Label className="mb-2 text-gray-400">{label}</Label>
       <Heading
         level="h1"
         className={subtitle ? "mb-6" : ""}

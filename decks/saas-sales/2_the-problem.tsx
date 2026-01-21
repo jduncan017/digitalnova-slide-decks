@@ -52,7 +52,7 @@ export default function TheProblemSlide({ slideNumber }: { slideNumber: number }
         hoverEffect="highlight"
         className="relative h-full max-w-2xl ml-auto z-10"
       >
-          <Image src="/hero5.jpg" alt="Hero Image" width={500} height={500} className="h-full object-cover border border-neutral-700 rounded-2xl shadow-xl" />
+          <Image src="/hero5.jpg" alt="Hero Image" width={500} height={500} className="h-full object-cover border border-neutral-800 rounded-2xl shadow-xl" />
       </Box>
       </div>
     </Slide>
