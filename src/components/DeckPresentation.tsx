@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, type ReactElement } from "react";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -11,7 +12,10 @@ interface DeckPresentationProps {
 }
 
 export default function DeckPresentation({ slides }: DeckPresentationProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const searchParams = useSearchParams();
+  const initialSlide = Math.max(0, Math.min(slides.length - 1, parseInt(searchParams.get("slide") ?? "1", 10) - 1));
+
+  const [currentSlide, setCurrentSlide] = useState(initialSlide);
   const totalSlides = slides.length;
 
   const nextSlide = useCallback(() => {

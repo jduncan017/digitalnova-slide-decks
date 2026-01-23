@@ -54,7 +54,7 @@ export default function HeroSlide() {
 
       <div className="absolute z-0 bottom-0 left-0 right-0 h-28 pl-32 gap-8 flex items-center justify-between">
         <div className="logo">
-          <Image src="/logo.png" alt="DigitalNova Logo" width={280} height={40} />
+          <Image src="/icon-metal-light.png" alt="DigitalNova Logo" width={40} height={40} />
         </div>
       <div className="h-0.25 w-full bg-gray-500" />
       </div>

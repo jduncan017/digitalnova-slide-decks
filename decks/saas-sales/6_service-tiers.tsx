@@ -6,42 +6,38 @@ import {
   Grid,
   PageHeader,
 } from "~/components/slide-components";
-import { Check, Info } from "lucide-react";
+import { Check } from "lucide-react";
 
 export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number }) {
   const tiers = [
     {
       title: "PAID ACQUISITION",
-      subtitle: "For SaaS with existing website that needs qualified demos",
+      subtitle: "You've got a solid brand and website. You just need leads.",
       price: "$2,500 Setup",
       monthly: "+ $1,500/mo",
       features: [
-        "Ad campaigns",
-        "Landing pages",
+        "Ad campaigns (Meta or Google)",
+        "Landing page/funnel",
+        "CRM integration",
         "Weekly reports",
         "A/B testing",
-        "Demo optimization",
       ],
-      recommended: false,
     },
     {
       title: "GROWTH SYSTEM",
-      subtitle: "For SaaS that needs marketing and demo pipeline",
+      subtitle: "You need a conversion-focused website AND a lead engine.",
       price: "$5,000 Setup",
       monthly: "+ $1,500/mo",
       features: [
         "Everything in Paid Acquisition",
         "Website (5 pages)",
         "SEO foundation",
-        "CRM integration",
-        "Site hosting",
+        "Full funnel build",
       ],
-      recommended: true,
     },
     {
       title: "COMPLETE REBRAND",
-      subtitle:
-        "For SaaS that needs complete brand + website + marketing transformation",
+      subtitle: "You're starting fresh or your brand isn't working. We rebuild everything.",
       price: "$6,500 Setup",
       monthly: "+ $1,500/mo",
       features: [
@@ -51,7 +47,6 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
         "Brand guidelines",
         "Messaging framework",
       ],
-      recommended: false,
     },
   ];
 
@@ -61,27 +56,19 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
         <PageHeader label="CHOOSE YOUR GROWTH PATH" title="SERVICE TIERS" />
 
         {/* Pricing cards */}
-        <Grid cols={3} gap={4} className="mb-4 max-w-[1280px]" animation="none">
+        <Grid cols={3} gap={4} className="max-w-[1280px]" animation="none">
           {tiers.map((tier, index) => (
             <Box
               key={index}
               animation="slideUp"
               delay={0.4 + index * 0.15}
-              variant={tier.recommended ? "highlight" : "gradient"}
-              className="relative flex h-full flex-col rounded-2xl p-8"
+              variant="gradient"
+              className="flex h-full flex-col rounded-2xl p-8"
             >
-              {tier.recommended && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-primary px-4 py-1 text-sm font-bold text-neutral-950">
-                    Recommended
-                  </span>
-                </div>
-              )}
-
               <Heading level="h3" className="mb-2 text-xl font-bold text-white">
                 {tier.title}
               </Heading>
-              <Body size="sm" className="mb-2 min-h-16 text-gray-400">
+              <Body size="sm" className="mb-4 min-h-14 text-gray-400">
                 {tier.subtitle}
               </Body>
 
@@ -110,21 +97,6 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
             </Box>
           ))}
         </Grid>
-
-        {/* Bottom note */}
-        <Box
-          animation="fade"
-          delay={1}
-          hoverEffect="highlight"
-          className="flex items-center justify-center gap-3 w-full max-w-[1280px]"
-          variant="gradient"
-        >
-          <Info className="h-6 w-6 shrink-0 text-primary" />
-          <Body size="sm" className="text-gray-300">
-            <span className="font-semibold">PAY QUARTERLY: Save $1,500 on setup</span>{" "}
-            (applies to all tiers)
-          </Body>
-        </Box>
       </div>
     </Slide>
   );

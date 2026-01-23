@@ -5,8 +5,8 @@ import { createTheme } from "~/lib/theme";
 // Psychology: Growth, success, profit, "green light to proceed"
 export const theme = createTheme({
   // Emerald - signals growth, success, money, action
-  primary: "#10b981", // Emerald-500
-  primaryLight: "#6ee7b7", // Emerald-300 - energetic, optimistic
+  primary: "#20b981", // Emerald-500
+  primaryLight: "#4ee7b7", // Emerald-300 - energetic, optimistic
 
   // Slightly warmer blacks to feel less cold/corporate
   slideBg: {

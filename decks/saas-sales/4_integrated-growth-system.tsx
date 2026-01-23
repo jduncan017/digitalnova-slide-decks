@@ -25,7 +25,7 @@ export default function IntegratedGrowthSystemSlide({ slideNumber }: { slideNumb
     {
       title: "Paid Acquisition",
       description:
-        "Google Ads campaigns that consistently deliver demos at predictable cost.",
+        "Paid acquisition campaigns that consistently deliver demos at predictable cost.",
       icon: <TrendingUp className="h-12 w-12" />,
     },
   ];

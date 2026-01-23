@@ -10,6 +10,7 @@ interface PageHeaderProps {
   subtitle?: string;
   align?: "center" | "left";
   className?: string;
+  titleClassName?: string;
   delay?: number;
 }
 
@@ -19,6 +20,7 @@ export default function PageHeader({
   subtitle,
   align = "center",
   className = "",
+  titleClassName = "",
   delay = 0.2,
 }: PageHeaderProps) {
   const isCenter = align === "center";
@@ -33,7 +35,7 @@ export default function PageHeader({
       <Label className="mb-2 text-gray-400">{label}</Label>
       <Heading
         level="h1"
-        className={subtitle ? "mb-6" : ""}
+        className={`${subtitle ? "mb-6" : ""} ${titleClassName}`}
         style={{
           background: "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
           WebkitBackgroundClip: "text",

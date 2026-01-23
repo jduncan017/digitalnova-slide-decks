@@ -12,33 +12,33 @@ import { Check } from "lucide-react";
 export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
   const phases = [
     {
-      month: "MONTH 1",
-      title: "Strategy & Foundation",
+      period: "WEEK 1-2",
+      title: "Foundation",
       items: [
-        "Competitive analysis",
-        "ICP refinement",
-        "Offer positioning",
-        "Messaging framework",
+        "Onboarding + discovery call",
+        "Offer workshop",
+        "Script + creative direction",
+        "Funnel build + CRM setup",
       ],
     },
     {
-      month: "MONTH 2",
-      title: "Website & Systems",
+      period: "WEEK 3-4",
+      title: "Launch",
       items: [
-        "High-converting landing pages",
-        "Demo funnel optimization",
-        "SEO foundation",
-        "CRM integration",
+        "Video asset production",
+        "Ad campaign setup",
+        "Landing page live",
+        "Tracking configured",
       ],
     },
     {
-      month: "MONTH 3",
-      title: "Launch & Optimize",
+      period: "MONTH 2+",
+      title: "Optimize",
       items: [
-        "Google Ads campaign setup",
-        "Keyword research & targeting",
-        "Ad creative & landing pages",
-        "Conversion tracking",
+        "Weekly performance reviews",
+        "A/B testing",
+        "Scale what works",
+        "Ongoing refinements",
       ],
     },
   ];
@@ -46,13 +46,13 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center">
-        <PageHeader label="HOW IT WORKS" title="YOUR 90-DAY ROADMAP" />
+        <PageHeader label="HOW IT WORKS" title="YOUR GROWTH TIMELINE" />
 
         {/* Timeline with 3 boxes */}
         <div className="relative">
           {/* Connecting line */}
-          <div className="absolute left-0 right-0 top-10 h-0.25 bg-gray-500">
-            <div className="h-full w-full bg-primary/30"></div>
+          <div className="absolute left-0 right-0 top-10 h-0.5 bg-neutral-800">
+            <div className="h-full w-1/3 bg-primary/50"></div>
           </div>
 
           {/* Timeline boxes */}
@@ -74,7 +74,7 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
                   delay={0.5 + index * 0.15}
                   variant="gradient"
                 >
-                  <Label className="mb-2 text-primary">{phase.month}</Label>
+                  <Label className="mb-2 text-primary">{phase.period}</Label>
                   <Heading level="h4" className="mb-6 text-xl font-bold text-white">
                     {phase.title}
                   </Heading>
@@ -95,6 +95,13 @@ export default function RoadmapSlide({ slideNumber }: { slideNumber: number }) {
             ))}
           </Grid>
         </div>
+
+        {/* Bottom quote */}
+        <Box animation="fade" delay={1.0} hoverEffect="none" className="mt-10 text-center">
+          <Body size="lg" className="text-gray-400 italic">
+            Most clients see their first qualified demos within 30 days of launch.
+          </Body>
+        </Box>
       </div>
     </Slide>
   );
