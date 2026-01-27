@@ -14,10 +14,10 @@ interface SectionProps {
 
 const backgrounds = {
   transparent: "",
-  light: "bg-white/10 backdrop-blur-sm",
-  dark: "bg-black/30 backdrop-blur-sm",
+  light: "bg-neutral-600/20 backdrop-blur-sm",
+  dark: "bg-neutral-950/30 backdrop-blur-sm",
   gradient:
-    "bg-linear-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm",
+    "bg-linear-to-br from-primary/20 to-primary-light/20 backdrop-blur-sm",
 };
 
 const animations = {

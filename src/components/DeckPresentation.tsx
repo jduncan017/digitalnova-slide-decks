@@ -85,11 +85,11 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
   if (!isDesktop) {
     return (
       <div className="flex h-screen w-full flex-col items-center justify-center bg-outer-bg px-8 text-center">
-        <div className="mb-6 rounded-2xl bg-white/10 p-4">
-          <Monitor className="h-12 w-12 text-white/60" />
+        <div className="mb-6 rounded-2xl bg-neutral-800/50 p-4">
+          <Monitor className="h-12 w-12 text-gray-400" />
         </div>
-        <h1 className="mb-3 text-2xl font-bold text-white">Desktop Only</h1>
-        <p className="max-w-md text-white/60">
+        <h1 className="mb-3 text-2xl font-bold text-gray-300">Desktop Only</h1>
+        <p className="max-w-md text-gray-400">
           This presentation is optimized for desktop viewing. Please open on a device with a screen width of at least 1200px for the best experience.
         </p>
       </div>
@@ -124,7 +124,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
             {currentSlide > 0 && (
               <button
                 onClick={prevSlide}
-                className="text-white/50 transition-colors hover:text-white"
+                className="text-gray-500 transition-colors hover:text-gray-300"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -139,8 +139,8 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
                   onClick={() => goToSlide(index)}
                   className={`h-2 w-2 rounded-full transition-all ${
                     index === currentSlide
-                      ? "w-6 bg-white"
-                      : "bg-white/30 hover:bg-white/50"
+                      ? "w-6 bg-gray-300"
+                      : "bg-gray-500/50 hover:bg-gray-400/70"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -151,7 +151,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
             {currentSlide < totalSlides - 1 && (
               <button
                 onClick={nextSlide}
-                className="text-white/50 transition-colors hover:text-white"
+                className="text-gray-500 transition-colors hover:text-gray-300"
                 aria-label="Next slide"
               >
                 <ChevronRight className="h-6 w-6" />
@@ -160,7 +160,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
           </div>
 
           {/* Slide counter */}
-          <div className="text-xs text-white/50">
+          <div className="text-xs text-gray-500">
             {currentSlide + 1} / {totalSlides}
           </div>
         </div>

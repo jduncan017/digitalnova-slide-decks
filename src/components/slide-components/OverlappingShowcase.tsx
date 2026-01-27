@@ -88,7 +88,7 @@ export default function OverlappingShowcase({
         {showArrows && items.length > 1 && (
           <button
             onClick={goToPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-primary/20 text-white/70 hover:text-white hover:bg-neutral-800 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-primary/20 text-gray-400 hover:text-gray-300 hover:bg-neutral-800 transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -99,7 +99,7 @@ export default function OverlappingShowcase({
         {showArrows && items.length > 1 && (
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-primary/20 text-white/70 hover:text-white hover:bg-neutral-800 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-primary/20 text-gray-400 hover:text-gray-300 hover:bg-neutral-800 transition-colors"
             aria-label="Next"
           >
             <ChevronRight className="h-6 w-6" />
@@ -213,7 +213,7 @@ export default function OverlappingShowcase({
               className={`h-2 rounded-full transition-all ${
                 index === currentIndex
                   ? "w-6 bg-primary"
-                  : "w-2 bg-white/30 hover:bg-white/50"
+                  : "w-2 bg-gray-500/50 hover:bg-gray-400/70"
               }`}
               aria-label={`Go to example ${index + 1}`}
             />

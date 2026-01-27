@@ -66,7 +66,7 @@ export default function Label({
       }}
     >
       <p
-        className={`leading-[var(--line-height-label)] font-semibold tracking-[var(--letter-spacing-label)] text-[var(--font-size-label)] ${
+        className={`text-xs leading-normal font-semibold tracking-widest ${
           uppercase ? "uppercase" : ""
         } ${className}`}
       >

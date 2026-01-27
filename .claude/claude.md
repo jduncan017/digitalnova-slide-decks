@@ -14,20 +14,25 @@ An interactive pitch deck presentation platform built with Next.js. This project
 
 ### Directory Structure
 - **`decks/`**: Each client gets their own folder containing:
-  - `deck.tsx` - Slide definitions (required)
+  - `content.ts` - Slide content definitions using typed schema (required)
+  - `deck.tsx` - Renders slides from content (just calls `renderDeck`)
   - `theme.ts` - Custom theme/colors (optional)
+- **`src/templates/`**: Slide templates and content types
+  - `types.ts` - TypeScript interfaces for all slide content
+  - `slides/*.tsx` - Individual slide template components
 - **`src/lib/theme.ts`**: Global theme types and `createTheme()` helper
-- **`src/components/ThemeProvider.tsx`**: React context + CSS variable injection
+- **`src/lib/deckSchema.ts`**: Deck definition types
+- **`src/lib/renderDeck.tsx`**: Renders slides from deck definitions
 - **`src/components/slide-components/`**: Reusable, animated components for building slides
 - **`src/app/[deckId]/`**: Dynamic route that loads deck, theme, and presents
 
 ### How It Works
 1. Each client deck is a folder in `decks/` (e.g., `decks/acme-corp/`)
-2. Inside each folder is a `deck.tsx` file that exports an array of React elements (slides)
-3. Each deck can have an optional `theme.ts` file for custom colors and branding
-4. The dynamic route `/[deckId]` loads the deck, theme, and renders with `DeckPresentation`
-5. Users navigate through slides using keyboard arrows or swipe gestures
-6. All slides support animated components with customizable timing and effects
+2. **`content.ts`** defines slide content using typed interfaces (no layout code)
+3. **`deck.tsx`** calls `renderDeck()` to transform content into React elements
+4. Each deck can have an optional `theme.ts` file for custom colors and branding
+5. The dynamic route `/[deckId]` loads the deck, theme, and renders with `DeckPresentation`
+6. Users navigate through slides using keyboard arrows
 
 ## Theming System
 
@@ -247,89 +252,111 @@ All components support:
 
 ## Creating a New Deck
 
-1. Create a new folder in `decks/` using kebab-case:
-   ```bash
-   mkdir decks/new-client
-   ```
+### Quick Start (Content-Driven Approach)
 
-2. Create `decks/new-client/theme.ts` (optional but recommended):
-   ```tsx
-   import { createTheme } from "~/lib/theme";
+1. **Create folder**: `mkdir decks/new-client`
 
-   export const theme = createTheme({
-     primary: "#22c55e",  // Client's brand color
-     clientLogo: "/logos/new-client.png",
-     clientName: "New Client Inc",
-   });
-   ```
+2. **Create `theme.ts`** (customize colors):
+```ts
+import { createTheme } from "~/lib/theme";
 
-3. Create `decks/new-client/deck.tsx`:
-   ```tsx
-   import { Box, Heading, Body } from "~/components/slide-components";
-
-   const slides = [
-     <div key="slide-1" className="text-center">
-       <Box animation="slideDown">
-         <Heading level="h1">Title</Heading>
-       </Box>
-     </div>,
-     // ... more slides
-   ];
-
-   export default slides;
-   ```
-
-4. Access at `/new-client`
-
-## Common Patterns
-
-### Title Slide
-```tsx
-<div key="slide-1" className="text-center">
-  <TextBox animation="slideDown" delay={0}>
-    <h1 className="text-7xl font-bold text-white">Client Name</h1>
-  </TextBox>
-  <TextBox animation="slideUp" delay={0.3}>
-    <p className="text-3xl text-slate-300">Subtitle</p>
-  </TextBox>
-</div>
+export const theme = createTheme({
+  primary: "#22c55e",
+  primaryLight: "#4ade80",
+  clientLogo: "/logos/new-client.png",
+  clientName: "New Client Inc",
+});
 ```
 
-### Grid Layout with Stagger
-```tsx
-<Grid cols={3} gap={6} animation="stagger">
-  <Box>
-    <Section background="light">
-      <h3>Item 1</h3>
-    </Section>
-  </Box>
-  <Box>
-    <Section background="light">
-      <h3>Item 2</h3>
-    </Section>
-  </Box>
-  <Box>
-    <Section background="light">
-      <h3>Item 3</h3>
-    </Section>
-  </Box>
-</Grid>
+3. **Create `content.ts`** (define slides using typed content):
+```ts
+import type { DeckDefinition } from "~/lib/deckSchema";
+
+export const deckContent: DeckDefinition = {
+  id: "new-client",
+  meta: { title: "Proposal for New Client", preparedFor: "Client Contact" },
+  slides: [
+    {
+      type: "hero",
+      content: {
+        title: "Your Growth System",
+        subtitle: "Prepared for New Client",
+        heroImage: "/hero.jpg",
+      },
+    },
+    {
+      type: "problem",
+      content: {
+        label: "THE CHALLENGE",
+        title: "Common Pain Points",
+        subtitle: "Here's what we're solving.",
+        challenges: [
+          { text: "Problem one", icon: "TrendingDown" },
+          { text: "Problem two", icon: "DollarSign" },
+        ],
+        sideImage: "/problem.jpg",
+      },
+    },
+    // ... more slides
+  ],
+};
 ```
 
-### Sequential Animations
-```tsx
-<div>
-  <Box animation="slideLeft" delay={0}>
-    <Section background="light">First item</Section>
-  </Box>
-  <Box animation="slideLeft" delay={0.2}>
-    <Section background="light">Second item</Section>
-  </Box>
-  <Box animation="slideLeft" delay={0.4}>
-    <Section background="light">Third item</Section>
-  </Box>
-</div>
+4. **Create `deck.tsx`** (just 4 lines):
+```ts
+import { renderDeck } from "~/lib/renderDeck";
+import { deckContent } from "./content";
+
+export default renderDeck(deckContent);
 ```
+
+5. Access at `/new-client`
+
+### Available Slide Types
+
+| Type | Description | Key Content Fields |
+|------|-------------|-------------------|
+| `hero` | Opening slide with logo and title | title, subtitle, tagline, heroImage |
+| `problem` | Pain points with icons | label, title, challenges[], sideImage |
+| `successFactors` | Why your approach works | label, title, factors[], differentiator |
+| `opportunity` | 3-card flow with callout | label, title, opportunities[], callout |
+| `deliverables` | What you'll build (numbered) | label, title, deliverables[], options[] |
+| `pillars` | Core offerings (3 columns) | label, title, pillars[], profile, testimonial |
+| `portfolio` | Overlapping image showcase | label, title, items[], leftTitle, rightTitle |
+| `pricing` | Service tiers | label, title, tiers[] (with recommended flag) |
+| `timeline` | Project phases | label, title, steps[], note, layout (arrow/grid) |
+| `cta` | Call to action + contact | label, title, ctaButton, profile, contactItems[] |
+| `growthEngine` | Two-panel breakdown | label, title, leftPanel, rightPanel |
+
+### Icon Names
+Use lucide-react icon names as strings:
+- Common: `TrendingUp`, `DollarSign`, `Calendar`, `Users`, `Target`, `Globe`
+- Actions: `Check`, `ArrowRight`, `Mail`, `Phone`, `Send`
+- Concepts: `Lightbulb`, `Monitor`, `Rocket`, `Star`, `Shield`
+- See `src/templates/types.ts` for full list
+
+### Content Template (Copy & Customize)
+
+Copy `decks/saas-sales/content.ts` as a starting point for new decks. All slides are defined with typed interfaces that provide autocomplete and validation.
+
+## Workflow: Creating a Deck for a Sales Call
+
+**Target time: ~15 minutes**
+
+1. **Copy existing deck folder** (e.g., copy `saas-sales/` to `new-client/`)
+2. **Update theme.ts** with client's brand colors and logo
+3. **Update content.ts**:
+   - Change deck id and meta
+   - Customize slide content for the client
+   - Adjust pricing, challenges, etc. as needed
+4. **Add client logo** to `/public/logos/`
+5. **Test at** `/new-client`
+
+### Tips for Fast Customization
+- Focus on content.ts - no layout code needed
+- TypeScript autocomplete shows available fields
+- Use existing decks as reference for content structure
+- Theme colors automatically apply across all slides
 
 ## Navigation Features
 

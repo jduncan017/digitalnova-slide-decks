@@ -158,14 +158,14 @@ export default function Carousel({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/80 text-white/70 hover:text-white hover:bg-neutral-800 transition-colors z-40"
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/80 text-gray-400 hover:text-gray-300 hover:bg-neutral-800 transition-colors z-40"
               aria-label="Previous"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/80 text-white/70 hover:text-white hover:bg-neutral-800 transition-colors z-40"
+              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/80 text-gray-400 hover:text-gray-300 hover:bg-neutral-800 transition-colors z-40"
               aria-label="Next"
             >
               <ChevronRight className="h-6 w-6" />
@@ -184,7 +184,7 @@ export default function Carousel({
               className={`h-2 rounded-full transition-all ${
                 index === currentIndex
                   ? "w-6 bg-primary"
-                  : "w-2 bg-white/30 hover:bg-white/50"
+                  : "w-2 bg-gray-500/50 hover:bg-gray-400/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
