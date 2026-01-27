@@ -191,22 +191,24 @@ export default function MyComponent() {
 
 ### Customizing Typography
 
-To change typography globally, edit `src/styles/globals.css`:
-```css
-@theme {
-  /* Heading sizes */
-  --font-size-h1: 4.5rem;
-  --line-height-h1: 1.1;
+Typography sizing is defined directly in the component files using Tailwind utility classes:
 
-  /* Body sizes */
-  --font-size-body-xl: 1.25rem;
-  --line-height-body-xl: 1.6;
+**Heading sizes** (`src/components/slide-components/Heading.tsx`):
+- h1: `text-6xl leading-tight font-light` (60px)
+- h2: `text-5xl leading-tight font-bold` (48px)
+- h3: `text-3xl leading-snug font-bold` (30px)
+- h4: `text-2xl leading-snug font-semibold` (24px)
+- h5: `text-xl leading-snug font-semibold` (20px)
+- h6: `text-lg leading-normal font-semibold` (18px)
 
-  /* Label */
-  --font-size-label: 0.75rem;
-  --letter-spacing-label: 0.1em;
-}
-```
+**Body sizes** (`src/components/slide-components/Body.tsx`):
+- xl: `text-xl leading-relaxed` (20px)
+- lg: `text-lg leading-relaxed` (18px)
+- base: `text-base leading-relaxed` (16px)
+- sm: `text-sm leading-normal` (14px)
+- xs: `text-xs leading-normal` (12px)
+
+To change typography globally, edit the `headingStyles` or `bodySizeStyles` objects in the respective component files.
 
 ## Component Library
 

@@ -27,10 +27,10 @@ export default function Testimonial({
     >
       <Quote className="h-5 w-5 shrink-0 text-primary/60 mt-0.5" />
       <div>
-        <p className="text-gray-400 italic text-sm leading-relaxed mb-2">
-          "{quote}"
+        <p className="text-gray-400 italic leading-relaxed mb-2">
+          &ldquo;{quote}&rdquo;
         </p>
-        <p className="text-gray-500 text-xs">
+        <p className="text-gray-500 text-sm">
           — {name}{role && <span className="text-gray-600">, {role}</span>}
         </p>
       </div>

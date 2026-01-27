@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, type ReactElement } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Monitor } from "lucide-react";
 
 interface DeckPresentationProps {
   slides: ReactElement[];
@@ -12,6 +12,18 @@ interface DeckPresentationProps {
 }
 
 export default function DeckPresentation({ slides }: DeckPresentationProps) {
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  // Check viewport width
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsDesktop(window.innerWidth >= 1200);
+    };
+
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
+  }, []);
   const searchParams = useSearchParams();
   const initialSlide = Math.max(0, Math.min(slides.length - 1, parseInt(searchParams.get("slide") ?? "1", 10) - 1));
 
@@ -68,6 +80,21 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
     trackMouse: false,
     trackTouch: true,
   });
+
+  // Desktop-only message for small viewports
+  if (!isDesktop) {
+    return (
+      <div className="flex h-screen w-full flex-col items-center justify-center bg-outer-bg px-8 text-center">
+        <div className="mb-6 rounded-2xl bg-white/10 p-4">
+          <Monitor className="h-12 w-12 text-white/60" />
+        </div>
+        <h1 className="mb-3 text-2xl font-bold text-white">Desktop Only</h1>
+        <p className="max-w-md text-white/60">
+          This presentation is optimized for desktop viewing. Please open on a device with a screen width of at least 1200px for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div

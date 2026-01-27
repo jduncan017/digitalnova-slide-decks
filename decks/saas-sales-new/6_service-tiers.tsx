@@ -1,3 +1,5 @@
+"use client";
+
 import Slide from "~/components/Slide";
 import {
   Heading,
@@ -7,14 +9,16 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number }) {
   const tiers = [
     {
       title: "PAID ACQUISITION",
       subtitle: "You've got a solid brand and website. You just need leads.",
-      price: "$2,500 Setup",
-      monthly: "+ $1,500/mo",
+      price: "$2,500",
+      priceLabel: "Setup",
+      monthly: "$1,500/mo",
       features: [
         "Ad campaigns (Meta, Google, or LinkedIn)",
         "Landing page/funnel",
@@ -26,8 +30,9 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
     {
       title: "GROWTH SYSTEM",
       subtitle: "You need a conversion-focused website AND a lead engine.",
-      price: "$5,000 Setup",
-      monthly: "+ $1,500/mo",
+      price: "$5,000",
+      priceLabel: "Setup",
+      monthly: "$1,500/mo",
       features: [
         "Everything in Paid Acquisition",
         "Website (5 pages)",
@@ -37,9 +42,10 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
     },
     {
       title: "COMPLETE REBRAND",
-      subtitle: "You're starting fresh or your brand isn't working. We rebuild everything.",
-      price: "$6,500 Setup",
-      monthly: "+ $1,500/mo",
+      subtitle: "Starting fresh or your brand isn't working? We rebuild everything.",
+      price: "$6,500",
+      priceLabel: "Setup",
+      monthly: "$1,500/mo",
       features: [
         "Everything in Growth System",
         "Brand strategy",
@@ -53,7 +59,7 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
   return (
     <Slide showLogo slideNumber={slideNumber}>
       <div className="flex h-full flex-col justify-center items-center">
-        <PageHeader label="CHOOSE YOUR GROWTH PATH" title="SERVICE TIERS" />
+        <PageHeader label="INVESTMENT" title="CHOOSE YOUR PATH" />
 
         {/* Pricing cards */}
         <Grid cols={3} gap={4} className="max-w-[1280px]" animation="none">
@@ -65,29 +71,32 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
               variant="gradient"
               className="flex h-full flex-col rounded-2xl p-8"
             >
-              <Heading level="h3" className="mb-2 text-xl font-bold text-white">
+              <Heading level="h4" className="mb-2 text-white">
                 {tier.title}
               </Heading>
-              <Body size="sm" className="mb-4 min-h-14 text-gray-400">
+              <Body size="sm" className="mb-6 min-h-12 text-gray-400">
                 {tier.subtitle}
               </Body>
 
-              <div className="mb-6">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold text-primary">
+              {/* Price */}
+              <div className="mb-6 pb-6 border-b border-neutral-700">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-primary">
                     {tier.price}
                   </span>
+                  <span className="text-gray-400">{tier.priceLabel}</span>
                 </div>
-                {tier.monthly && (
-                  <div className="mt-1 text-lg text-primary/80 italic">{tier.monthly}</div>
-                )}
+                <div className="mt-2 text-lg text-gray-300">
+                  + {tier.monthly} <span className="text-gray-500">retainer</span>
+                </div>
               </div>
 
+              {/* Features */}
               <ul className="flex-1 space-y-3">
                 {tier.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
-                    className="flex items-start gap-2 text-gray-300"
+                    className="flex items-start gap-3 text-gray-300"
                   >
                     <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <Body size="sm" as="span">{feature}</Body>
@@ -97,6 +106,21 @@ export default function ServiceTiersSlide({ slideNumber }: { slideNumber: number
             </Box>
           ))}
         </Grid>
+
+        {/* Subtle reassurance */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="mt-8 text-center"
+        >
+          <Body size="sm" className="text-gray-500">
+            All plans include a 30-minute onboarding call • Retainer starts when ads go live
+          </Body>
+          <Body size="xs" className="text-gray-600 mt-2">
+            Average client cost per qualified demo: $150–$300
+          </Body>
+        </motion.div>
       </div>
     </Slide>
   );

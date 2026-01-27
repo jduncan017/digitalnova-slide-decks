@@ -27,85 +27,19 @@
   --color-gray-500: #71717a;
 }
 
-/* Typography System - Base Styles */
-h1 {
-  font-size: 3rem; /* 64px */
-  line-height: 1.1;
-  font-weight: 300;
-}
-
-h2 {
-  font-size: 2.5rem; /* 60px */
-  line-height: 1.1;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.75rem; /* 48px */
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-h4 {
-  font-size: 1.5rem; /* 36px */
-  line-height: 1.3;
-  font-weight: 600;
-}
-
-h5 {
-  font-size: 1.25rem; /* 30px */
-  line-height: 1.3;
-  font-weight: 600;
-}
-
-h6 {
-  font-size: 1.5rem; /* 24px */
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-p {
-  font-size: 1rem; /* 16px */
-  line-height: 1.6;
-}
-
-/* Utility classes for body text sizes */
-.text-body-2xl {
-  font-size: 1.5rem; /* 20px */
-  line-height: 1.6;
-}
-
-.text-body-xl {
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.6;
-}
-
-.text-body-lg {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.6;
-}
-
-.text-body-sm {
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.5;
-}
-
-.text-body-xs {
-  font-size: 0.75rem; /* 12px */
-  line-height: 1.5;
-}
-
-/* Label/Eyebrow text */
-.text-label {
-  font-size: 0.75rem; /* 12px */
-  line-height: 1.4;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 /* Force pointer cursor and disable text selection on all slide content */
 .slide-content,
 .slide-content * {
   cursor: default !important;
   user-select: none !important;
+}
+
+/* Force all content visible for print/PDF export (bypasses framer-motion animations) */
+@media print {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }

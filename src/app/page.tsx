@@ -12,6 +12,12 @@ export default function Home() {
           >
             SaaS Deck
           </Link>
+          <Link
+            href="/saas-sales-new"
+            className="block rounded-lg bg-primary px-8 py-3 text-white transition-colors hover:bg-primary-light"
+          >
+            SaaS Deck 2
+          </Link>
         </div>
       </div>
     </div>

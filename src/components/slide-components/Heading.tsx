@@ -48,13 +48,14 @@ const animations = {
   },
 };
 
+// Heading sizes - override locally with className if needed
 const headingStyles: Record<HeadingLevel, string> = {
-  h1: "text-[var(--font-size-h1)] leading-[var(--line-height-h1)] font-bold",
-  h2: "text-[var(--font-size-h2)] leading-[var(--line-height-h2)] font-bold",
-  h3: "text-[var(--font-size-h3)] leading-[var(--line-height-h3)] font-bold",
-  h4: "text-[var(--font-size-h4)] leading-[var(--line-height-h4)] font-bold",
-  h5: "text-[var(--font-size-h5)] leading-[var(--line-height-h5)] font-bold",
-  h6: "text-[var(--font-size-h6)] leading-[var(--line-height-h6)] font-bold",
+  h1: "text-6xl leading-tight font-light",      // 3.75rem / 60px
+  h2: "text-5xl leading-tight font-bold",       // 3rem / 48px
+  h3: "text-3xl leading-snug font-bold",        // 1.875rem / 30px
+  h4: "text-2xl leading-snug font-semibold",    // 1.5rem / 24px
+  h5: "text-xl leading-snug font-semibold",     // 1.25rem / 20px
+  h6: "text-lg leading-normal font-semibold",   // 1.125rem / 18px
 };
 
 export default function Heading({

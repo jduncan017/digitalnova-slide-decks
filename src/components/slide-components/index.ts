@@ -15,3 +15,4 @@ export { default as Logo } from "./Logo";
 export { default as PageHeader } from "./PageHeader";
 export { default as Testimonial } from "./Testimonial";
 export { default as Carousel } from "./Carousel";
+export { default as OverlappingShowcase } from "./OverlappingShowcase";

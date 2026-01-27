@@ -20,6 +20,9 @@ async function exportDeckToPDF(deckId: string) {
   const page = await browser.newPage();
   await page.setViewport(VIEWPORT);
 
+  // Emulate print media to trigger CSS that forces animations to complete state
+  await page.emulateMediaType("print");
+
   // First, load the deck to find out how many slides there are
   const deckUrl = `${BASE_URL}/${deckId}`;
   await page.goto(deckUrl, { waitUntil: "networkidle0" });

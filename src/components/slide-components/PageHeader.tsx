@@ -3,6 +3,7 @@
 import Box from "./Box";
 import Label from "./Label";
 import Heading from "./Heading";
+import { type CSSProperties } from "react";
 
 interface PageHeaderProps {
   label: string;
@@ -11,6 +12,8 @@ interface PageHeaderProps {
   align?: "center" | "left";
   className?: string;
   titleClassName?: string;
+  labelClassName?: string;
+  titleStyle?: CSSProperties;
   delay?: number;
 }
 
@@ -21,9 +24,22 @@ export default function PageHeader({
   align = "center",
   className = "",
   titleClassName = "",
+  labelClassName = "",
+  titleStyle,
   delay = 0.2,
 }: PageHeaderProps) {
   const isCenter = align === "center";
+
+  // Default gradient style for title
+  const defaultTitleStyle: CSSProperties = {
+    background: "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  };
+
+  // Use custom style if provided, otherwise use default gradient
+  const finalTitleStyle = titleStyle ?? defaultTitleStyle;
 
   return (
     <Box
@@ -32,21 +48,16 @@ export default function PageHeader({
       hoverEffect="highlight"
       className={`mb-10 ${isCenter ? "text-center" : ""} ${className}`}
     >
-      <Label className="mb-2 text-gray-400">{label}</Label>
+      <Label className={`mb-2 text-gray-400 ${labelClassName}`}>{label}</Label>
       <Heading
         level="h1"
-        className={`${subtitle ? "mb-6" : ""} ${titleClassName}`}
-        style={{
-          background: "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}
+        className={`${subtitle ? "mb-2" : ""} ${titleClassName}`}
+        style={finalTitleStyle}
       >
         {title}
       </Heading>
       {subtitle && (
-        <Heading level="h3" className="text-gray-300">
+        <Heading level="h5" className="text-gray-300">
           {subtitle}
         </Heading>
       )}

@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { type ReactNode } from "react";
+import { type ReactNode, type CSSProperties } from "react";
 import { textHover, baseFilter } from "~/lib/animations";
 
 type BodySize = "xl" | "lg" | "base" | "sm" | "xs";
 
-interface BodyProps {
+export interface BodyProps {
   size?: BodySize;
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   animation?:
     | "fade"
     | "slideUp"
@@ -48,18 +49,20 @@ const animations = {
   },
 };
 
+// Body sizes - use Tailwind utility classes for consistency
 const bodySizeStyles: Record<BodySize, string> = {
-  xl: "text-[var(--font-size-body-xl)] leading-[var(--line-height-body-xl)]",
-  lg: "text-[var(--font-size-body-lg)] leading-[var(--line-height-body-lg)]",
-  base: "text-[var(--font-size-body)] leading-[var(--line-height-body)]",
-  sm: "text-[var(--font-size-body-sm)] leading-[var(--line-height-body-sm)]",
-  xs: "text-[var(--font-size-body-xs)] leading-[var(--line-height-body-xs)]",
+  xl: "text-xl leading-relaxed",       // 1.25rem / 20px
+  lg: "text-lg leading-relaxed",       // 1.125rem / 18px
+  base: "text-base leading-relaxed",   // 1rem / 16px
+  sm: "text-sm leading-normal",        // 0.875rem / 14px
+  xs: "text-xs leading-normal",        // 0.75rem / 12px
 };
 
 export default function Body({
   size = "base",
   children,
   className = "",
+  style,
   animation = "none",
   delay = 0,
   as: Component = "p",
@@ -78,7 +81,7 @@ export default function Body({
         filter: textHover.transition,
       }}
     >
-      <Component className={`${baseStyles} ${className}`}>{children}</Component>
+      <Component className={`${baseStyles} ${className}`} style={style}>{children}</Component>
     </motion.div>
   );
 }
