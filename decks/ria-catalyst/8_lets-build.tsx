@@ -8,7 +8,7 @@ import {
   Box,
   PageHeader,
 } from "~/components/slide-components";
-import { Mail, Globe, Phone, Calendar, ArrowRight } from "lucide-react";
+import { Mail, Globe, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function NextStepsSlide({ slideNumber }: { slideNumber: number }) {

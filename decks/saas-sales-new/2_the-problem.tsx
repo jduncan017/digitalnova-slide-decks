@@ -5,7 +5,7 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import Image from "next/image";
-import { MousePointerClick, DollarSign, TrendingDown, Calendar, UserX } from "lucide-react";
+import { MousePointerClick, DollarSign, Calendar, UserX } from "lucide-react";
 import { type ReactNode } from "react";
 
 export default function TheProblemSlide({ slideNumber }: { slideNumber: number }) {

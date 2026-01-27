@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import DeckPresentation from "~/components/DeckPresentation";
 import { ThemeProvider } from "~/components/ThemeProvider";
@@ -36,7 +37,9 @@ export default async function DeckPage({ params }: DeckPageProps) {
 
     return (
       <ThemeProvider theme={theme}>
-        <DeckPresentation slides={deck.default} deckId={deckId} />
+        <Suspense fallback={<div className="h-screen w-full bg-outer-bg" />}>
+          <DeckPresentation slides={deck.default} deckId={deckId} />
+        </Suspense>
       </ThemeProvider>
     );
   } catch (error) {

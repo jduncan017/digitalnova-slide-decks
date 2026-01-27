@@ -7,7 +7,7 @@ import {
   Box,
   PageHeader,
 } from "~/components/slide-components";
-import { Globe, Calendar, FileText, ArrowRight, Code, Palette, Crosshair } from "lucide-react";
+import { Globe, Calendar, FileText, ArrowRight, Code, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function WhatIdBuildSlide({ slideNumber }: { slideNumber: number }) {
