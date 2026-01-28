@@ -49,7 +49,9 @@ export type IconName =
   | "Sparkles"
   | "ThumbsUp"
   | "Video"
-  | "Wifi";
+  | "Wifi"
+  | "Plus"
+  | "ChevronRight";
 
 // ============================================
 // SLIDE CONTENT INTERFACES
@@ -243,6 +245,8 @@ export interface PricingSlideContent {
     /** Mark this tier as recommended */
     recommended?: boolean;
   }[];
+  /** Optional icons to show between tiers (e.g., arrows to show flow) */
+  connectorIcons?: IconName[];
   /** Optional note at bottom */
   note?: string;
 }
@@ -286,6 +290,8 @@ export interface CTASlideContent {
   label: string;
   /** Main title */
   title: string;
+  /** Subtitle / call to action text */
+  subtitle?: string;
   /** CTA button */
   ctaButton?: {
     text: string;

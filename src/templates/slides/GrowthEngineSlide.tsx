@@ -52,7 +52,7 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
               {content.leftPanel.sectionLabel}
             </Body>
 
-            <div className="space-y-3 h-fit">
+            <div className="space-y-4 h-fit">
               {content.leftPanel.items.map((item, index) => (
                 <Box
                   key={index}
@@ -107,10 +107,10 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
                 >
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-lg bg-neutral-600/30 text-gray-300">
-                      {getIcon(item.icon, "h-5 w-5")}
+                      {getIcon(item.icon, "h-4 w-4")}
                     </div>
                     <div>
-                      <Body size="sm" className="text-gray-300 mb-1">
+                      <Body size="sm" className="text-gray-300">
                         {item.title}
                       </Body>
                       <Body size="xs" className="text-gray-500">

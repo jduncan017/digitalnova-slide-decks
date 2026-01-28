@@ -35,6 +35,7 @@ export default function CTASlide({ content, slideNumber }: CTASlideProps) {
           <PageHeader
             label={content.label}
             title={content.title}
+            subtitle={content.subtitle}
             align="left"
           />
 

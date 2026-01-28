@@ -29,7 +29,7 @@ export default function HeroSlide({ content }: HeroSlideProps) {
             animation="slideDown"
             delay={0}
             height={80}
-            className="pb-12"
+            className="pb-4"
           />
 
           <Box animation="slideUp" delay={0.2} hoverEffect="highlight" className="mt-8">

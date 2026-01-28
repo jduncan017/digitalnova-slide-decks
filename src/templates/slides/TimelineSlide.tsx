@@ -23,10 +23,20 @@ function getIcon(name: IconName, className: string) {
   return Icon ? <Icon className={className} /> : null;
 }
 
+const gridColsMap: Record<number, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+};
+
 export default function TimelineSlide({ content, slideNumber }: TimelineSlideProps) {
   const isGridLayout = content.layout === "grid" || content.steps.length > 3;
 
   if (isGridLayout) {
+    const colCount = Math.min(content.steps.length, 4);
+    const gridColsClass = gridColsMap[colCount] ?? "grid-cols-4";
+
     return (
       <Slide showLogo slideNumber={slideNumber}>
         <div className="flex h-full flex-col justify-center">
@@ -38,7 +48,7 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
           />
 
           {/* Grid layout for 4+ steps */}
-          <div className={`grid grid-cols-${Math.min(content.steps.length, 4)} gap-4`}>
+          <div className={`grid ${gridColsClass} gap-4`}>
             {content.steps.map((step, index) => (
               <Box
                 key={index}
