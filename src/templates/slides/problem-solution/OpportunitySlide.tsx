@@ -10,7 +10,7 @@ import {
 import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import type { OpportunitySlideContent, IconName } from "../types";
+import type { OpportunitySlideContent, IconName } from "../../types";
 
 interface OpportunitySlideProps {
   content: OpportunitySlideContent;

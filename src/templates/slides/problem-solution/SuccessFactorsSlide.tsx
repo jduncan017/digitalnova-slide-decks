@@ -8,7 +8,7 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import { CheckCircle } from "lucide-react";
-import type { SuccessFactorsSlideContent } from "../types";
+import type { SuccessFactorsSlideContent } from "../../types";
 
 interface SuccessFactorsSlideProps {
   content: SuccessFactorsSlideContent;

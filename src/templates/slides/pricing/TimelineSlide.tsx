@@ -11,7 +11,7 @@ import {
 import { Check, ArrowRight } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
-import type { TimelineSlideContent, IconName } from "../types";
+import type { TimelineSlideContent, IconName } from "../../types";
 
 interface TimelineSlideProps {
   content: TimelineSlideContent;

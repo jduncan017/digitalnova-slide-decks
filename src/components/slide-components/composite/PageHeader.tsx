@@ -1,8 +1,8 @@
 "use client";
 
-import Box from "./Box";
-import Label from "./Label";
-import Heading from "./Heading";
+import Box from "../layout/Box";
+import Label from "../typography/Label";
+import Heading from "../typography/Heading";
 import { type CSSProperties } from "react";
 
 interface PageHeaderProps {

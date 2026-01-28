@@ -8,7 +8,7 @@ import {
 } from "~/components/slide-components";
 import Image from "next/image";
 import * as LucideIcons from "lucide-react";
-import type { ProblemSlideContent, IconName } from "../types";
+import type { ProblemSlideContent, IconName } from "../../types";
 
 interface ProblemSlideProps {
   content: ProblemSlideContent;

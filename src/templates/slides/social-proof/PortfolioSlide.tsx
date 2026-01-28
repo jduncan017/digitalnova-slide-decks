@@ -5,7 +5,7 @@ import {
   PageHeader,
   OverlappingShowcase,
 } from "~/components/slide-components";
-import type { PortfolioSlideContent } from "../types";
+import type { PortfolioSlideContent } from "../../types";
 
 interface PortfolioSlideProps {
   content: PortfolioSlideContent;

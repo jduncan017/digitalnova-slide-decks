@@ -9,7 +9,7 @@ import {
 import { useTheme } from "~/components/ThemeProvider";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import type { HeroSlideContent } from "../types";
+import type { HeroSlideContent } from "../../types";
 
 interface HeroSlideProps {
   content: HeroSlideContent;

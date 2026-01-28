@@ -9,7 +9,7 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import * as LucideIcons from "lucide-react";
-import type { CTASlideContent, IconName } from "../types";
+import type { CTASlideContent, IconName } from "../../types";
 
 interface CTASlideProps {
   content: CTASlideContent;

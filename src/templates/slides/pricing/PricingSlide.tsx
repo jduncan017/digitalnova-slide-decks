@@ -10,7 +10,7 @@ import {
 import { Check, Star } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
-import type { PricingSlideContent, IconName } from "../types";
+import type { PricingSlideContent, IconName } from "../../types";
 
 interface PricingSlideProps {
   content: PricingSlideContent;

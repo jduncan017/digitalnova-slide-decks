@@ -1,18 +1,27 @@
-// Layout & Animation Components
-export { default as TextBox } from "./TextBox";
-export { default as Box } from "./Box";
-export { default as Icon } from "./Icon";
-export { default as Grid } from "./Grid";
-export { default as Section } from "./Section";
+// Typography Components
+export { default as Heading } from "./typography/Heading";
+export { default as Body } from "./typography/Body";
+export { default as Label } from "./typography/Label";
 
-// Typography Components (use these for consistent text styling)
-export { default as Heading } from "./Heading";
-export { default as Body } from "./Body";
-export { default as Label } from "./Label";
+// Layout Components
+export { default as Box } from "./layout/Box";
+export { default as Grid } from "./layout/Grid";
+export { default as Section } from "./layout/Section";
 
-// Specialized Components
-export { default as Logo } from "./Logo";
-export { default as PageHeader } from "./PageHeader";
-export { default as Testimonial } from "./Testimonial";
-export { default as Carousel } from "./Carousel";
-export { default as OverlappingShowcase } from "./OverlappingShowcase";
+// Card Components
+export { default as FeatureCard } from "./cards/FeatureCard";
+export { default as FeatureRow } from "./cards/FeatureRow";
+export { default as CheckListItem } from "./cards/CheckListItem";
+export { default as ProcessStep } from "./cards/ProcessStep";
+
+// Data Components
+export { default as ComparisonTable } from "./data/ComparisonTable";
+
+// Media Components
+export { default as Logo } from "./media/Logo";
+export { default as Carousel } from "./media/Carousel";
+export { default as OverlappingShowcase } from "./media/OverlappingShowcase";
+
+// Composite Components
+export { default as PageHeader } from "./composite/PageHeader";
+export { default as Testimonial } from "./composite/Testimonial";

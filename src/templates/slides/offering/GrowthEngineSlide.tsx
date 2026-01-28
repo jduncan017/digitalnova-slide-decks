@@ -8,7 +8,7 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import * as LucideIcons from "lucide-react";
-import type { GrowthEngineSlideContent, IconName } from "../types";
+import type { GrowthEngineSlideContent, IconName } from "../../types";
 
 interface GrowthEngineSlideProps {
   content: GrowthEngineSlideContent;

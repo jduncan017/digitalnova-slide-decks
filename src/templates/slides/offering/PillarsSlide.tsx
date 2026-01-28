@@ -11,7 +11,7 @@ import {
 } from "~/components/slide-components";
 import * as LucideIcons from "lucide-react";
 import Image from "next/image";
-import type { PillarsSlideContent, IconName } from "../types";
+import type { PillarsSlideContent, IconName } from "../../types";
 
 interface PillarsSlideProps {
   content: PillarsSlideContent;
