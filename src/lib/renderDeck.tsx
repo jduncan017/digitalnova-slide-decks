@@ -9,9 +9,15 @@ import {
   PillarsSlide,
   PortfolioSlide,
   PricingSlide,
+  PricingWithAddonsSlide,
   TimelineSlide,
   CTASlide,
   GrowthEngineSlide,
+  BeforeAfterSlide,
+  ProcessFlowSlide,
+  ComparisonSlide,
+  ValueStackSlide,
+  ROISlide,
 } from "~/templates";
 
 /**
@@ -37,12 +43,24 @@ function renderSlide(slide: SlideDefinition, index: number): ReactElement {
       return <PortfolioSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "pricing":
       return <PricingSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "pricingWithAddons":
+      return <PricingWithAddonsSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "timeline":
       return <TimelineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "cta":
       return <CTASlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "growthEngine":
       return <GrowthEngineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "beforeAfter":
+      return <BeforeAfterSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "processFlow":
+      return <ProcessFlowSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "comparison":
+      return <ComparisonSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "valueStack":
+      return <ValueStackSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "roi":
+      return <ROISlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     default:
       // TypeScript exhaustive check
       const _exhaustiveCheck: never = slide;

@@ -33,17 +33,17 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
         />
 
         {/* Opportunity factors as a flow */}
-        <div className="flex items-stretch justify-center gap-4 max-w-[1100px] mb-16 mt-6">
+        <div className="flex items-stretch justify-center gap-4 max-w-[1100px] mb-10 mt-6">
           {content.opportunities.map((item, index) => (
             <div key={index} className="flex items-stretch">
               <Box
                 animation="slideUp"
                 delay={0.3 + index * 0.12}
                 className="flex flex-col items-center text-center p-6 w-[300px] bg-neutral-600/20 border border-neutral-700 rounded-2xl"
-                hoverEffect="none"
+                hoverEffect="lift"
               >
-                <div className="mb-4 p-3 rounded-xl bg-neutral-600/30 text-gray-300">
-                  {getIcon(item.icon, "h-8 w-8")}
+                <div className="mb-4 p-3 rounded-xl bg-primary/20">
+                  {getIcon(item.icon, "h-8 w-8 text-primary")}
                 </div>
                 <Heading level="h5" className="text-gray-300 mb-3">
                   {item.factor}
@@ -74,10 +74,10 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex items-center gap-4 bg-neutral-600/20 border border-neutral-700 rounded-2xl p-6 max-w-2xl"
+            className="flex items-center gap-4 bg-linear-to-br from-primary/5 to-primary/10 border border-neutral-700 rounded-2xl p-6 max-w-2xl"
           >
-            <div className="p-3 rounded-xl bg-neutral-600/30">
-              {getIcon(content.callout.icon, "h-8 w-8 text-gray-300")}
+            <div className="p-3 rounded-xl bg-primary/20">
+              {getIcon(content.callout.icon, "h-8 w-8 text-primary")}
             </div>
             <div>
               <Body size="lg" className="font-semibold text-gray-300">

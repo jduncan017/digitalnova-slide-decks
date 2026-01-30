@@ -30,36 +30,36 @@ export default function PricingSlide({ content, slideNumber }: PricingSlideProps
       <div className="flex h-full flex-col justify-center items-center">
         <PageHeader label={content.label} title={content.title} />
 
-        {/* Pricing cards with optional connectors */}
-        <div className="flex items-stretch justify-center gap-0 max-w-[1280px]">
+        {/* Pricing cards with optional connectors and add-ons */}
+        <div className="flex items-stretch justify-center gap-6 max-w-[1400px]">
           {content.tiers.map((tier, index) => (
             <div key={index} className="flex items-stretch">
               <Box
                 animation="slideUp"
                 delay={0.4 + index * 0.15}
                 variant={tier.recommended ? "highlight" : "gradient"}
-                className={`flex h-full flex-col rounded-2xl p-8 relative w-[340px] ${
+                className={`flex h-full flex-col rounded-2xl p-8 relative w-[320px] ${
                   tier.recommended ? "border-2 border-primary-light" : ""
                 }`}
-                hoverEffect="none"
+                hoverEffect="lift"
               >
                 {/* Recommended badge */}
                 {tier.recommended && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-1 bg-gray-300 text-neutral-950 text-xs font-bold rounded-full">
-                    <Star className="h-3 w-3 fill-neutral-950" />
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-1 bg-black/80 backdrop-blur-sm text-white text-xs font-bold rounded-full border border-white/20">
+                    <Star className="h-3 w-3 fill-white" />
                     RECOMMENDED
                   </div>
                 )}
 
-                <Heading level="h4" className="mb-2 text-gray-300">
+                <Heading level="h4" className="mb-1 text-gray-300">
                   {tier.title}
                 </Heading>
-                <Body size="sm" className="mb-6 min-h-12 text-gray-400">
+                <Body size="sm" className="mb-4 min-h-10 text-gray-400">
                   {tier.subtitle}
                 </Body>
 
                 {/* Price */}
-                <div className="mb-6 pb-6 border-b border-neutral-700">
+                <div className="mb-4 pb-4 border-b border-neutral-700">
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold text-primary">
                       {tier.price}
@@ -99,6 +99,50 @@ export default function PricingSlide({ content, slideNumber }: PricingSlideProps
               )}
             </div>
           ))}
+
+          {/* Add-ons section */}
+          {content.addOns && (
+            <Box
+              animation="slideUp"
+              delay={0.7}
+              className="flex flex-col rounded-2xl p-8 w-[320px] bg-neutral-800/30 border border-neutral-700"
+              hoverEffect="lift"
+            >
+              <Heading level="h4" className="mb-4 text-gray-300">
+                ADD-ONS
+              </Heading>
+
+              {/* Required add-ons */}
+              {content.addOns.required && content.addOns.required.length > 0 && (
+                <div className="mb-4">
+                  <Body size="xs" className="text-gray-500 uppercase tracking-wider mb-2">Required</Body>
+                  <ul className="space-y-2">
+                    {content.addOns.required.map((addon, i) => (
+                      <li key={i} className="flex justify-between items-start gap-2">
+                        <Body size="sm" className="text-gray-400">{addon.name}</Body>
+                        <Body size="sm" className="text-primary font-medium shrink-0">{addon.price}</Body>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Optional add-ons */}
+              {content.addOns.optional && content.addOns.optional.length > 0 && (
+                <div>
+                  <Body size="xs" className="text-gray-500 uppercase tracking-wider mb-2">Optional</Body>
+                  <ul className="space-y-2">
+                    {content.addOns.optional.map((addon, i) => (
+                      <li key={i} className="flex justify-between items-start gap-2">
+                        <Body size="sm" className="text-gray-400">{addon.name}</Body>
+                        <Body size="sm" className="text-primary font-medium shrink-0">{addon.price}</Body>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </Box>
+          )}
         </div>
 
         {/* Optional note */}

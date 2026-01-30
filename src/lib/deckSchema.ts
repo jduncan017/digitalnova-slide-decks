@@ -8,9 +8,15 @@ import type {
   PillarsSlideContent,
   PortfolioSlideContent,
   PricingSlideContent,
+  PricingWithAddonsSlideContent,
   TimelineSlideContent,
   CTASlideContent,
   GrowthEngineSlideContent,
+  BeforeAfterSlideContent,
+  ProcessFlowSlideContent,
+  ComparisonSlideContent,
+  ValueStackSlideContent,
+  ROISlideContent,
 } from "~/templates/types";
 
 // Union type for all possible slide definitions
@@ -23,9 +29,15 @@ export type SlideDefinition =
   | { type: "pillars"; content: PillarsSlideContent }
   | { type: "portfolio"; content: PortfolioSlideContent }
   | { type: "pricing"; content: PricingSlideContent }
+  | { type: "pricingWithAddons"; content: PricingWithAddonsSlideContent }
   | { type: "timeline"; content: TimelineSlideContent }
   | { type: "cta"; content: CTASlideContent }
-  | { type: "growthEngine"; content: GrowthEngineSlideContent };
+  | { type: "growthEngine"; content: GrowthEngineSlideContent }
+  | { type: "beforeAfter"; content: BeforeAfterSlideContent }
+  | { type: "processFlow"; content: ProcessFlowSlideContent }
+  | { type: "comparison"; content: ComparisonSlideContent }
+  | { type: "valueStack"; content: ValueStackSlideContent }
+  | { type: "roi"; content: ROISlideContent };
 
 // Deck definition interface
 export interface DeckDefinition {

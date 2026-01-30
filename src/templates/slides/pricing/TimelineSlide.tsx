@@ -59,13 +59,13 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
                     ? "bg-neutral-600/30 border-2 border-neutral-600"
                     : "bg-neutral-600/20 border border-neutral-700"
                 }`}
-                hoverEffect="none"
+                hoverEffect="lift"
               >
                 {/* Header with icon */}
                 <div className="flex items-center gap-3 mb-4">
                   {step.icon && (
-                    <div className={`p-2 rounded-xl ${step.highlight ? "bg-neutral-600/40" : "bg-neutral-600/30"}`}>
-                      <div className="text-gray-300">{getIcon(step.icon, "h-6 w-6")}</div>
+                    <div className={`p-2 rounded-xl ${step.highlight ? "bg-primary/30" : "bg-primary/20"}`}>
+                      {getIcon(step.icon, "h-6 w-6 text-primary")}
                     </div>
                   )}
                   <div>
@@ -96,7 +96,7 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
                       transition={{ delay: 0.5 + index * 0.1 + itemIndex * 0.05 }}
                       className="flex items-start gap-2"
                     >
-                      <Check className="h-4 w-4 mt-0.5 shrink-0 text-gray-500" />
+                      <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
                       <Body size="sm" className="text-gray-400">{item}</Body>
                     </motion.li>
                   ))}
@@ -113,7 +113,7 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
               transition={{ delay: 0.9 }}
               className="mt-6 flex items-center gap-4 p-4 bg-neutral-600/20 border border-neutral-700 rounded-xl max-w-fit"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-400" />
+              <div className="w-2 h-2 rounded-full bg-primary" />
               <Body size="base" className="text-gray-400">
                 <span className="text-gray-300 font-medium">{content.note.highlight}</span>
                 {" "}{content.note.text}

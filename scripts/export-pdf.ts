@@ -3,7 +3,7 @@ import { PDFDocument } from "pdf-lib";
 import fs from "fs/promises";
 import path from "path";
 
-const VIEWPORT = { width: 1600, height: 900 };
+const VIEWPORT = { width: 1920, height: 1080, deviceScaleFactor: 2 };
 const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,7 +18,11 @@ async function exportDeckToPDF(deckId: string) {
   });
 
   const page = await browser.newPage();
-  await page.setViewport(VIEWPORT);
+  await page.setViewport({
+    width: VIEWPORT.width,
+    height: VIEWPORT.height,
+    deviceScaleFactor: VIEWPORT.deviceScaleFactor,
+  });
 
   // Emulate print media to trigger CSS that forces animations to complete state
   await page.emulateMediaType("print");

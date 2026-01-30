@@ -51,7 +51,11 @@ export type IconName =
   | "Video"
   | "Wifi"
   | "Plus"
-  | "ChevronRight";
+  | "ChevronRight"
+  | "Home"
+  | "Play"
+  | "User"
+  | "Filter";
 
 // ============================================
 // SLIDE CONTENT INTERFACES
@@ -247,6 +251,11 @@ export interface PricingSlideContent {
   }[];
   /** Optional icons to show between tiers (e.g., arrows to show flow) */
   connectorIcons?: IconName[];
+  /** Optional add-ons section */
+  addOns?: {
+    required?: { name: string; price: string }[];
+    optional?: { name: string; price: string }[];
+  };
   /** Optional note at bottom */
   note?: string;
 }
@@ -346,4 +355,168 @@ export interface GrowthEngineSlideContent {
       description: string;
     }[];
   };
+}
+
+/**
+ * Before/After Slide - Dramatic comparison of current vs future state
+ */
+export interface BeforeAfterSlideContent {
+  /** Section label (e.g., "THE TRANSFORMATION") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Before state (left panel, red) */
+  before: {
+    label: string;
+    title: string;
+    /** Word to highlight in red */
+    highlight?: string;
+    items: string[];
+  };
+  /** After state (right panel, primary color) */
+  after: {
+    label: string;
+    title: string;
+    /** Word to highlight in primary color */
+    highlight?: string;
+    items: string[];
+  };
+}
+
+/**
+ * Process Flow Slide - Vertical steps with connector line
+ */
+export interface ProcessFlowSlideContent {
+  /** Section label (e.g., "THE SYSTEM") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Process steps */
+  steps: {
+    icon: IconName;
+    title: string;
+    description: string;
+  }[];
+  /** Optional side image */
+  sideImage?: string;
+}
+
+/**
+ * Comparison Slide - Feature comparison matrix
+ */
+export interface ComparisonSlideContent {
+  /** Section label (e.g., "THE COMPETITION") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Column headers (competitors + you) */
+  columns: {
+    name: string;
+    /** Highlight this column (usually your product) */
+    highlighted?: boolean;
+  }[];
+  /** Feature rows */
+  features: {
+    feature: string;
+    /** Boolean for each column - true = has feature */
+    values: boolean[];
+  }[];
+  /** Optional footnote */
+  footnote?: string;
+}
+
+/**
+ * Value Stack Slide - Building up deliverables with totals
+ */
+export interface ValueStackSlideContent {
+  /** Section label (e.g., "EVERYTHING INCLUDED") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Stack items */
+  items: {
+    icon: IconName;
+    text: string;
+  }[];
+  /** Totals section at bottom */
+  totals?: {
+    label: string;
+    value: string;
+  }[];
+  /** Optional note */
+  note?: string;
+}
+
+/**
+ * ROI Slide - Show the math / risk reversal
+ */
+export interface ROISlideContent {
+  /** Section label (e.g., "ZERO RISK") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Description with highlight */
+  description: string;
+  /** Word/phrase to highlight in primary color */
+  highlight?: string;
+  /** Benefit cards (2x2 grid) */
+  benefits: {
+    icon: IconName;
+    title: string;
+    description: string;
+  }[];
+  /** Big metric on the right */
+  metric: {
+    value: string;
+    label: string;
+    subtext?: string;
+  };
+}
+
+/**
+ * Pricing With Add-ons Slide - Base package with optional add-ons
+ */
+export interface PricingWithAddonsSlideContent {
+  /** Section label (e.g., "INVESTMENT") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Base package */
+  basePackage: {
+    label: string;
+    title: string;
+    description: string;
+    price: string;
+    priceLabel: string;
+    features: string[];
+  };
+  /** Optional add-ons section */
+  addOns?: {
+    /** Featured add-on (larger card) */
+    featured?: {
+      icon: IconName;
+      title: string;
+      subtitle: string;
+      price: string;
+      priceLabel: string;
+      monthly?: string;
+      features: string[];
+    };
+    /** Smaller add-on items */
+    items?: {
+      name: string;
+      description: string;
+      price: string;
+    }[];
+  };
+  /** Footer note */
+  note?: string;
 }

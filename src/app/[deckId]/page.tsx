@@ -9,6 +9,9 @@ interface DeckPageProps {
   params: Promise<{ deckId: string }>;
 }
 
+// Only allow routes returned by generateStaticParams - prevents crashes from typos/invalid routes
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const decks = getDecks();
   return decks.map((deck) => ({

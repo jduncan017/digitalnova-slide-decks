@@ -46,11 +46,11 @@ export default function ProblemSlide({ content, slideNumber }: ProblemSlideProps
                   ? "flex items-start gap-4 py-3 px-4 rounded-xl bg-neutral-600/20 border border-neutral-700"
                   : "flex items-center gap-4"
                 }
-                hoverEffect={hasSubtext ? "none" : "highlight"}
+                hoverEffect={hasSubtext ? "lift" : "highlight"}
               >
                 {hasSubtext ? (
-                  <div className="mt-1 p-2 rounded-lg bg-neutral-600/30">
-                    {getIcon(challenge.icon, "h-6 w-6 shrink-0 text-gray-300")}
+                  <div className="mt-1 p-2 rounded-lg bg-primary/20">
+                    {getIcon(challenge.icon, "h-6 w-6 shrink-0 text-primary")}
                   </div>
                 ) : (
                   getIcon(challenge.icon)
@@ -75,7 +75,7 @@ export default function ProblemSlide({ content, slideNumber }: ProblemSlideProps
           <Box
             animation="fade"
             delay={0.4}
-            hoverEffect={content.statsOverlay ? "none" : "highlight"}
+            hoverEffect="highlight"
             className="relative h-full max-w-xl ml-auto z-10 flex items-center"
           >
             <div className="relative h-full">
@@ -88,15 +88,15 @@ export default function ProblemSlide({ content, slideNumber }: ProblemSlideProps
               />
               {/* Stats overlay */}
               {content.statsOverlay && (
-                <div className="absolute -bottom-4 -left-4 bg-neutral-950/90 backdrop-blur-sm border border-neutral-700 rounded-xl p-4 shadow-xl">
-                  <Body size="xs" className="text-gray-400 uppercase tracking-wider mb-1">
+                <div className="absolute -bottom-4 -left-4 bg-black/95 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-xl">
+                  <Body size="xs" className="!text-white/70 uppercase tracking-wider mb-1">
                     {content.statsOverlay.label}
                   </Body>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-bold text-gray-300">{content.statsOverlay.value}</span>
+                    <span className="text-2xl font-bold text-white">{content.statsOverlay.value}</span>
                   </div>
                   {content.statsOverlay.subtext && (
-                    <span className="text-gray-400 text-sm">{content.statsOverlay.subtext}</span>
+                    <span className="text-white/70 text-sm">{content.statsOverlay.subtext}</span>
                   )}
                 </div>
               )}

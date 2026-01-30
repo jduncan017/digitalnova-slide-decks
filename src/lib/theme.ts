@@ -28,6 +28,9 @@ export interface DeckTheme {
     500: string;
   };
 
+  // Display mode - determines logo variant and other visual adjustments
+  mode: "light" | "dark";
+
   // Client branding
   clientLogo?: string; // Path to client logo (replaces your logo on hero)
   clientName?: string; // Client name for personalization
@@ -60,6 +63,8 @@ export const defaultTheme: DeckTheme = {
     500: "#71717a", // Zinc-500
   },
 
+  mode: "dark",
+
   clientLogo: "/logo.png",
   clientName: "DigitalNova Studio",
 };
@@ -81,5 +86,6 @@ export function createTheme(overrides: Partial<DeckTheme>): DeckTheme {
       ...defaultTheme.gray,
       ...(overrides.gray ?? {}),
     },
+    mode: overrides.mode ?? defaultTheme.mode,
   };
 }

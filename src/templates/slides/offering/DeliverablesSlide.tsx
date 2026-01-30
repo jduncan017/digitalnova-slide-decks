@@ -49,8 +49,8 @@ export default function DeliverablesSlide({ content, slideNumber }: Deliverables
 
                 {/* Icon + Title row */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-neutral-600/30 text-gray-300">
-                    {getIcon(item.icon, "h-6 w-6")}
+                  <div className="p-2 rounded-lg bg-primary/20">
+                    {getIcon(item.icon, "h-6 w-6 text-primary")}
                   </div>
                   <Heading level="h4" className="text-gray-300">
                     {item.title}
@@ -61,7 +61,7 @@ export default function DeliverablesSlide({ content, slideNumber }: Deliverables
                 <ul className="space-y-2">
                   {item.items.map((listItem, itemIndex) => (
                     <li key={itemIndex} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       <Body size="sm" className="text-gray-400">{listItem}</Body>
                     </li>
                   ))}
@@ -94,8 +94,8 @@ export default function DeliverablesSlide({ content, slideNumber }: Deliverables
                 className="flex-1 flex items-center gap-4 px-6 py-4 bg-neutral-600/20 border border-neutral-700 rounded-2xl"
                 hoverEffect="none"
               >
-                <div className="p-2 rounded-lg bg-neutral-600/30 text-gray-300">
-                  {getIcon(option.icon, "h-6 w-6")}
+                <div className="p-2 rounded-lg bg-primary/20">
+                  {getIcon(option.icon, "h-6 w-6 text-primary")}
                 </div>
                 <div>
                   <Heading level="h5" className="text-gray-300 mb-1">

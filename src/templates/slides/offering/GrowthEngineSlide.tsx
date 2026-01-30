@@ -40,8 +40,8 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
             hoverEffect="none"
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="p-2 rounded-lg bg-neutral-600/30">
-                {getIcon(content.leftPanel.icon, "h-5 w-5 text-gray-300")}
+              <div className="p-2 rounded-lg bg-primary/20">
+                {getIcon(content.leftPanel.icon, "h-5 w-5 text-primary")}
               </div>
               <Heading level="h4" className="text-gray-300">
                 {content.leftPanel.title}
@@ -61,8 +61,8 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
                   className="flex items-center gap-3"
                   hoverEffect="none"
                 >
-                  <div className="p-1.5 rounded bg-neutral-600/30 text-gray-400">
-                    {getIcon(item.icon, "h-4 w-4")}
+                  <div className="p-1.5 rounded bg-primary/15">
+                    {getIcon(item.icon, "h-4 w-4 text-primary")}
                   </div>
                   <div className="flex-1 min-w-0">
                     <Body size="sm" className="text-gray-300 font-medium">
@@ -85,8 +85,8 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
             hoverEffect="none"
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="p-2 rounded-lg bg-neutral-600/30">
-                {getIcon(content.rightPanel.icon, "h-5 w-5 text-gray-300")}
+              <div className="p-2 rounded-lg bg-primary/20">
+                {getIcon(content.rightPanel.icon, "h-5 w-5 text-primary")}
               </div>
               <Heading level="h4" className="text-gray-300">
                 {content.rightPanel.title}
@@ -106,8 +106,8 @@ export default function GrowthEngineSlide({ content, slideNumber }: GrowthEngine
                   hoverEffect="none"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-neutral-600/30 text-gray-300">
-                      {getIcon(item.icon, "h-4 w-4")}
+                    <div className="p-2 rounded-lg bg-primary/15">
+                      {getIcon(item.icon, "h-4 w-4 text-primary")}
                     </div>
                     <div>
                       <Body size="sm" className="text-gray-300">

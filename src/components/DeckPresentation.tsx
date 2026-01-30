@@ -102,7 +102,7 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
       className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-outer-bg"
     >
       {/* 16:9 Slide Container */}
-      <div className="relative shadow-2xl h-full max-h-[min(56.25vw,900px)] border border-neutral-700 w-full max-w-[min(177.78vh,1600px)] bg-linear-to-b from-slide-bg-from to-slide-bg-to">
+      <div className="relative shadow-2xl h-full max-h-[min(56.25vw,900px)] border border-neutral-700 w-full max-w-[min(177.78vh,1600px)] bg-linear-to-br from-slide-bg-from to-slide-bg-to">
         {/* Slide content */}
         <AnimatePresence mode="wait">
           <motion.div
