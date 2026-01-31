@@ -1,6 +1,10 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import puppeteer from "puppeteer";
+import puppeteerCore from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
+
+// For local development, use regular puppeteer
+const isDev = process.env.NODE_ENV === "development";
 
 export async function GET(
   request: NextRequest,
@@ -14,10 +18,24 @@ export async function GET(
   const url = `${protocol}://${host}/${deckId}/sow`;
 
   try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+    let browser;
+
+    if (isDev) {
+      // Local development: use regular puppeteer
+      const puppeteer = await import("puppeteer");
+      browser = await puppeteer.default.launch({
+        headless: true,
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      });
+    } else {
+      // Production (Vercel): use puppeteer-core with @sparticuz/chromium
+      const executablePath = await chromium.executablePath();
+      browser = await puppeteerCore.launch({
+        args: chromium.args,
+        executablePath,
+        headless: true,
+      });
+    }
 
     const page = await browser.newPage();
 
@@ -27,13 +45,8 @@ export async function GET(
     // Navigate to the SOW page
     await page.goto(url, { waitUntil: "networkidle0" });
 
-    // Hide the print button before generating PDF
-    await page.evaluate(() => {
-      const printButton = document.querySelector("button");
-      if (printButton) {
-        printButton.style.display = "none";
-      }
-    });
+    // Hide the download button via CSS injection
+    await page.addStyleTag({ content: "button { display: none !important; }" });
 
     // Generate PDF
     const pdf = await page.pdf({
