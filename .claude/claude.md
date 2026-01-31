@@ -979,3 +979,222 @@ npm run lint     # Check for errors
 - [ ] `npm run build` passes
 - [ ] Deck renders correctly at `/[client-slug]`
 - [ ] **Add deck to directory** in `src/app/page.tsx` (add to `decks` array)
+
+---
+
+## Statement of Work (SOW) System
+
+### Overview
+SOWs are project-specific documents that outline deliverables, timeline, and payment schedule. They live alongside decks and share the same theme for brand consistency.
+
+**Key Points:**
+- SOWs are governed by the DigitalNova Service Agreement (separate document signed via Jotform)
+- SOWs don't need signatures - they're reference documents
+- Each SOW lives in the same folder as its deck and shares the theme
+- Accessible at `/[client-slug]/sow`
+
+### SOW File Structure
+```
+decks/[client-slug]/
+├── content.ts      # Deck content
+├── deck.tsx        # Deck route → /client-slug
+├── sow-content.ts  # SOW content (optional)
+└── theme.ts        # Shared theme
+```
+
+### When to Create a SOW
+Create a SOW when:
+- Client has approved the proposal and is ready to move forward
+- You need to formalize scope, timeline, and payment terms
+- The project has specifics beyond what's in the deck (start date, payment schedule, out-of-scope items)
+
+### SOW Schema Reference
+
+**Location**: `src/lib/sowSchema.ts`
+
+```ts
+interface SOWDefinition {
+  projectTitle: string;           // e.g., "Website & Lead Generation System"
+
+  client: {
+    name: string;                 // Company name
+    contactName?: string;         // Primary contact
+    contactEmail?: string;        // Contact email
+  };
+
+  overview: string;               // 2-3 sentence project summary
+  startDate: string;              // e.g., "February 17, 2025"
+  estimatedCompletion?: string;   // e.g., "March 21, 2025"
+
+  deliverables: Array<{
+    title: string;                // e.g., "Professional Website (5 Pages)"
+    description?: string;         // Brief description
+    items?: string[];             // Bullet points of what's included
+  }>;
+
+  timeline?: Array<{
+    title: string;                // e.g., "Week 1: Discovery & Strategy"
+    description?: string;         // What happens in this phase
+    payment?: string;             // e.g., "50% deposit due"
+  }>;
+
+  payments: Array<{
+    description: string;          // e.g., "Setup Fee (50% deposit)"
+    amount: string;               // e.g., "$3,250"
+    due: string;                  // e.g., "Upon signing"
+  }>;
+
+  totalInvestment: string;        // e.g., "$6,500 setup + $2,100/mo"
+
+  outOfScope?: string[];          // Items explicitly NOT included
+  assumptions?: string[];         // What we're assuming to be true
+  notes?: string;                 // Additional context
+}
+```
+
+### SOW Building Workflow
+
+#### Step 1: Gather Information
+When creating a SOW, you need:
+
+**From the deck (auto-pull where possible):**
+- [ ] Client name (from `theme.clientName`)
+- [ ] Deliverables (from deliverables/pricing slides)
+- [ ] Timeline (from timeline slide)
+- [ ] Pricing (from pricing slide)
+
+**Need to ask:**
+- [ ] Project start date
+- [ ] Payment schedule (e.g., 50/50, milestone-based)
+- [ ] Items explicitly out of scope
+- [ ] Any custom terms agreed outside the deck
+- [ ] Assumptions about client responsibilities
+
+#### Step 2: Clarifying Questions
+Before building a SOW, ask:
+- "What is the project start date?"
+- "What payment schedule did you agree on? (50% deposit / 50% at launch, or something else?)"
+- "Are there any items explicitly out of scope we should document?"
+- "Any special terms or conditions agreed in the call?"
+
+#### Step 3: Create the SOW
+1. Create `sow-content.ts` in the deck folder
+2. Use the `SOWDefinition` schema
+3. Pull content from deck where applicable
+4. Add project-specific details
+5. Run `npm run build` to verify
+
+#### Step 4: Verify
+- [ ] Build passes
+- [ ] SOW renders at `/[client-slug]/sow`
+- [ ] Theme matches the deck
+- [ ] All sections are complete
+- [ ] Print/PDF works (click Print button)
+
+### SOW Template
+
+```ts
+// sow-content.ts
+import type { SOWDefinition } from "~/lib/sowSchema";
+
+export const sowContent: SOWDefinition = {
+  projectTitle: "[Project Name]",
+
+  client: {
+    name: "[Company Name]",
+    contactName: "[Contact Name]",
+  },
+
+  overview: "[2-3 sentence description of what we're building and why]",
+
+  startDate: "[Month Day, Year]",
+  estimatedCompletion: "[Month Day, Year]",
+
+  deliverables: [
+    {
+      title: "[Deliverable 1]",
+      description: "[Brief description]",
+      items: [
+        "[Item 1]",
+        "[Item 2]",
+      ],
+    },
+    // ... more deliverables
+  ],
+
+  timeline: [
+    {
+      title: "[Phase 1]",
+      description: "[What happens]",
+      payment: "[Payment due, if any]",
+    },
+    // ... more phases
+  ],
+
+  payments: [
+    {
+      description: "[Payment description]",
+      amount: "$X,XXX",
+      due: "[When due]",
+    },
+    // ... more payments
+  ],
+
+  totalInvestment: "$X,XXX + $X,XXX/mo",
+
+  outOfScope: [
+    "[Item not included]",
+    // ...
+  ],
+
+  assumptions: [
+    "[What we're assuming]",
+    // ...
+  ],
+
+  notes: "[Any additional context]",
+};
+```
+
+### Common Out of Scope Items
+Reference these when building SOWs:
+- Ad spend (paid directly to platform)
+- Content writing beyond website copy (blog posts, whitepapers)
+- Video production or editing
+- Photography or stock photo licensing
+- Print materials or offline marketing
+- Social media management
+- Software development beyond agreed scope
+- Third-party software/tool subscriptions
+- Domain registration and DNS management (unless specified)
+
+### Common Assumptions
+Reference these when building SOWs:
+- Client will provide timely feedback within 5 business days
+- Client will provide brand assets, logos, and photography as needed
+- Client will provide access to necessary accounts (hosting, CRM, ad platforms)
+- Two rounds of design revisions are included per the Service Agreement
+- Content provided by client is accurate and approved for use
+- Project timeline assumes no major scope changes
+
+### PDF Export
+The SOW page includes a "Print / Save PDF" button that:
+- Opens browser print dialog
+- Includes print-optimized styles
+- Maintains brand colors (print-color-adjust: exact)
+- Keeps sections together (page-break-inside: avoid)
+
+Recommended: Save as PDF using browser print dialog for sharing with clients.
+
+---
+
+## Quick Reference: SOW Creation Checklist
+
+- [ ] Deck already exists for this client
+- [ ] Start date confirmed
+- [ ] Payment schedule agreed
+- [ ] Out of scope items identified
+- [ ] `sow-content.ts` created in deck folder
+- [ ] `npm run build` passes
+- [ ] SOW renders at `/[client-slug]/sow`
+- [ ] Print/PDF tested

@@ -43,3 +43,29 @@
     print-color-adjust: exact !important;
   }
 }
+
+/* SOW Document Print Styles */
+@media print {
+  .sow-document {
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .sow-container {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure page breaks don't split sections awkwardly */
+  .sow-container section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Keep deliverable cards together */
+  .sow-container section > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
