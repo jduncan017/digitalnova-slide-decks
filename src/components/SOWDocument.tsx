@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import type { SOWDefinition } from "~/lib/sowSchema";
 import { useTheme } from "~/components/ThemeProvider";
-import { Check, X, AlertCircle, Printer } from "lucide-react";
+import { Check, X, AlertCircle, Download, Loader2 } from "lucide-react";
 
 interface SOWDocumentProps {
   content: SOWDefinition;
@@ -10,9 +12,34 @@ interface SOWDocumentProps {
 
 export function SOWDocument({ content }: SOWDocumentProps) {
   const theme = useTheme();
+  const pathname = usePathname();
+  const [isDownloading, setIsDownloading] = useState(false);
 
-  const handlePrint = () => {
-    window.print();
+  // Extract deckId from pathname (e.g., "/colorado-business-cpa/sow" -> "colorado-business-cpa")
+  const deckId = pathname.split("/")[1];
+
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      const response = await fetch(`/api/pdf/${deckId}`);
+      if (!response.ok) throw new Error("Failed to generate PDF");
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${deckId}-sow.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Download error:", error);
+      // Fallback to browser print
+      window.print();
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -20,17 +47,27 @@ export function SOWDocument({ content }: SOWDocumentProps) {
       className="sow-document min-h-screen py-8 px-4 md:px-8"
       style={{ backgroundColor: theme.outerBg }}
     >
-      {/* Print Button - hidden in print */}
+      {/* Download Button - hidden in print */}
       <button
-        onClick={handlePrint}
-        className="print:hidden fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+        onClick={handleDownload}
+        disabled={isDownloading}
+        className="print:hidden fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-70"
         style={{
           backgroundColor: theme.primary,
           color: "#ffffff",
         }}
       >
-        <Printer size={16} />
-        Print / Save PDF
+        {isDownloading ? (
+          <>
+            <Loader2 size={16} className="animate-spin" />
+            Generating...
+          </>
+        ) : (
+          <>
+            <Download size={16} />
+            Download PDF
+          </>
+        )}
       </button>
 
       {/* Document Container */}
