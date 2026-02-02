@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Slide from "~/components/Slide";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -86,7 +87,7 @@ const HeroSlide = (
               className="mt-6 flex items-center gap-3"
             >
               <Body size="base" className="text-gray-500">
-                Presented by Cifernoise
+                Presented by CiferNoise Productions
               </Body>
             </motion.div>
           </Box>
@@ -101,7 +102,7 @@ const HeroSlide = (
         className="relative z-10 ml-auto h-full max-w-2xl"
       >
         <Image
-          src="/images/red.jpg"
+          src="/images/silent-conference.png"
           alt="Conference"
           width={1000}
           height={1000}
@@ -278,7 +279,7 @@ const WhySilentConferenceSlide = (
                 <Body size="sm" className="font-medium text-gray-300">
                   {item.title}
                 </Body>
-                <Body size="xs" className="text-gray-500">
+                <Body size="sm" className="text-gray-500">
                   {item.desc}
                 </Body>
               </div>
@@ -293,15 +294,11 @@ const WhySilentConferenceSlide = (
           className="bg-primary/10 border-primary/30 rounded-xl border p-5"
         >
           <Label className="text-primary mb-4">PERFECT FOR YOUR EVENT</Label>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
               {
                 time: "Breakout Sessions",
-                desc: "Run 3 concurrent tracks in one ballroom—each speaker on their own channel",
-              },
-              {
-                time: "Keynotes & Panels",
-                desc: "Live translation channels or supplementary audio for accessibility",
+                desc: "Run all concurrent tracks in one ballroom, each speaker on their own channel",
               },
               {
                 time: "Training Sessions",
@@ -321,7 +318,7 @@ const WhySilentConferenceSlide = (
                 <Body size="sm" className="font-medium text-purple-300">
                   {item.time}
                 </Body>
-                <Body size="xs" className="text-gray-400">
+                <Body size="sm" className="text-gray-400">
                   {item.desc}
                 </Body>
               </motion.div>
@@ -364,7 +361,7 @@ const WhatYouGetSlide = (
             title: "Premium Headphones",
             items: [
               "LED color-changing",
-              "3-channel switching",
+              "10-channel switching",
               "Comfortable for hours",
               "Fully sanitized",
             ],
@@ -417,7 +414,7 @@ const WhatYouGetSlide = (
               {item.items.map((li, j) => (
                 <li key={j} className="flex items-center gap-2">
                   <Check className="text-primary h-3 w-3 shrink-0" />
-                  <Body size="xs" className="text-gray-400">
+                  <Body size="sm" className="text-gray-400">
                     {li}
                   </Body>
                 </li>
@@ -447,7 +444,7 @@ const WhatYouGetSlide = (
 // SLIDE 5: Our Recommendations
 // ============================================
 const RecommendationsSlide = (
-  <Slide key="recommendations" showLogo={false} slideNumber={5}>
+  <Slide key="recommendations" showLogo={false} slideNumber={7}>
     <div className="absolute top-5 right-6 z-10">
       <Image
         src="/logos/medtronic.png"
@@ -532,8 +529,7 @@ const RecommendationsSlide = (
                 </Heading>
                 <Body size="sm" className="text-gray-400">
                   Elevate each presentation area so attendees can see their
-                  chosen speaker from anywhere in the room, even when multiple
-                  tracks run simultaneously.
+                  chosen speaker from anywhere in their seated breakout area.
                 </Body>
               </div>
             </div>
@@ -591,7 +587,7 @@ const RecommendationsSlide = (
                   <Body size="sm" className="font-medium text-purple-300">
                     {item.title}
                   </Body>
-                  <Body size="xs" className="text-gray-400">
+                  <Body size="sm" className="text-gray-400">
                     {item.desc}
                   </Body>
                 </div>
@@ -608,7 +604,7 @@ const RecommendationsSlide = (
 // SLIDE 6: Custom Branding
 // ============================================
 const CustomBrandingSlide = (
-  <Slide key="branding" showLogo={false} slideNumber={7}>
+  <Slide key="branding" showLogo={false} slideNumber={6}>
     <div className="absolute top-5 right-6 z-10">
       <Image
         src="/logos/medtronic.png"
@@ -685,24 +681,32 @@ const CustomBrandingSlide = (
             hoverEffect="none"
             className="bg-primary/10 border-primary/30 rounded-xl border p-5"
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <Body size="sm" className="mb-1 text-gray-400">
-                  Add custom branding
-                </Body>
-                <Heading level="h3" className="text-primary">
-                  $4.50{" "}
-                  <span className="text-lg font-normal text-gray-400">
-                    per headphone
-                  </span>
-                </Heading>
-              </div>
-              <div className="text-right">
-                <Body size="xs" className="text-gray-500">
-                  Example: 450 headphones
+            <div className="mb-3">
+              <Body size="sm" className="mb-1 text-gray-400">
+                Add custom branding
+              </Body>
+              <Heading level="h3" className="text-primary">
+                $4.50{" "}
+                <span className="text-lg font-normal text-gray-400">
+                  per headphone
+                </span>
+              </Heading>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-1 rounded-lg bg-neutral-800/50 p-3 text-center">
+                <Body size="sm" className="text-gray-500">
+                  Floorplan 1 (450)
                 </Body>
                 <Body size="lg" className="font-semibold text-purple-300">
                   +$2,025
+                </Body>
+              </div>
+              <div className="flex-1 rounded-lg bg-neutral-800/50 p-3 text-center">
+                <Body size="sm" className="text-gray-500">
+                  Floorplan 2 (660)
+                </Body>
+                <Body size="lg" className="font-semibold text-purple-300">
+                  +$2,970
                 </Body>
               </div>
             </div>
@@ -718,7 +722,7 @@ const CustomBrandingSlide = (
 // ============================================
 const packages = [
   {
-    name: "Standard Package",
+    name: "Floorplan 1",
     headphones: 450,
     transmitters: 8,
     staff: 4,
@@ -729,7 +733,7 @@ const packages = [
     ],
   },
   {
-    name: "Large Package",
+    name: "Floorplan 2",
     headphones: 660,
     transmitters: 9,
     staff: 6,
@@ -744,7 +748,7 @@ const packages = [
 const shipping = 450;
 
 const PricingSlide = (
-  <Slide key="pricing" showLogo={false} slideNumber={6}>
+  <Slide key="pricing" showLogo={false} slideNumber={5}>
     <div className="absolute top-5 right-6 z-10">
       <Image
         src="/logos/medtronic.png"
@@ -768,7 +772,7 @@ const PricingSlide = (
 
       <div className="mx-auto grid w-full max-w-5xl grid-cols-2 gap-3">
         {packages.map((pkg, pkgIndex) => {
-          const laborPerDay = pkg.staff * 45 * 12;
+          const laborPerDay = pkg.staff * 50 * 10;
           const dailyTotals = pkg.days.map((d) => ({
             ...d,
             headphoneCost: pkg.headphones * d.rate,
@@ -801,7 +805,7 @@ const PricingSlide = (
                 <Heading level="h5" className="text-gray-300">
                   {pkg.name}
                 </Heading>
-                <Body size="xs" className="text-purple-300">
+                <Body size="sm" className="text-purple-300">
                   {pkg.headphones} Headphones • {pkg.transmitters} Transmitters
                   • {pkg.staff} Staff
                 </Body>
@@ -814,16 +818,16 @@ const PricingSlide = (
                     className="rounded bg-neutral-900/50 px-2 py-1"
                   >
                     <div className="mb-0.5 flex items-center gap-2">
-                      <Body size="xs" className="font-medium text-gray-300">
+                      <Body size="sm" className="font-medium text-gray-300">
                         Day {day.day}
                       </Body>
                       {day.rate < 10.5 && (
-                        <span className="rounded bg-purple-400/20 px-1 py-0.5 text-[9px] text-purple-300">
+                        <span className="rounded bg-purple-400/20 px-1 py-0.5 text-[12px] text-purple-300">
                           -${(10.5 - day.rate).toFixed(2)}/headphone
                         </span>
                       )}
                     </div>
-                    <div className="space-y-0.5 text-[10px]">
+                    <div className="space-y-0.5 text-[14px]">
                       <div className="flex justify-between">
                         <span className="text-gray-500">
                           Headphones: {pkg.headphones} × ${day.rate.toFixed(2)}
@@ -834,7 +838,7 @@ const PricingSlide = (
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-500">
-                          Labor: {pkg.staff} × $45/hr × 12hrs
+                          Labor: {pkg.staff} × $50/hr × 10hrs
                         </span>
                         <span className="text-gray-400">
                           ${laborPerDay.toLocaleString()}
@@ -842,7 +846,7 @@ const PricingSlide = (
                       </div>
                     </div>
                     <div className="mt-0.5 flex justify-end border-t border-neutral-700/50 pt-0.5">
-                      <Body size="xs" className="text-primary font-semibold">
+                      <Body size="sm" className="text-primary font-semibold">
                         ${day.total.toLocaleString()}
                       </Body>
                     </div>
@@ -851,7 +855,7 @@ const PricingSlide = (
               </div>
 
               <div className="flex items-center justify-between border-t border-neutral-700 py-1.5">
-                <Body size="xs" className="text-gray-400">
+                <Body size="sm" className="text-gray-400">
                   3-Day Subtotal
                 </Body>
                 <Body size="sm" className="font-semibold text-gray-300">
@@ -859,7 +863,7 @@ const PricingSlide = (
                 </Body>
               </div>
 
-              <div className="space-y-1 border-t border-neutral-700 py-1.5 text-[11px]">
+              <div className="space-y-1 border-t border-neutral-700 py-1.5 text-[14px]">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-gray-500">
                     <Radio className="h-2.5 w-2.5" /> Transmitters (
@@ -871,7 +875,7 @@ const PricingSlide = (
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-gray-500">
-                    <Truck className="h-2.5 w-2.5" /> Shipping & Handling
+                    <Truck className="h-2.5 w-2.5" /> Delivery & Handling
                   </span>
                   <span className="text-gray-400">${shipping}</span>
                 </div>
@@ -889,7 +893,7 @@ const PricingSlide = (
                 {savings > 0 && (
                   <div className="mt-0.5 flex items-center justify-end gap-1">
                     <Sparkles className="h-2.5 w-2.5 text-purple-300" />
-                    <Body size="xs" className="text-purple-300">
+                    <Body size="sm" className="text-purple-300">
                       Save ${savings.toLocaleString()} with multi-day
                     </Body>
                   </div>
@@ -902,7 +906,7 @@ const PricingSlide = (
 
       <div className="mx-auto mt-3 w-full max-w-5xl">
         <div className="flex items-center justify-center gap-5">
-          <Body size="xs" className="tracking-wider text-gray-500 uppercase">
+          <Body size="sm" className="tracking-wider text-gray-500 uppercase">
             Includes:
           </Body>
           {[
@@ -919,14 +923,14 @@ const PricingSlide = (
               className="flex items-center gap-1"
             >
               <Check className="text-primary h-2.5 w-2.5" />
-              <Body size="xs" className="text-gray-400">
+              <Body size="sm" className="text-gray-400">
                 {item}
               </Body>
             </motion.div>
           ))}
         </div>
         <div className="mt-2 text-center">
-          <Body size="xs" className="text-purple-300">
+          <Body size="sm" className="text-purple-300">
             + Optional: Custom branding at $4.50/headphone
           </Body>
         </div>
@@ -978,14 +982,14 @@ const CTASlide = (
             {[
               {
                 icon: Mail,
-                text: "events@cifernoise.com",
-                href: "mailto:events@cifernoise.com",
+                text: "jason@cifernoiseproductions.com",
+                href: "mailto:jason@cifernoiseproductions.com",
               },
-              { icon: Phone, text: "(555) 123-4567", href: "tel:+15551234567" },
+              { icon: Phone, text: "(720) 295-4749", href: "tel:+17202954749" },
               {
                 icon: Globe,
-                text: "cifernoise.com",
-                href: "https://cifernoise.com",
+                text: "cifernoiseproductions.com",
+                href: "https://cifernoiseproductions.com",
               },
             ].map((item, i) => (
               <motion.a
@@ -1030,15 +1034,27 @@ const CTASlide = (
 // ============================================
 // EXPORT ALL SLIDES
 // ============================================
-const slides = [
+
+// Deck-specific wrapper to slightly increase body text sizes
+const BodyTextScaler = ({ children }: { children: ReactNode }) => (
+  <div className="h-full [&_.text-base]:text-[18px] [&_.text-lg]:text-[20px] [&_.text-sm]:text-[15px] [&_.text-sm]:text-[16px] [&_.text-xl]:text-[22px]">
+    {children}
+  </div>
+);
+
+const baseSlides = [
   HeroSlide,
   OpportunitySlide,
   WhySilentConferenceSlide,
   WhatYouGetSlide,
-  RecommendationsSlide,
   PricingSlide,
   CustomBrandingSlide,
+  RecommendationsSlide,
   CTASlide,
 ];
+
+const slides = baseSlides.map((slide, i) => (
+  <BodyTextScaler key={`slide-${i}`}>{slide}</BodyTextScaler>
+));
 
 export default slides;
