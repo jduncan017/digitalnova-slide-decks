@@ -41,6 +41,7 @@ export default function CTASlide({
   const pathname = usePathname();
   const deckId = pathname?.replace("/", "") || "";
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -62,16 +63,25 @@ export default function CTASlide({
           email,
           deckId,
           deckTitle,
-          preparedFor,
+          preparedFor: name || preparedFor,
         }),
       });
 
       if (!response.ok) {
-        const data = (await response.json()) as { error?: string };
-        throw new Error(data.error ?? "Failed to send email");
+        // Try to parse JSON error, fallback to status text
+        let errorMessage = "Failed to send email";
+        try {
+          const data = (await response.json()) as { error?: string };
+          errorMessage = data.error ?? errorMessage;
+        } catch {
+          // Response wasn't JSON (e.g., "Internal Server Error")
+          errorMessage = response.statusText || errorMessage;
+        }
+        throw new Error(errorMessage);
       }
 
       setStatus("success");
+      setName("");
       setEmail("");
       // Reset after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
@@ -203,12 +213,22 @@ export default function CTASlide({
             <Body size="sm" className="mb-3 text-gray-500">
               Send this proposal via email:
             </Body>
-            <form onSubmit={handleSendEmail} className="flex gap-3">
+            <form onSubmit={handleSendEmail} className="flex gap-3" onKeyDown={(e) => e.stopPropagation()}>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onKeyDown={(e) => e.stopPropagation()}
+                placeholder="Name"
+                className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
+                disabled={status === "loading" || status === "success"}
+              />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email address"
+                onKeyDown={(e) => e.stopPropagation()}
+                placeholder="Email address"
                 className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
                 disabled={status === "loading" || status === "success"}
               />

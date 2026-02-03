@@ -13,14 +13,24 @@ export async function POST(request: Request) {
   try {
     const apiKey = env.RESEND_API_KEY;
     if (!apiKey) {
+      console.error("RESEND_API_KEY not configured");
       return NextResponse.json(
-        { error: "Email service not configured" },
+        { error: "Email service not configured. Please add RESEND_API_KEY to your .env file." },
         { status: 500 }
       );
     }
 
     const resend = new Resend(apiKey);
-    const body = (await request.json()) as SendDeckLinkRequest;
+
+    let body: SendDeckLinkRequest;
+    try {
+      body = (await request.json()) as SendDeckLinkRequest;
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid request body" },
+        { status: 400 }
+      );
+    }
     const { email, deckId, deckTitle, preparedFor } = body;
 
     if (!email || !deckId) {
@@ -74,10 +84,10 @@ export async function POST(request: Request) {
                         </p>
 
                         <!-- CTA Buttons -->
-                        <table cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+                        <table cellpadding="0" cellspacing="0" style="margin-bottom: 12px;">
                           <tr>
                             <td style="background: linear-gradient(135deg, #0b90b3 0%, #0a7a99 100%); border-radius: 8px;">
-                              <a href="${deckUrl}" target="_blank" style="display: inline-block; padding: 16px 32px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none;">
+                              <a href="${deckUrl}" target="_blank" style="display: inline-block; padding: 14px 28px; font-size: 14px; font-weight: 600; color: #ffffff; text-decoration: none;">
                                 View Your Proposal
                               </a>
                             </td>
@@ -103,24 +113,12 @@ export async function POST(request: Request) {
                       </td>
                     </tr>
 
-                    <!-- Promo -->
-                    <tr>
-                      <td style="padding-top: 32px; text-align: center;">
-                        <table width="100%" cellpadding="0" cellspacing="0">
-                          <tr>
-                            <td style="background-color: #252542; border: 1px solid #3a3a52; border-radius: 8px; padding: 16px 20px; text-align: center;">
-                              <p style="margin: 0; font-size: 14px; color: #a0a0a0;">
-                                Want interactive proposals like this for your business? Ask about our proposal services.
-                              </p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-
                     <!-- Footer -->
                     <tr>
                       <td style="padding-top: 24px; text-align: center;">
+                        <p style="margin: 0 0 12px 0; font-size: 14px; color: #ffffff;">
+                          Want interactive proposals like this for your business? Ask about our proposal services.
+                        </p>
                         <p style="margin: 0 0 4px 0; font-size: 14px; color: #666666;">
                           Questions? Just reply to this email.
                         </p>
@@ -146,8 +144,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, id: data?.id });
   } catch (error) {
     console.error("Send email error:", error);
+    const message = error instanceof Error ? error.message : "Failed to send email";
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: message },
       { status: 500 }
     );
   }
