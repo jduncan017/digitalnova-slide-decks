@@ -1037,7 +1037,7 @@ const CTASlide = (
 
 // Deck-specific wrapper to slightly increase body text sizes
 const BodyTextScaler = ({ children }: { children: ReactNode }) => (
-  <div className="h-full [&_.text-base]:text-[18px] [&_.text-lg]:text-[20px] [&_.text-sm]:text-[15px] [&_.text-sm]:text-[16px] [&_.text-xl]:text-[22px]">
+  <div className="h-full [&_.text-base]:text-[18px] [&_.text-lg]:text-[20px] [&_.text-sm]:text-[16px] [&_.text-xl]:text-[22px] [&_.text-xs]:text-[15px]">
     {children}
   </div>
 );

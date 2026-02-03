@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import type { SOWDefinition } from "~/lib/sowSchema";
 import { useTheme } from "~/components/ThemeProvider";
-import { Check, X, AlertCircle, Download, Loader2 } from "lucide-react";
+import { Check, X, AlertCircle, Download, Loader2, FileSignature } from "lucide-react";
 
 interface SOWDocumentProps {
   content: SOWDefinition;
@@ -33,8 +34,8 @@ export function SOWDocument({ content }: SOWDocumentProps) {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-    } catch (error) {
-      console.error("Download error:", error);
+    } catch (err: unknown) {
+      console.error("Download error:", err);
       // Fallback to browser print
       window.print();
     } finally {
@@ -53,7 +54,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
         disabled={isDownloading}
         className="print:hidden fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-70"
         style={{
-          backgroundColor: theme.primary,
+          backgroundColor: theme.primaryDark,
           color: "#ffffff",
         }}
       >
@@ -102,9 +103,11 @@ export function SOWDocument({ content }: SOWDocumentProps) {
               </p>
             </div>
             {theme.clientLogo && (
-              <img
+              <Image
                 src={theme.clientLogo}
                 alt="Logo"
+                width={120}
+                height={48}
                 className="h-12 w-auto object-contain print:h-10"
               />
             )}
@@ -408,6 +411,36 @@ export function SOWDocument({ content }: SOWDocumentProps) {
             </section>
           )}
         </div>
+
+        {/* Contract Signing CTA */}
+        {content.contractLink && (
+          <section className="px-8 py-8 print:hidden">
+            <div
+              className="p-6 rounded-lg text-center"
+              style={{ backgroundColor: theme.neutral[800] }}
+            >
+              <h2
+                className="text-xl font-bold mb-2"
+                style={{ color: theme.gray[300] }}
+              >
+                Ready to Get Started?
+              </h2>
+              <p className="text-sm mb-6" style={{ color: theme.gray[400] }}>
+                By signing the contract, you agree to everything included in this Statement of Work.
+              </p>
+              <a
+                href={content.contractLink ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: theme.primaryDark }}
+              >
+                <FileSignature size={20} />
+                Sign Contract
+              </a>
+            </div>
+          </section>
+        )}
 
         {/* Footer */}
         <footer

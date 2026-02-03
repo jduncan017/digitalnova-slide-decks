@@ -58,4 +58,7 @@ export interface SOWDefinition {
 
   /** Additional notes */
   notes?: string;
+
+  /** Contract signing link (e.g., Jotform, DocuSign) */
+  contractLink?: string;
 }

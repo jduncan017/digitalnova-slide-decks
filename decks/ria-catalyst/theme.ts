@@ -7,6 +7,7 @@ export const theme = createTheme({
   // White for accents on dark background
   primary: "rgb(191 219 254)",
   primaryLight: "#e2e8f0",
+  primaryDark: "#0369a1", // Darker blue for buttons with white text
 
   // Dark teal slide backgrounds
   slideBg: {

@@ -4,6 +4,7 @@ export interface DeckTheme {
   // Brand colors
   primary: string; // Accent color (buttons, highlights, icons)
   primaryLight: string; // Lighter variant for gradients
+  primaryDark: string; // Darker variant for buttons with white text
 
   // Backgrounds
   slideBg: {
@@ -42,6 +43,7 @@ export interface DeckTheme {
 export const defaultTheme: DeckTheme = {
   primary: "#6366f1", // Indigo - innovative, trusted, modern
   primaryLight: "#a5b4fc", // Soft indigo for gradients
+  primaryDark: "#4338ca", // Darker indigo for buttons with white text
 
   slideBg: {
     from: "#09090b", // Near black with subtle cool tone
