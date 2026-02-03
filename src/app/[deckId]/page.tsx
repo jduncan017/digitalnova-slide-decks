@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import DeckPresentation from "~/components/DeckPresentation";
 import { ThemeProvider } from "~/components/ThemeProvider";
 import { getDecks } from "~/lib/getDecks";
@@ -17,6 +18,28 @@ export async function generateStaticParams() {
   return decks.map((deck) => ({
     deckId: deck.id,
   }));
+}
+
+export async function generateMetadata({ params }: DeckPageProps): Promise<Metadata> {
+  const { deckId } = await params;
+
+  // Try to get client name from theme
+  let clientName = "Client";
+  try {
+    const themeModule = (await import(`../../../decks/${deckId}/theme`)) as {
+      theme: DeckTheme;
+    };
+    if (themeModule.theme.clientName) {
+      clientName = themeModule.theme.clientName;
+    }
+  } catch {
+    // No theme file, use default
+  }
+
+  return {
+    title: `${clientName} | Proposal`,
+    description: `Growth proposal for ${clientName}`,
+  };
 }
 
 export default async function DeckPage({ params }: DeckPageProps) {

@@ -5,7 +5,7 @@ import { Geist } from "next/font/google";
 import { BackButton } from "~/components/BackButton";
 
 export const metadata: Metadata = {
-  title: "Pitch Decks",
+  title: "DigitalNova Pitch Decks",
   description: "Interactive pitch deck presentations",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

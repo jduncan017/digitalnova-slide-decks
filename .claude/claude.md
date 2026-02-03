@@ -32,6 +32,8 @@ An interactive pitch deck presentation platform built with Next.js for Digital N
 ### Quality Requirements
 - **Always run `npm run build`** after creating a deck to verify it compiles
 - Fix any build errors before considering the deck complete
+- **Always set `clientName`** in `theme.ts` — this generates the browser tab title (e.g., "Acme Corp | Proposal")
+- **Always set `client.name`** in `sow-content.ts` — this generates the SOW tab title (e.g., "Acme Corp | Statement of Work")
 
 ---
 
