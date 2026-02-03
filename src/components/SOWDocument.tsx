@@ -46,7 +46,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
 
   return (
     <div
-      className="sow-document min-h-screen py-8 px-4 md:px-8"
+      className="sow-document min-h-screen py-0 px-0 md:py-8 md:px-8"
       style={{ backgroundColor: theme.outerBg }}
     >
       {/* Download Button - hidden in print */}
@@ -65,18 +65,27 @@ export function SOWDocument({ content }: SOWDocumentProps) {
 
       {/* Document Container */}
       <div
-        className="sow-container max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden"
+        className="sow-container max-w-4xl mx-auto rounded-none md:rounded-xl shadow-none md:shadow-2xl overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${theme.slideBg.from} 0%, ${theme.slideBg.to} 100%)`,
         }}
       >
         {/* Header */}
         <header
-          className="px-8 py-10 border-b"
+          className="px-4 md:px-8 py-8 md:py-10 border-b"
           style={{ borderColor: theme.neutral[700] }}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
+            {theme.clientLogo && (
+              <Image
+                src={theme.clientLogo}
+                alt="Logo"
+                width={120}
+                height={48}
+                className="h-10 md:h-12 w-auto object-contain print:h-10 md:order-2"
+              />
+            )}
+            <div className="md:order-1">
               <p
                 className="text-xs font-semibold tracking-widest uppercase mb-2"
                 style={{ color: theme.primary }}
@@ -84,47 +93,40 @@ export function SOWDocument({ content }: SOWDocumentProps) {
                 Statement of Work
               </p>
               <h1
-                className="text-3xl md:text-4xl font-bold mb-4"
+                className="text-2xl md:text-4xl font-bold mb-3 md:mb-4"
                 style={{ color: theme.gray[300] }}
               >
                 {content.projectTitle}
               </h1>
-              <p className="text-lg" style={{ color: theme.gray[400] }}>
+              <p className="text-base md:text-lg" style={{ color: theme.gray[400] }}>
                 Prepared for {content.client.name}
                 {content.client.contactName && ` — ${content.client.contactName}`}
               </p>
             </div>
-            {theme.clientLogo && (
-              <Image
-                src={theme.clientLogo}
-                alt="Logo"
-                width={120}
-                height={48}
-                className="h-12 w-auto object-contain print:h-10"
-              />
-            )}
           </div>
 
           {/* Project Dates */}
-          <div className="flex gap-8 mt-6 pt-6 border-t" style={{ borderColor: theme.neutral[800] }}>
-            <div>
-              <p className="text-xs uppercase tracking-wide mb-1" style={{ color: theme.gray[500] }}>
-                Start Date
-              </p>
-              <p className="font-medium" style={{ color: theme.gray[300] }}>
-                {content.startDate}
-              </p>
-            </div>
-            {content.estimatedCompletion && (
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-6 pt-6 border-t" style={{ borderColor: theme.neutral[800] }}>
+            <div className="flex gap-6 md:gap-8">
               <div>
                 <p className="text-xs uppercase tracking-wide mb-1" style={{ color: theme.gray[500] }}>
-                  Est. Completion
+                  Start Date
                 </p>
                 <p className="font-medium" style={{ color: theme.gray[300] }}>
-                  {content.estimatedCompletion}
+                  {content.startDate}
                 </p>
               </div>
-            )}
+              {content.estimatedCompletion && (
+                <div>
+                  <p className="text-xs uppercase tracking-wide mb-1" style={{ color: theme.gray[500] }}>
+                    Est. Completion
+                  </p>
+                  <p className="font-medium" style={{ color: theme.gray[300] }}>
+                    {content.estimatedCompletion}
+                  </p>
+                </div>
+              )}
+            </div>
             <div>
               <p className="text-xs uppercase tracking-wide mb-1" style={{ color: theme.gray[500] }}>
                 Total Investment
@@ -137,7 +139,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
         </header>
 
         {/* Body */}
-        <div className="px-8 py-8 space-y-10">
+        <div className="px-4 md:px-8 py-6 md:py-8 space-y-8 md:space-y-10">
           {/* Overview */}
           <section>
             <h2
@@ -406,7 +408,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
 
         {/* Contract Signing CTA */}
         {content.contractLink && (
-          <section className="px-8 py-8 print:hidden">
+          <section className="px-4 md:px-8 py-6 md:py-8 print:hidden">
             <div
               className="p-6 rounded-lg text-center"
               style={{ backgroundColor: theme.neutral[800] }}
@@ -434,7 +436,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
 
         {/* Footer */}
         <footer
-          className="px-8 py-6 border-t"
+          className="px-4 md:px-8 py-5 md:py-6 border-t"
           style={{ borderColor: theme.neutral[700], backgroundColor: theme.neutral[900] }}
         >
           <p className="text-sm" style={{ color: theme.gray[500] }}>

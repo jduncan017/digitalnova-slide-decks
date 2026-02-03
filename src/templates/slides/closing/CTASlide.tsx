@@ -123,6 +123,7 @@ export default function CTASlide({
                     ? getLucideIcon(content.ctaButton.icon)
                     : undefined
                 }
+                textColor={content.ctaButton.textColor}
               >
                 {content.ctaButton.text}
               </Button>

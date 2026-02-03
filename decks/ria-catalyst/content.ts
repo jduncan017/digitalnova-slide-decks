@@ -292,6 +292,12 @@ export const deckContent: DeckDefinition = {
       content: {
         label: "LET'S GO",
         title: "NEXT STEPS",
+        ctaButton: {
+          text: "Sign the Contract",
+          href: "https://www.jotform.com/sign/260299269043059/invite/01kggevcgh5c1957157eacfc14",
+          icon: "FileText",
+          textColor: "text-black",
+        },
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",

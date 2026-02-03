@@ -342,6 +342,8 @@ export interface CTASlideContent {
     text: string;
     href: string;
     icon?: IconName;
+    /** Override button text color (e.g., "text-black" for light primary colors) */
+    textColor?: string;
   };
   /** Profile section */
   profile?: {

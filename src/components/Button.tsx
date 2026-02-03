@@ -16,6 +16,7 @@ interface ButtonBaseProps {
   disabled?: boolean;
   loading?: boolean;
   loadingIcon?: LucideIcon;
+  textColor?: string;
 }
 
 interface ButtonAsButton extends ButtonBaseProps {
@@ -45,13 +46,19 @@ const iconSizes: Record<ButtonSize, string> = {
   lg: "h-5 w-5",
 };
 
-const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-primary hover:brightness-120 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30",
-  secondary:
-    "bg-transparent border border-primary text-primary hover:bg-primary/10 shadow-lg shadow-primary/10 hover:shadow-xl",
-  ghost:
-    "bg-neutral-800/50 hover:bg-neutral-700/50 text-gray-300 backdrop-blur-sm",
+const variantClasses: Record<ButtonVariant, { base: string; defaultText: string }> = {
+  primary: {
+    base: "bg-primary hover:brightness-120 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30",
+    defaultText: "text-white",
+  },
+  secondary: {
+    base: "bg-transparent border border-primary hover:bg-primary/10 shadow-lg shadow-primary/10 hover:shadow-xl",
+    defaultText: "text-primary",
+  },
+  ghost: {
+    base: "bg-neutral-800/50 hover:bg-neutral-700/50 backdrop-blur-sm",
+    defaultText: "text-gray-300",
+  },
 };
 
 export function Button(props: ButtonProps) {
@@ -65,12 +72,16 @@ export function Button(props: ButtonProps) {
     disabled = false,
     loading = false,
     loadingIcon: LoadingIcon,
+    textColor,
   } = props;
 
   const baseClasses =
     "inline-flex items-center justify-center font-semibold rounded-xl transition-all !cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
-  const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const variantStyle = variantClasses[variant];
+  const resolvedTextColor = textColor ?? variantStyle.defaultText;
+
+  const classes = `${baseClasses} ${sizeClasses[size]} ${variantStyle.base} ${resolvedTextColor} ${className}`;
 
   const iconElement =
     loading && LoadingIcon ? (
