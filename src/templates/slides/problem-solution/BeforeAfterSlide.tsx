@@ -16,7 +16,7 @@ export default function BeforeAfterSlide({
   slideNumber,
 }: BeforeAfterSlideProps) {
   return (
-    <Slide showLogo slideNumber={slideNumber}>
+    <Slide showLogo slideNumber={slideNumber} chromeVariant="minimal">
       <div className="flex h-full flex-col justify-center">
         <PageHeader
           label={content.label}

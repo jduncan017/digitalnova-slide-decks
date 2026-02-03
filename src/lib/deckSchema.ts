@@ -17,6 +17,7 @@ import type {
   ComparisonSlideContent,
   ValueStackSlideContent,
   ROISlideContent,
+  ProjectionsSlideContent,
 } from "~/templates/types";
 
 // Union type for all possible slide definitions
@@ -37,7 +38,8 @@ export type SlideDefinition =
   | { type: "processFlow"; content: ProcessFlowSlideContent }
   | { type: "comparison"; content: ComparisonSlideContent }
   | { type: "valueStack"; content: ValueStackSlideContent }
-  | { type: "roi"; content: ROISlideContent };
+  | { type: "roi"; content: ROISlideContent }
+  | { type: "projections"; content: ProjectionsSlideContent };
 
 // Deck definition interface
 export interface DeckDefinition {

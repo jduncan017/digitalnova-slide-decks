@@ -244,6 +244,8 @@ export interface PricingSlideContent {
   subtitle?: string;
   /** Pricing tiers (up to 3 recommended) */
   tiers: {
+    /** Unique identifier for selection tracking */
+    id?: string;
     title: string;
     subtitle: string;
     price: string;
@@ -252,13 +254,43 @@ export interface PricingSlideContent {
     features: string[];
     /** Mark this tier as recommended */
     recommended?: boolean;
+    /** SOW deliverables to include when this tier is selected */
+    sowDeliverables?: {
+      title: string;
+      description?: string;
+      items?: string[];
+    }[];
   }[];
   /** Optional icons to show between tiers (e.g., arrows to show flow) */
   connectorIcons?: IconName[];
   /** Optional add-ons section */
   addOns?: {
-    required?: { name: string; price: string }[];
-    optional?: { name: string; price: string }[];
+    required?: {
+      /** Unique identifier for selection tracking */
+      id?: string;
+      name: string;
+      price: string;
+      description?: string;
+      /** SOW deliverables to include when this add-on is selected */
+      sowDeliverables?: {
+        title: string;
+        description?: string;
+        items?: string[];
+      }[];
+    }[];
+    optional?: {
+      /** Unique identifier for selection tracking */
+      id?: string;
+      name: string;
+      price: string;
+      description?: string;
+      /** SOW deliverables to include when this add-on is selected */
+      sowDeliverables?: {
+        title: string;
+        description?: string;
+        items?: string[];
+      }[];
+    }[];
   };
   /** Optional note at bottom */
   note?: string;
@@ -495,17 +527,27 @@ export interface PricingWithAddonsSlideContent {
   title: string;
   /** Base package */
   basePackage: {
+    /** Unique identifier for selection tracking */
+    id?: string;
     label: string;
     title: string;
     description: string;
     price: string;
     priceLabel: string;
     features: string[];
+    /** SOW deliverables to include when this package is selected */
+    sowDeliverables?: {
+      title: string;
+      description?: string;
+      items?: string[];
+    }[];
   };
   /** Optional add-ons section */
   addOns?: {
     /** Featured add-on (larger card) */
     featured?: {
+      /** Unique identifier for selection tracking */
+      id?: string;
       icon: IconName;
       title: string;
       subtitle: string;
@@ -513,14 +555,62 @@ export interface PricingWithAddonsSlideContent {
       priceLabel: string;
       monthly?: string;
       features: string[];
+      /** SOW deliverables to include when this add-on is selected */
+      sowDeliverables?: {
+        title: string;
+        description?: string;
+        items?: string[];
+      }[];
     };
     /** Smaller add-on items */
     items?: {
+      /** Unique identifier for selection tracking */
+      id?: string;
       name: string;
       description: string;
       price: string;
+      /** SOW deliverables to include when this add-on is selected */
+      sowDeliverables?: {
+        title: string;
+        description?: string;
+        items?: string[];
+      }[];
     }[];
   };
   /** Footer note */
   note?: string;
+}
+
+/**
+ * Projections Slide - Growth trajectory with scenario toggle
+ */
+export interface ProjectionsSlideContent {
+  /** Section label (e.g., "THE TRAJECTORY") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Scenario definitions */
+  scenarios: {
+    /** Unique identifier */
+    id: string;
+    /** Button label */
+    label: string;
+    /** Description shown when selected */
+    description: string;
+    /** Curve type: exponential, steady, recovery */
+    curve: "exponential" | "steady" | "recovery";
+    /** Mark as default selected */
+    default?: boolean;
+  }[];
+  /** Phase markers on the timeline */
+  phases: {
+    /** Starting month for this phase */
+    month: number;
+    /** Phase label */
+    label: string;
+  }[];
+  /** Total months to show on x-axis (default 6) */
+  totalMonths?: number;
 }

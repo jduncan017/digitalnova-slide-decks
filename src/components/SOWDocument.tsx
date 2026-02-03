@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import type { SOWDefinition } from "~/lib/sowSchema";
 import { useTheme } from "~/components/ThemeProvider";
+import { Button } from "~/components/Button";
 import { Check, X, AlertCircle, Download, Loader2, FileSignature } from "lucide-react";
 
 interface SOWDocumentProps {
@@ -49,27 +50,18 @@ export function SOWDocument({ content }: SOWDocumentProps) {
       style={{ backgroundColor: theme.outerBg }}
     >
       {/* Download Button - hidden in print */}
-      <button
-        onClick={handleDownload}
-        disabled={isDownloading}
-        className="print:hidden fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-70 !cursor-pointer shadow-lg hover:shadow-xl hover:brightness-110"
-        style={{
-          backgroundColor: theme.primaryDark,
-          color: "#ffffff",
-        }}
-      >
-        {isDownloading ? (
-          <>
-            <Loader2 size={16} className="animate-spin" />
-            Generating...
-          </>
-        ) : (
-          <>
-            <Download size={16} />
-            Download PDF
-          </>
-        )}
-      </button>
+      <div className="print:hidden fixed top-4 right-4 z-50">
+        <Button
+          onClick={handleDownload}
+          disabled={isDownloading}
+          loading={isDownloading}
+          icon={Download}
+          loadingIcon={Loader2}
+          size="sm"
+        >
+          {isDownloading ? "Generating..." : "Download PDF"}
+        </Button>
+      </div>
 
       {/* Document Container */}
       <div
@@ -428,16 +420,14 @@ export function SOWDocument({ content }: SOWDocumentProps) {
               <p className="text-sm mb-6" style={{ color: theme.gray[400] }}>
                 By signing the contract, you agree to everything included in this Statement of Work.
               </p>
-              <a
+              <Button
+                as="a"
                 href={content.contractLink ?? "#"}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all hover:brightness-110 !cursor-pointer shadow-lg hover:shadow-xl"
-                style={{ backgroundColor: theme.primaryDark }}
+                icon={FileSignature}
               >
-                <FileSignature size={20} />
                 Sign Contract
-              </a>
+              </Button>
             </div>
           </section>
         )}

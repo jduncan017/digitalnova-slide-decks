@@ -16,22 +16,26 @@ export const deckContent: DeckDefinition = {
         heroImage: "/images/film/film-2.webp",
       },
     },
+
     // Slide 2: Your Situation
     {
       type: "problem",
       content: {
         label: "WHERE YOU ARE",
         title: "Your Situation",
-        subtitle: "You've built a proven product. Now let's build the system to scale it.",
+        subtitle:
+          "You've built a proven product. Now let's build the system to scale it.",
         challenges: [
           {
             text: "$10k MRR, 50k users — product-market fit proven",
-            subtext: "You've validated the product. Now it's time to grow intentionally.",
+            subtext:
+              "You've validated the product. Now it's time to grow intentionally.",
             icon: "TrendingUp",
           },
           {
             text: "B2B pivot ready, but no lead generation system",
-            subtext: "Studios need what you've built — they just can't find you yet.",
+            subtext:
+              "Studios need what you've built — they just can't find you yet.",
             icon: "Target",
           },
           {
@@ -41,7 +45,8 @@ export const deckContent: DeckDefinition = {
           },
           {
             text: "2-person team = limited bandwidth",
-            subtext: "You and Hrachya are focused on product. Marketing needs help.",
+            subtext:
+              "You and Hrachya are focused on product. Marketing needs help.",
             icon: "Users",
           },
         ],
@@ -53,181 +58,199 @@ export const deckContent: DeckDefinition = {
         },
       },
     },
-    // Slide 3: The Opportunity
+
+    // Slide 3: The Gap
+    {
+      type: "beforeAfter",
+      content: {
+        label: "THE GAP",
+        title: "50k Users, Zero B2B Pipeline",
+        subtitle:
+          "You have a product studios would pay for — but no system to get it in front of them.",
+        before: {
+          label: "Today",
+          title: "Organic Growth Only",
+          highlight: "Only",
+          items: [
+            "Lost SEO traffic from rebrand — recovering slowly",
+            "No dedicated B2B lead generation system",
+            "Relying on organic discovery and word of mouth",
+            "Studios don't know you exist yet",
+          ],
+        },
+        after: {
+          label: "The Fix",
+          title: "Growth Runs on Autopilot",
+          highlight: "Autopilot",
+          items: [
+            "Targeted Meta ads reach indie filmmakers daily",
+            "B2B landing page speaks directly to studios",
+            "Demo bookings land on your calendar automatically",
+            "CRM nurtures leads while you focus on product",
+          ],
+        },
+      },
+    },
+
+    // Slide 4: How It Works
+    {
+      type: "processFlow",
+      content: {
+        label: "THE SYSTEM",
+        title: "How It Works",
+        subtitle:
+          "A simple four-step system to get qualified studio demos on your calendar.",
+        steps: [
+          {
+            icon: "Video",
+            title: "Video Ads Reach Filmmakers",
+            description:
+              "Testimonial-style creatives on Meta targeting indie filmmakers and small studios.",
+          },
+          {
+            icon: "Globe",
+            title: "Landing Page Converts",
+            description:
+              "B2B-focused messaging that speaks to studio pain points, not individual users.",
+          },
+          {
+            icon: "Calendar",
+            title: "Demo Gets Booked",
+            description:
+              "Calendar integration, no friction — qualified leads book directly.",
+          },
+          {
+            icon: "Settings",
+            title: "CRM Nurtures the Lead",
+            description:
+              "Automated follow-up sequences keep you top of mind until they're ready.",
+          },
+        ],
+        sideImage: "/images/film/film-3.webp",
+      },
+    },
+
+    // Slide 5: Why Studios Will Choose You
     {
       type: "opportunity",
       content: {
-        label: "THE UPSIDE",
-        title: "THE OPPORTUNITY",
-        subtitle: "You're sitting on a goldmine — the infrastructure is all that's missing.",
+        label: "THE EDGE",
+        title: "Why Studios Will Choose You",
+        subtitle:
+          "You're not competing with Movie Magic on features — you're replacing a broken workflow.",
         opportunities: [
           {
-            icon: "Users",
-            factor: "Proven Product, Real Users",
-            result: "50k users and $10k MRR from a small team proves the demand is there.",
+            icon: "Layers",
+            factor: "All-in-One Platform",
+            result:
+              "Competitors require 3-4 separate tools. You're one platform for the entire workflow.",
           },
           {
-            icon: "Target",
-            factor: "Clear B2B Wedge",
-            result: "Indie studios (10-20 people) are underserved by legacy tools like Movie Magic.",
+            icon: "DollarSign",
+            factor: "Price Point That Works",
+            result:
+              "At $2k/mo, you're accessible to indie studios who can't afford enterprise tools.",
           },
           {
-            icon: "TrendingUp",
-            factor: "One Unified Platform",
-            result: "Your all-in-one AI approach beats competitors who require separate tools.",
+            icon: "Zap",
+            factor: "AI-Native, Not Bolted On",
+            result:
+              "Built with AI from day one — not legacy software with AI features added.",
           },
         ],
         callout: {
-          icon: "DollarSign",
-          title: "At $2k/mo per studio, just 2 new B2B customers covers our entire fee.",
-          subtitle: "The math works in your favor — you just need the system built.",
+          icon: "Target",
+          title: "Your ICP: Indie studios with 10-20 people.",
+          subtitle:
+            "Big enough to need real tools, small enough to be underserved by legacy players.",
         },
       },
     },
-    // Slide 4: What I'd Build
+
+    // Slide 6: Realistic Expectations
     {
-      type: "deliverables",
+      type: "opportunity",
       content: {
-        label: "THE PLAN",
-        title: "WHAT I'D BUILD FOR YOU",
-        subtitle: "A complete B2B lead generation system — from first touch to demo booked.",
-        deliverables: [
-          {
-            number: "01",
-            title: "Video Ad Campaigns",
-            icon: "Video",
-            items: [
-              "Meta ads targeting indie filmmakers",
-              "Testimonial-style video creatives",
-              "Retargeting for site visitors",
-            ],
-          },
-          {
-            number: "02",
-            title: "B2B Landing Page",
-            icon: "Globe",
-            items: [
-              "Studio-focused messaging",
-              "Clear value proposition",
-              "Demo booking integration",
-            ],
-          },
-          {
-            number: "03",
-            title: "CRM & Automations",
-            icon: "Settings",
-            items: [
-              "Lead capture system",
-              "Automated follow-up sequences",
-              "Pipeline tracking",
-            ],
-          },
-        ],
-        options: [
-          {
-            icon: "Rocket",
-            title: "Full-service execution",
-            description: "I handle everything — creative, ads, landing page, CRM setup.",
-          },
+        label: "SETTING EXPECTATIONS",
+        title: "Realistic Expectations",
+        subtitle: "Here's what success looks like at this budget level.",
+        opportunities: [
           {
             icon: "Users",
-            title: "Collaboration with your team",
-            description: "I run campaigns, you handle sales conversations.",
+            factor: "5-10 Demos/Month",
+            result:
+              "At $1,500/mo ad spend, this is a realistic target for a niche B2B audience in the first month.",
+          },
+          {
+            icon: "Target",
+            factor: "Quality Over Quantity",
+            result:
+              "We're targeting studio leads and producers — people who can actually buy.",
+          },
+          {
+            icon: "TrendingUp",
+            factor: "Scalable System",
+            result:
+              "Once we dial in what works, you can increase budget and scale results.",
           },
         ],
-      },
-    },
-    // Slide 5: Growth Engine
-    {
-      type: "growthEngine",
-      content: {
-        label: "THE DETAILS",
-        title: "GROWTH ENGINE BREAKDOWN",
-        subtitle: "Paid acquisition + conversion funnel working together.",
-        leftPanel: {
-          icon: "Video",
-          title: "Meta Ad Strategy",
-          sectionLabel: "Creative & Targeting",
-          items: [
-            { icon: "Video", title: "Video Ads", description: "Testimonial-style from real filmmakers" },
-            { icon: "Target", title: "Audience Targeting", description: "Indie filmmakers & small studios" },
-            { icon: "RefreshCw", title: "Retargeting", description: "Site visitors → demo booking" },
-            { icon: "BarChart", title: "Weekly Optimization", description: "A/B testing & budget allocation" },
-          ],
-        },
-        rightPanel: {
-          icon: "Globe",
-          title: "Conversion Funnel",
-          sectionLabel: "From Click to Customer",
-          items: [
-            { icon: "MousePointerClick", title: "Ad Click", description: "Compelling video hooks attention" },
-            { icon: "FileText", title: "Landing Page", description: "B2B-focused value proposition" },
-            { icon: "Calendar", title: "Demo Booking", description: "Calendly integration" },
-            { icon: "Mail", title: "Follow-up Sequence", description: "Automated nurture emails" },
-          ],
+        callout: {
+          icon: "Shield",
+          title: "This isn't about flooding your inbox with leads.",
+          subtitle:
+            "It's about getting the right studios in front of your product.",
         },
       },
     },
-    // Slide 6: Investment
+
+    // Slide 7: The Math
     {
-      type: "pricing",
+      type: "roi",
       content: {
-        label: "INVESTMENT",
-        title: "YOUR INVESTMENT",
-        tiers: [
+        label: "THE MATH",
+        title: "Two Customers Cover Everything",
+        description:
+          "At $2,000/mo per studio, just 2 new B2B customers cover our entire monthly fee. Everything after that is pure growth.",
+        highlight: "2 new B2B customers",
+        benefits: [
           {
-            title: "SETUP",
-            subtitle: "One-time build of your complete lead generation system.",
-            price: "$2,500",
-            priceLabel: "one-time",
-            features: [
-              "B2B landing page design & build",
-              "CRM setup & automations",
-              "Ad creative production",
-              "Campaign structure",
-              "Tracking & analytics",
-            ],
+            icon: "Shield",
+            title: "No Long-Term Contract",
+            description: "Month-to-month after setup",
           },
           {
-            title: "MANAGEMENT",
-            subtitle: "Ongoing optimization and campaign management.",
-            price: "$1,500",
-            priceLabel: "/month",
-            features: [
-              "Weekly ad optimization",
-              "A/B testing",
-              "Performance reporting",
-              "Creative refreshes",
-              "Strategy adjustments",
-            ],
+            icon: "TrendingUp",
+            title: "Prove It First",
+            description: "We earn the long-term by delivering results",
           },
           {
-            title: "AD SPEND",
-            subtitle: "Budget for Meta ads — goes directly to the platform.",
-            price: "$1,500",
-            priceLabel: "/month",
-            features: [
-              "Meta (Facebook/Instagram) ads",
-              "Recommended starting budget",
-              "Scale up as results prove out",
-              "You control the spend",
-              "Pause anytime",
-            ],
+            icon: "BarChart",
+            title: "Full Transparency",
+            description: "Weekly reports, you see everything",
+          },
+          {
+            icon: "Target",
+            title: "You Control Ad Spend",
+            description: "Scale up or pause anytime",
           },
         ],
-        connectorIcons: ["ArrowRight", "Plus"],
-        note: "Total: ~$3,000/month after setup • First customers typically cover costs within 60 days",
+        metric: {
+          value: "2",
+          label: "studio customers to break even",
+          subtext: "Then it's pure ROI",
+        },
       },
     },
-    // Slide 7: Timeline
+
+    // Slide 8: Timeline
     {
       type: "timeline",
       content: {
         label: "THE ROADMAP",
-        title: "HOW WE GET THERE",
-        subtitle: "From kickoff to first B2B leads in your pipeline.",
+        title: "Timeline",
+        subtitle: "From kickoff to live ads in 3 weeks.",
         headerAlign: "left",
-        layout: "grid",
+        layout: "arrow",
         steps: [
           {
             period: "WEEK 1",
@@ -235,69 +258,161 @@ export const deckContent: DeckDefinition = {
             icon: "FileText",
             highlight: true,
             items: [
-              "Deposit to kick off",
               "Deep dive on your ICP",
               "Messaging & positioning",
               "Ad creative planning",
-              "Funnel mapping",
+              "Landing page wireframes",
             ],
           },
           {
             period: "WEEK 2",
-            title: "Creative Production",
-            icon: "Video",
-            items: [
-              "Video ad scripting",
-              "Creative development",
-              "Landing page design",
-              "Copy & messaging",
-            ],
-          },
-          {
-            period: "WEEK 3",
-            title: "Build & Setup",
+            title: "Build",
             icon: "Settings",
             items: [
               "Landing page development",
-              "CRM configuration",
-              "Automation flows",
-              "Tracking setup",
+              "Video ad production",
+              "CRM & automation setup",
+              "Tracking configuration",
             ],
           },
           {
-            period: "WEEK 4+",
+            period: "WEEK 3+",
             title: "Launch & Optimize",
             icon: "Rocket",
             items: [
-              "Campaign launch",
-              "Daily monitoring",
-              "Weekly reports",
-              "Ongoing optimization",
+              "Ads go live",
+              "Demos start booking",
+              "Weekly reporting begins",
+              "Ongoing A/B testing",
             ],
           },
         ],
         note: {
-          highlight: "Step 1:",
-          text: "Setup deposit → discovery call → we start building immediately.",
+          highlight: "Timeline:",
+          text: "Ads live within 3 weeks of kickoff. Results start immediately, benchmark results within 60 days.",
         },
       },
     },
-    // Slide 8: Next Steps
+
+    // Slide 9: Projections
+    {
+      type: "projections",
+      content: {
+        label: "THE TRAJECTORY",
+        title: "What Growth Looks Like",
+        subtitle:
+          "Three scenarios based on market response and optimization speed.",
+        scenarios: [
+          {
+            id: "pivot",
+            label: "Pivot & Recover",
+            description:
+              "Initial tests reveal needed pivots. We adjust strategy, then recover stronger. This is normal for niche B2B audiences.",
+            curve: "recovery",
+          },
+          {
+            id: "optimize",
+            label: "Optimize",
+            description:
+              "Steady, predictable growth as we refine targeting and messaging. Most campaigns follow this pattern with consistent improvement month over month.",
+            curve: "steady",
+            default: true,
+          },
+          {
+            id: "accelerate",
+            label: "Accelerate",
+            description:
+              "Strong initial response + aggressive optimization = exponential growth. This happens when messaging resonates immediately with your target audience.",
+            curve: "exponential",
+          },
+        ],
+        phases: [
+          { month: 1, label: "Launch" },
+          { month: 2, label: "Learn" },
+          { month: 3, label: "Optimize" },
+          { month: 4, label: "Scale" },
+        ],
+        totalMonths: 6,
+      },
+    },
+
+    // Slide 10: Investment
+    {
+      type: "pricing",
+      content: {
+        label: "INVESTMENT",
+        title: "Your Investment",
+        tiers: [
+          {
+            title: "SETUP",
+            subtitle: "One-time build of your lead gen system.",
+            price: "$2,500",
+            priceLabel: "one-time",
+            features: [
+              "B2B landing page design & build",
+              "Video ad creative production",
+              "CRM setup & automations",
+              "Campaign structure & tracking",
+            ],
+          },
+          {
+            title: "MANAGEMENT",
+            subtitle: "Ongoing optimization and reporting.",
+            price: "$1,500",
+            priceLabel: "/month",
+            features: [
+              "Weekly ad optimization",
+              "A/B testing & creative refreshes",
+              "Performance reporting",
+              "Strategy adjustments",
+            ],
+          },
+          {
+            title: "AD SPEND",
+            subtitle: "Paid directly to Meta.",
+            price: "$1,500",
+            priceLabel: "/month",
+            features: [
+              "Meta (Facebook/Instagram) ads",
+              "Recommended starting budget",
+              "Scale up as results prove out",
+              "You control the spend",
+            ],
+          },
+        ],
+        connectorIcons: ["ArrowRight", "Plus"],
+        note: "Ad spend is separate — paid directly to Meta, not to us.",
+      },
+    },
+
+    // Slide 11: Next Steps
     {
       type: "cta",
       content: {
         label: "LET'S GO",
-        title: "NEXT STEPS",
-        subtitle: "Ready to build your B2B lead engine? Let's schedule a quick call to finalize the details.",
+        title: "Next Steps",
+        subtitle: "Ready to build your B2B lead engine?",
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",
           title: "Founder, DigitalNova Studio",
         },
         contactItems: [
-          { icon: "Mail", text: "josh@digitalnovastudio.com", href: "mailto:josh@digitalnovastudio.com" },
-          { icon: "Globe", text: "digitalnovastudio.com", href: "https://digitalnovastudio.com" },
-          { icon: "Phone", text: "(315) 276-5928", href: "tel:+13152765928" },
+          {
+            icon: "Mail",
+            text: "josh@digitalnovastudio.com",
+            href: "mailto:josh@digitalnovastudio.com",
+          },
+          {
+            icon: "Globe",
+            text: "digitalnovastudio.com",
+            href: "https://digitalnovastudio.com",
+          },
+          {
+            icon: "Phone",
+            text: "(315) 276-5928",
+            href: "tel:+13152765928",
+          },
         ],
         sideImage: "/images/film/film-3.webp",
       },

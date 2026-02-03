@@ -86,6 +86,7 @@ If any critical information is missing, ask before building:
 | `hero` | Opening with branding | Always first |
 | `problem` | Current situation/pain | When they have clear pain points |
 | `opportunity` | The upside | When there's strong ROI story or growth potential |
+| `projections` | Interactive growth trajectory graph | **Include in every deck** — sets realistic expectations |
 | `pricing` | Investment options | When presenting pricing tiers |
 | `cta` | Next steps + contact | Always last |
 
@@ -105,16 +106,38 @@ If any critical information is missing, ask before building:
 | `roi` | Break-even math with big number | When client value is clear (SaaS, B2B) |
 | `timeline` | Project roadmap | When timing/phases matter to the client |
 
+**Recommended narrative arc (based on eventcombo — our strongest messaging flow):**
+
+The specific slides are interchangeable, but this **messaging sequence** is proven:
+
+| Stage | Purpose | Slide Options |
+|-------|---------|---------------|
+| 1. Open | Brand + context | `hero` |
+| 2. Situation | Where they are now | `problem` |
+| 3. Gap | What's missing / transformation | `beforeAfter`, `comparison` |
+| 4. Solution | How we fix it | `processFlow`, `pillars`, `deliverables`, `growthEngine` |
+| 5. Specifics | Details, targeting, expectations | `opportunity` (can use multiple) |
+| 6. Proof | Why it works / low risk | `roi`, `portfolio`, `successFactors` |
+| 7. Roadmap | When things happen | `timeline` |
+| 8. Trajectory | Visualize growth scenarios | `projections` — **always include** |
+| 9. Investment | What it costs | `pricing`, `valueStack`, `pricingWithAddons` |
+| 10. Close | Next steps | `cta` |
+
+**Choose slides that best tell the client's story.** A client with strong case studies might use `portfolio` for proof. A simpler engagement might skip `roi` if the math is obvious. The *arc* stays the same; the *slides* adapt.
+
 **Example deck structures:**
 
-*SaaS with clear ROI (like Veterans Benefit Software):*
-hero → problem → opportunity (with ROI callout) → deliverables → pricing → timeline → cta
+*Lead gen / paid ads (like EventCombo):*
+hero → problem → beforeAfter → processFlow → opportunity × 2 → roi → timeline → projections → pricing → cta
+
+*SaaS with clear ROI:*
+hero → problem → opportunity → deliverables → projections → pricing → timeline → cta
 
 *Agency services pitch:*
-hero → problem → pillars → portfolio → pricing → cta
+hero → problem → pillars → portfolio → projections → pricing → cta
 
 *Technical implementation:*
-hero → problem → deliverables → growthEngine → timeline → pricing → cta
+hero → problem → deliverables → growthEngine → timeline → projections → pricing → cta
 
 ### Step 4: Build the Deck
 1. Create folder: `decks/[client-slug]/`
@@ -713,7 +736,87 @@ sideImage: "/images/blue/blue-4.jpg",
 
 ---
 
-### 17. CTASlide
+### 17. ProjectionsSlide
+**Location**: `src/templates/slides/pricing/ProjectionsSlide.tsx`
+**Purpose**: Interactive growth trajectory visualization with multiple scenarios
+
+**IMPORTANT: Include this slide in every pitch deck.** It sets realistic expectations and shows clients the range of possible outcomes.
+
+**Best Used For**:
+- Setting realistic growth expectations
+- Showing best/expected/worst case scenarios
+- Building trust through transparency
+- Visualizing the trial period outcomes
+
+**Props** (`ProjectionsSlideContent`):
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| label | string | Yes | Section label (e.g., "THE TRAJECTORY") |
+| title | string | Yes | Main title |
+| subtitle | string | No | Supporting description |
+| scenarios | array | Yes | Growth scenarios (see below) |
+| phases | array | Yes | Timeline phases (Launch, Learn, Optimize, Scale) |
+| totalMonths | number | No | Total months shown (default: 6) |
+
+**Scenario Props**:
+- `id`: Unique identifier
+- `label`: Display name (e.g., "Optimize", "Accelerate", "Pivot & Recover")
+- `description`: What this scenario means
+- `curve`: "steady" | "exponential" | "recovery"
+- `default`: boolean — which scenario shows first
+
+**Standard Setup (use this for every deck):**
+```ts
+{
+  type: "projections",
+  content: {
+    label: "THE TRAJECTORY",
+    title: "What Growth Looks Like",
+    subtitle: "Three scenarios based on market response and optimization speed.",
+    scenarios: [
+      {
+        id: "optimize",
+        label: "Optimize",
+        description: "Steady, predictable growth as we refine targeting and messaging. Most campaigns follow this pattern with consistent improvement month over month.",
+        curve: "steady",
+        default: true,  // Start with the realistic scenario
+      },
+      {
+        id: "accelerate",
+        label: "Accelerate",
+        description: "Strong initial response + aggressive optimization = exponential growth. This happens when messaging resonates immediately with your target audience.",
+        curve: "exponential",
+      },
+      {
+        id: "pivot",
+        label: "Pivot & Recover",
+        description: "Initial tests reveal needed pivots. We adjust strategy, then recover stronger. This is normal for complex B2B audiences.",
+        curve: "recovery",
+      },
+    ],
+    phases: [
+      { month: 1, label: "Launch" },
+      { month: 2, label: "Learn" },
+      { month: 3, label: "Optimize" },
+      { month: 4, label: "Scale" },
+    ],
+    totalMonths: 6,
+  },
+}
+```
+
+**Features**:
+- Interactive toggle buttons to switch between scenarios
+- Animated curve transitions
+- Target benchmark line (shows when results hit target)
+- Hover-to-highlight phase zones
+- Phase labels highlight in primary color on hover
+
+**Scenario Order**: Recommend showing Optimize (steady) as default, then Accelerate, then Pivot. This leads with realistic expectations.
+
+---
+
+### 18. CTASlide
 **Location**: `src/templates/slides/closing/CTASlide.tsx`
 **Purpose**: Call to action and contact info
 

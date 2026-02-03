@@ -25,7 +25,7 @@ export default function PricingSlide({
     content.connectorIcons && content.connectorIcons.length > 0;
 
   return (
-    <Slide showLogo slideNumber={slideNumber}>
+    <Slide showLogo slideNumber={slideNumber} chromeVariant="minimal">
       <div className="flex h-full flex-col items-center justify-center">
         <PageHeader label={content.label} title={content.title} subtitle={content.subtitle} />
 

@@ -203,7 +203,7 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 7: The Math (moved before pricing)
+    // Slide 7: The Math
     {
       type: "roi",
       content: {
@@ -242,48 +242,7 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 8: Investment
-    {
-      type: "pricing",
-      content: {
-        label: "INVESTMENT",
-        title: "Start With a Trial",
-        subtitle: "3 months to prove it works, then scale.",
-        tiers: [
-          {
-            title: "TRIAL PERIOD",
-            subtitle: "Prove the ROI before committing long-term.",
-            price: "$2,500",
-            priceLabel: "Setup",
-            monthly: "$1,500/mo",
-            features: [
-              "Landing page/funnel build",
-              "Google Ads campaign setup",
-              "CRM integration",
-              "Weekly performance reports",
-              "No contract — month-to-month",
-            ],
-            recommended: false,
-          },
-          {
-            title: "POST-TRIAL",
-            subtitle: "Once we've proven results.",
-            price: "$2,000",
-            priceLabel: "/month",
-            features: [
-              "Everything from trial",
-              "A/B testing & optimization",
-              "Expanded keyword targeting",
-              "Ongoing optimization",
-            ],
-          },
-        ],
-        connectorIcons: ["ArrowRight"],
-        note: "Ad spend is separate at $1,500 - $2,000/mo to start.",
-      },
-    },
-
-    // Slide 9: Timeline
+    // Slide 8: Timeline
     {
       type: "timeline",
       content: {
@@ -334,7 +293,99 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 10: Next Steps
+    // Slide 9: Projections
+    {
+      type: "projections",
+      content: {
+        label: "THE TRAJECTORY",
+        title: "What Growth Looks Like",
+        subtitle:
+          "Three scenarios based on market response and optimization speed.",
+        scenarios: [
+          {
+            id: "pivot",
+            label: "Pivot & Recover",
+            description:
+              "Initial tests reveal needed pivots. We adjust strategy, then recover stronger. This is normal for complex B2B audiences.",
+            curve: "recovery",
+          },
+          {
+            id: "optimize",
+            label: "Optimize",
+            description:
+              "Steady, predictable growth as we refine targeting and messaging. Most campaigns follow this pattern with consistent improvement month over month.",
+            curve: "steady",
+            default: true,
+          },
+          {
+            id: "accelerate",
+            label: "Accelerate",
+            description:
+              "Strong initial response + aggressive optimization = exponential growth. This happens when messaging resonates immediately with your target audience.",
+            curve: "exponential",
+          },
+        ],
+        phases: [
+          { month: 1, label: "Launch" },
+          { month: 2, label: "Learn" },
+          { month: 3, label: "Optimize" },
+          { month: 4, label: "Scale" },
+        ],
+        totalMonths: 6,
+      },
+    },
+
+    // Slide 10: Investment
+    {
+      type: "pricing",
+      content: {
+        label: "INVESTMENT",
+        title: "Start With a Trial",
+        subtitle: "4 months to prove it works, then scale.",
+        tiers: [
+          {
+            title: "SETUP",
+            subtitle: "Month 1 — Build your lead gen system.",
+            price: "$2,500",
+            priceLabel: "one-time",
+            features: [
+              "Landing page/funnel build",
+              "Google Ads campaign setup",
+              "CRM integration",
+              "Tracking & analytics",
+            ],
+          },
+          {
+            title: "TRIAL",
+            subtitle: "Months 2-4 — Prove the ROI.",
+            price: "$1,000",
+            priceLabel: "/month",
+            features: [
+              "Campaign management",
+              "Weekly performance reports",
+              "A/B testing",
+              "No contract — month-to-month",
+            ],
+          },
+          {
+            title: "POST-TRIAL",
+            subtitle: "Months 5+ — Scale what works.",
+            price: "$2,500",
+            priceLabel: "/month",
+            features: [
+              "Everything from trial",
+              "Expanded keyword targeting",
+              "Ongoing optimization",
+              "Funnel A/B Testing",
+            ],
+          },
+        ],
+        connectorIcons: ["Plus", "ArrowRight"],
+        note: "Ad spend is separate — $1,500-$2,000/mo recommended to start.",
+      },
+    },
+
+    // Slide 11: Next Steps
     {
       type: "cta",
       content: {

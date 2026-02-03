@@ -38,7 +38,7 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
     const gridColsClass = gridColsMap[colCount] ?? "grid-cols-4";
 
     return (
-      <Slide showLogo slideNumber={slideNumber}>
+      <Slide showLogo slideNumber={slideNumber} chromeVariant="minimal">
         <div className="flex h-full flex-col justify-center">
           <PageHeader
             label={content.label}
@@ -127,7 +127,7 @@ export default function TimelineSlide({ content, slideNumber }: TimelineSlidePro
 
   // Arrow layout for 3 or fewer steps
   return (
-    <Slide showLogo slideNumber={slideNumber}>
+    <Slide showLogo slideNumber={slideNumber} chromeVariant="minimal">
       <div className="flex h-full flex-col justify-center px-8m items-center">
         <PageHeader label={content.label} title={content.title} />
 

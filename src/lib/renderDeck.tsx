@@ -18,12 +18,18 @@ import {
   ComparisonSlide,
   ValueStackSlide,
   ROISlide,
+  ProjectionsSlide,
 } from "~/templates";
+
+interface DeckMeta {
+  title: string;
+  preparedFor?: string;
+}
 
 /**
  * Renders a single slide based on its type
  */
-function renderSlide(slide: SlideDefinition, index: number): ReactElement {
+function renderSlide(slide: SlideDefinition, index: number, meta: DeckMeta): ReactElement {
   const slideNumber = index + 1;
 
   switch (slide.type) {
@@ -48,7 +54,7 @@ function renderSlide(slide: SlideDefinition, index: number): ReactElement {
     case "timeline":
       return <TimelineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "cta":
-      return <CTASlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+      return <CTASlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} deckTitle={meta.title} preparedFor={meta.preparedFor} />;
     case "growthEngine":
       return <GrowthEngineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "beforeAfter":
@@ -61,6 +67,8 @@ function renderSlide(slide: SlideDefinition, index: number): ReactElement {
       return <ValueStackSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "roi":
       return <ROISlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "projections":
+      return <ProjectionsSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     default:
       // TypeScript exhaustive check
       const _exhaustiveCheck: never = slide;
@@ -72,5 +80,9 @@ function renderSlide(slide: SlideDefinition, index: number): ReactElement {
  * Renders all slides from a deck definition
  */
 export function renderDeck(deck: DeckDefinition): ReactElement[] {
-  return deck.slides.map((slide, index) => renderSlide(slide, index));
+  const meta: DeckMeta = {
+    title: deck.meta.title,
+    preparedFor: deck.meta.preparedFor,
+  };
+  return deck.slides.map((slide, index) => renderSlide(slide, index, meta));
 }

@@ -25,7 +25,7 @@ export default function OpportunitySlide({
   const connectorIcon: IconName = content.connectorIcon ?? DEFAULT_CONNECTOR;
 
   return (
-    <Slide showLogo slideNumber={slideNumber}>
+    <Slide showLogo slideNumber={slideNumber} chromeVariant="minimal">
       <div className="flex h-full flex-col items-center justify-center">
         <PageHeader
           label={content.label}

@@ -17,6 +17,9 @@ interface HeroSlideProps {
 
 export default function HeroSlide({ content }: HeroSlideProps) {
   const theme = useTheme();
+  const mode = theme.mode;
+  const logoSrc = mode === "light" ? "/dn-logo-dark.png" : "/logo.png";
+  const lineColor = mode === "light" ? "bg-slate-300" : "bg-gray-500";
 
   return (
     <div className="h-full flex gap-10 items-center relative overflow-hidden">
@@ -81,12 +84,12 @@ export default function HeroSlide({ content }: HeroSlideProps) {
         </Box>
       )}
 
-      {/* Bottom bar */}
+      {/* Bottom bar - theme-aware */}
       <div className="absolute z-0 bottom-0 left-0 right-0 h-28 pl-32 gap-8 flex items-center justify-between">
         <div className="logo">
-          <Image src="/logo.png" alt="DigitalNova Logo" width={200} height={40} />
+          <Image src={logoSrc} alt="DigitalNova Logo" width={200} height={40} />
         </div>
-        <div className="h-px w-full bg-gray-500/30" />
+        <div className={`h-px w-full ${lineColor} opacity-30`} />
       </div>
     </div>
   );
