@@ -6,11 +6,15 @@ import Image from "next/image";
 import type { SOWDefinition } from "~/lib/sowSchema";
 import { useTheme } from "~/components/ThemeProvider";
 import { Button } from "~/components/Button";
-import { Check, X, AlertCircle, Download, Loader2, FileSignature } from "lucide-react";
+import { Check, X, AlertCircle, Download, Loader2, FileSignature, CreditCard } from "lucide-react";
 
 interface SOWDocumentProps {
   content: SOWDefinition;
 }
+
+// Default contract link - can be overridden per-deck via sow-content.ts
+const DEFAULT_CONTRACT_LINK =
+  "https://www.jotform.com/sign/260335750640048/invite/01kgjg74p40b2a11d443cd1520";
 
 export function SOWDocument({ content }: SOWDocumentProps) {
   const theme = useTheme();
@@ -19,6 +23,9 @@ export function SOWDocument({ content }: SOWDocumentProps) {
 
   // Extract deckId from pathname (e.g., "/colorado-business-cpa/sow" -> "colorado-business-cpa")
   const deckId = pathname.split("/")[1];
+
+  // Use per-deck contract link if provided, otherwise use default
+  const contractLink = content.contractLink ?? DEFAULT_CONTRACT_LINK;
 
   const handleDownload = async () => {
     setIsDownloading(true);
@@ -49,8 +56,8 @@ export function SOWDocument({ content }: SOWDocumentProps) {
       className="sow-document min-h-screen py-0 px-0 md:py-8 md:px-8"
       style={{ backgroundColor: theme.outerBg }}
     >
-      {/* Download Button - hidden in print */}
-      <div className="print:hidden fixed top-4 right-4 z-50">
+      {/* Download Button - fixed bottom on mobile, top-right on desktop, hidden in print */}
+      <div className="print:hidden fixed bottom-4 left-4 right-4 md:bottom-auto md:left-auto md:top-4 md:right-4 z-50 flex justify-center md:justify-end">
         <Button
           onClick={handleDownload}
           disabled={isDownloading}
@@ -82,7 +89,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
                 alt="Logo"
                 width={120}
                 height={48}
-                className="h-10 md:h-12 w-auto object-contain print:h-10 md:order-2"
+                className="h-10 md:h-12 w-auto object-contain object-left print:h-10 self-start md:order-2"
               />
             )}
             <div className="md:order-1">
@@ -406,33 +413,46 @@ export function SOWDocument({ content }: SOWDocumentProps) {
           )}
         </div>
 
-        {/* Contract Signing CTA */}
-        {content.contractLink && (
-          <section className="px-4 md:px-8 py-6 md:py-8 print:hidden">
-            <div
-              className="p-6 rounded-lg text-center"
-              style={{ backgroundColor: theme.neutral[800] }}
+        {/* Contract & Payment CTA */}
+        <section className="px-4 md:px-8 py-6 md:py-8 print:hidden">
+          <div
+            className="p-6 rounded-lg text-center"
+            style={{ backgroundColor: theme.neutral[800] }}
+          >
+            <h2
+              className="text-xl font-bold mb-2"
+              style={{ color: theme.gray[300] }}
             >
-              <h2
-                className="text-xl font-bold mb-2"
-                style={{ color: theme.gray[300] }}
-              >
-                Ready to Get Started?
-              </h2>
-              <p className="text-sm mb-6" style={{ color: theme.gray[400] }}>
-                By signing the contract, you agree to everything included in this Statement of Work.
-              </p>
+              Ready to Get Started?
+            </h2>
+            <p className="text-sm mb-6" style={{ color: theme.gray[400] }}>
+              {content.paymentLink
+                ? "Sign the contract and submit your payment to begin."
+                : "By signing the contract, you agree to everything included in this Statement of Work."}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 as="a"
-                href={content.contractLink ?? "#"}
+                href={contractLink}
                 target="_blank"
                 icon={FileSignature}
               >
                 Sign Contract
               </Button>
+              {content.paymentLink && (
+                <Button
+                  as="a"
+                  href={content.paymentLink}
+                  target="_blank"
+                  icon={CreditCard}
+                  variant="secondary"
+                >
+                  Make Payment
+                </Button>
+              )}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* Footer */}
         <footer
