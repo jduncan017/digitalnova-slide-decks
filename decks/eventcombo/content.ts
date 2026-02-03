@@ -13,7 +13,7 @@ export const deckContent: DeckDefinition = {
       content: {
         title: "Growth Proposal for EventCombo",
         subtitle: "Prepared for Saroosh Gull",
-        heroImage: "/images/blue/blue-1.jpg",
+        heroImage: "/images/rainbow/1.webp",
       },
     },
 
@@ -48,7 +48,7 @@ export const deckContent: DeckDefinition = {
             icon: "Layers",
           },
         ],
-        sideImage: "/images/blue/blue-2.jpg",
+        sideImage: "/images/rainbow/2.webp",
         statsOverlay: {
           label: "Goal",
           value: "5x growth",
@@ -124,7 +124,7 @@ export const deckContent: DeckDefinition = {
               "Weekly reporting, full ROI visibility, data-driven optimization.",
           },
         ],
-        sideImage: "/images/blue/blue-3.jpg",
+        sideImage: "/images/rainbow/3.webp",
       },
     },
 
@@ -363,7 +363,7 @@ export const deckContent: DeckDefinition = {
             href: "tel:+13152765928",
           },
         ],
-        sideImage: "/images/blue/blue-4.jpg",
+        sideImage: "/images/rainbow/4.webp",
       },
     },
   ],
