@@ -49,7 +49,7 @@ export default function ROISlide({ content, slideNumber }: ROISlideProps) {
                 animation="slideUp"
                 delay={0.3 + i * 0.1}
                 hoverEffect="lift"
-                className="p-5 rounded-xl bg-neutral-800/30 border border-neutral-700"
+                className="p-5 rounded-xl bg-neutral-600/20 border border-neutral-700"
               >
                 {getIcon(item.icon, "h-8 w-8 text-primary mb-3")}
                 <Heading level="h5" className="text-gray-300 mb-1">{item.title}</Heading>

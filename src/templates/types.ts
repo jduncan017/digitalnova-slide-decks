@@ -142,6 +142,8 @@ export interface OpportunitySlideContent {
     factor: string;
     result: string;
   }[];
+  /** Icon shown between cards (defaults to ArrowRight) */
+  connectorIcon?: IconName;
   /** Key insight callout at bottom */
   callout?: {
     icon: IconName;
@@ -238,6 +240,8 @@ export interface PricingSlideContent {
   label: string;
   /** Main title */
   title: string;
+  /** Subtitle description */
+  subtitle?: string;
   /** Pricing tiers (up to 3 recommended) */
   tiers: {
     title: string;

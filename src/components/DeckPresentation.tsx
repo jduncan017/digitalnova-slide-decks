@@ -25,7 +25,13 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
     return () => window.removeEventListener("resize", checkViewport);
   }, []);
   const searchParams = useSearchParams();
-  const initialSlide = Math.max(0, Math.min(slides.length - 1, parseInt(searchParams.get("slide") ?? "1", 10) - 1));
+  const initialSlide = Math.max(
+    0,
+    Math.min(
+      slides.length - 1,
+      parseInt(searchParams.get("slide") ?? "1", 10) - 1,
+    ),
+  );
 
   const [currentSlide, setCurrentSlide] = useState(initialSlide);
   const totalSlides = slides.length;
@@ -84,13 +90,14 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
   // Desktop-only message for small viewports
   if (!isDesktop) {
     return (
-      <div className="flex h-screen w-full flex-col items-center justify-center bg-outer-bg px-8 text-center">
+      <div className="bg-outer-bg flex h-screen w-full flex-col items-center justify-center px-8 text-center">
         <div className="mb-6 rounded-2xl bg-neutral-800/50 p-4">
           <Monitor className="h-12 w-12 text-gray-400" />
         </div>
         <h1 className="mb-3 text-2xl font-bold text-gray-300">Desktop Only</h1>
         <p className="max-w-md text-gray-400">
-          This presentation is optimized for desktop viewing. Please open on a device with a screen width of at least 1200px for the best experience.
+          This presentation is optimized for desktop viewing. Please open on a
+          device with a screen width of at least 1200px for the best experience.
         </p>
       </div>
     );
@@ -99,10 +106,10 @@ export default function DeckPresentation({ slides }: DeckPresentationProps) {
   return (
     <div
       {...swipeHandlers}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-outer-bg"
+      className="bg-outer-bg relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
       {/* 16:9 Slide Container */}
-      <div className="relative shadow-2xl h-full max-h-[min(56.25vw,900px)] border border-neutral-700 w-full max-w-[min(177.78vh,1600px)] bg-linear-to-br from-slide-bg-from to-slide-bg-to">
+      <div className="from-slide-bg-from to-slide-bg-to relative h-full max-h-[min(56.25vw,900px)] w-full max-w-[min(177.78vh,1600px)] border border-neutral-700 bg-linear-to-br shadow-2xl">
         {/* Slide content */}
         <AnimatePresence mode="wait">
           <motion.div

@@ -1,15 +1,9 @@
 "use client";
 
 import Slide from "~/components/Slide";
-import {
-  Body,
-  Box,
-  Heading,
-  PageHeader,
-} from "~/components/slide-components";
+import { Body, Box, Heading, PageHeader } from "~/components/slide-components";
 import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import type { OpportunitySlideContent, IconName } from "../../types";
 
 interface OpportunitySlideProps {
@@ -22,10 +16,17 @@ function getIcon(name: IconName, className: string) {
   return Icon ? <Icon className={className} /> : null;
 }
 
-export default function OpportunitySlide({ content, slideNumber }: OpportunitySlideProps) {
+const DEFAULT_CONNECTOR: IconName = "ArrowRight";
+
+export default function OpportunitySlide({
+  content,
+  slideNumber,
+}: OpportunitySlideProps) {
+  const connectorIcon: IconName = content.connectorIcon ?? DEFAULT_CONNECTOR;
+
   return (
     <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full flex-col justify-center items-center">
+      <div className="flex h-full flex-col items-center justify-center">
         <PageHeader
           label={content.label}
           title={content.title}
@@ -33,19 +34,19 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
         />
 
         {/* Opportunity factors as a flow */}
-        <div className="flex items-stretch justify-center gap-4 max-w-[1100px] mb-10 mt-6">
+        <div className="mt-6 mb-10 flex max-w-[1100px] items-stretch justify-center gap-4">
           {content.opportunities.map((item, index) => (
             <div key={index} className="flex items-stretch">
               <Box
                 animation="slideUp"
                 delay={0.3 + index * 0.12}
-                className="flex flex-col items-center text-center p-6 w-[300px] bg-neutral-600/20 border border-neutral-700 rounded-2xl"
+                className="flex w-[300px] flex-col items-center rounded-2xl border border-neutral-700 bg-neutral-600/20 p-6 text-center"
                 hoverEffect="lift"
               >
-                <div className="mb-4 p-3 rounded-xl bg-primary/20">
+                <div className="bg-primary/20 mb-4 rounded-xl p-3">
                   {getIcon(item.icon, "h-8 w-8 text-primary")}
                 </div>
-                <Heading level="h5" className="text-gray-300 mb-3">
+                <Heading level="h5" className="mb-3 text-gray-300">
                   {item.factor}
                 </Heading>
                 <Body size="sm" className="text-gray-400">
@@ -53,7 +54,7 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
                 </Body>
               </Box>
 
-              {/* Arrow connector */}
+              {/* Connector icon (defaults to ArrowRight) */}
               {index < content.opportunities.length - 1 && (
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
@@ -61,7 +62,7 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
                   transition={{ delay: 0.6 + index * 0.1 }}
                   className="flex items-center px-4"
                 >
-                  <ArrowRight className="h-8 w-8 text-gray-500/50" />
+                  {getIcon(connectorIcon, "h-8 w-8 text-gray-500/50")}
                 </motion.div>
               )}
             </div>
@@ -74,9 +75,9 @@ export default function OpportunitySlide({ content, slideNumber }: OpportunitySl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex items-center gap-4 bg-linear-to-br from-primary/5 to-primary/10 border border-neutral-700 rounded-2xl p-6 max-w-2xl"
+            className="from-primary/5 to-primary/10 border-primary-light/25 flex max-w-2xl items-center gap-4 rounded-2xl border bg-linear-to-br p-6"
           >
-            <div className="p-3 rounded-xl bg-primary/20">
+            <div className="bg-primary/20 rounded-xl p-3">
               {getIcon(content.callout.icon, "h-8 w-8 text-primary")}
             </div>
             <div>

@@ -24,7 +24,7 @@ interface BoxProps {
 
 const variants = {
   none: "",
-  gradient: "rounded-lg bg-linear-to-br from-neutral-700 to-neutral-900 p-6 border border-neutral-600",
+  gradient: "rounded-lg bg-neutral-600/20 p-6 border border-neutral-700",
   highlight: "rounded-lg border border-primary-light/15 bg-linear-to-br from-primary-light/8 to-neutral-600/30 p-6",
 };
 

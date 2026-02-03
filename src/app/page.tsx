@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const decks = [
+  { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
   { slug: "silent-disco-v2", name: "Silent Disco V2", client: "Cifernoise" },
