@@ -27,6 +27,7 @@ export { default as TimelineSlide } from "./slides/pricing/TimelineSlide";
 export { default as ValueStackSlide } from "./slides/pricing/ValueStackSlide";
 export { default as ROISlide } from "./slides/pricing/ROISlide";
 export { default as ProjectionsSlide } from "./slides/pricing/ProjectionsSlide";
+export { default as ProjectionsInvSlide } from "./slides/pricing/ProjectionsInvSlide";
 
 // Closing Slides
 export { default as CTASlide } from "./slides/closing/CTASlide";

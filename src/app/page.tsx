@@ -1,20 +1,13 @@
 import Link from "next/link";
 
 const decks = [
+  { slug: "checkle", name: "Checkle", client: "Cole Rickles" },
+  { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
-  {
-    slug: "veterans-benefit-software",
-    name: "Veterans Benefit Software",
-    client: "Don Anton",
-  },
-  {
-    slug: "colorado-business-cpa",
-    name: "Colorado Business CPA",
-    client: "CBCPA",
-  },
-  { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
-  { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },
+  { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
+  { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
+  { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
 ];
 
 export default function Home() {

@@ -616,3 +616,41 @@ export interface ProjectionsSlideContent {
   /** Total months to show on x-axis (default 6) */
   totalMonths?: number;
 }
+
+/**
+ * Projections Inverted Slide - CPA/cost reduction trajectory (lower is better)
+ */
+export interface ProjectionsInvSlideContent {
+  /** Section label (e.g., "REALISTIC EXPECTATIONS") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle description */
+  subtitle?: string;
+  /** Current value (e.g., current CPA of $250) */
+  currentValue?: number;
+  /** Target value (e.g., target CPA of $100) */
+  targetValue?: number;
+  /** Scenario definitions */
+  scenarios: {
+    /** Unique identifier */
+    id: string;
+    /** Button label */
+    label: string;
+    /** Description shown when selected */
+    description: string;
+    /** Curve type: exponential (fast drop), steady (linear), recovery (struggle then improve) */
+    curve: "exponential" | "steady" | "recovery";
+    /** Mark as default selected */
+    default?: boolean;
+  }[];
+  /** Phase markers on the timeline */
+  phases: {
+    /** Starting month for this phase */
+    month: number;
+    /** Phase label */
+    label: string;
+  }[];
+  /** Total months to show on x-axis (default 6) */
+  totalMonths?: number;
+}

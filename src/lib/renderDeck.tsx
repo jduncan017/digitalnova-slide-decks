@@ -19,6 +19,7 @@ import {
   ValueStackSlide,
   ROISlide,
   ProjectionsSlide,
+  ProjectionsInvSlide,
 } from "~/templates";
 
 interface DeckMeta {
@@ -69,6 +70,8 @@ function renderSlide(slide: SlideDefinition, index: number, meta: DeckMeta): Rea
       return <ROISlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "projections":
       return <ProjectionsSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
+    case "projectionsInv":
+      return <ProjectionsInvSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     default:
       // TypeScript exhaustive check
       const _exhaustiveCheck: never = slide;
