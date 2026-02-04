@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     const deckUrl = `${baseUrl}/${deckId}`;
 
     const { data, error } = await resend.emails.send({
-      from: "DigitalNova Studio <noreply@proposals.digitalnovastudio.com>",
+      from: "DigitalNova Studio <noreply@digitalnovastudio.com>",
       replyTo: "josh@digitalnovastudio.com",
       to: email,
       subject: `Your Proposal: ${deckTitle ?? "Growth Proposal"}`,
