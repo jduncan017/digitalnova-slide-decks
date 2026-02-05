@@ -6,7 +6,7 @@ import Image from "next/image";
 import type { SOWDefinition } from "~/lib/sowSchema";
 import { useTheme } from "~/components/ThemeProvider";
 import { Button } from "~/components/Button";
-import { Check, X, AlertCircle, Download, Loader2, FileSignature, CreditCard } from "lucide-react";
+import { Check, X, AlertCircle, Download, Loader2, FileSignature, CreditCard, Landmark } from "lucide-react";
 
 interface SOWDocumentProps {
   content: SOWDefinition;
@@ -87,8 +87,8 @@ export function SOWDocument({ content }: SOWDocumentProps) {
               <Image
                 src={theme.clientLogo}
                 alt="Logo"
-                width={120}
-                height={48}
+                width={480}
+                height={192}
                 className="h-10 md:h-12 w-auto object-contain object-left print:h-10 self-start md:order-2"
               />
             )}
@@ -426,7 +426,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
               Ready to Get Started?
             </h2>
             <p className="text-sm mb-6" style={{ color: theme.gray[400] }}>
-              {content.paymentLink
+              {content.paymentLink || content.paymentLinkCC
                 ? "Sign the contract and submit your payment to begin."
                 : "By signing the contract, you agree to everything included in this Statement of Work."}
             </p>
@@ -444,10 +444,21 @@ export function SOWDocument({ content }: SOWDocumentProps) {
                   as="a"
                   href={content.paymentLink}
                   target="_blank"
+                  icon={content.paymentLinkCC ? Landmark : CreditCard}
+                  variant="secondary"
+                >
+                  {content.paymentLinkCC ? "Pay via ACH" : "Make Payment"}
+                </Button>
+              )}
+              {content.paymentLinkCC && (
+                <Button
+                  as="a"
+                  href={content.paymentLinkCC}
+                  target="_blank"
                   icon={CreditCard}
                   variant="secondary"
                 >
-                  Make Payment
+                  Pay via Card (3% fee)
                 </Button>
               )}
             </div>

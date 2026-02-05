@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ThemeProvider } from "~/components/ThemeProvider";
@@ -15,9 +17,14 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const decks = getDecks();
-  return decks.map((deck) => ({
-    deckId: deck.id,
-  }));
+  const decksDir = path.join(process.cwd(), "decks");
+  return decks
+    .filter((deck) =>
+      fs.existsSync(path.join(decksDir, deck.id, "sow-content.ts"))
+    )
+    .map((deck) => ({
+      deckId: deck.id,
+    }));
 }
 
 export async function generateMetadata({ params }: SOWPageProps): Promise<Metadata> {

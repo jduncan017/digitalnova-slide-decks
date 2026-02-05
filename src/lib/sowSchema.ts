@@ -62,6 +62,9 @@ export interface SOWDefinition {
   /** Contract signing link (e.g., Jotform, DocuSign) */
   contractLink?: string;
 
-  /** Payment link (e.g., GoCardless, Stripe) - only shown if provided */
+  /** Payment link for ACH (e.g., GoCardless) - only shown if provided */
   paymentLink?: string;
+
+  /** Credit card payment link (e.g., Stripe) - only shown if provided */
+  paymentLinkCC?: string;
 }
