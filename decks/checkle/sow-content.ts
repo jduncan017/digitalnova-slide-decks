@@ -107,4 +107,6 @@ export const sowContent: SOWDefinition = {
 
   notes:
     "Performance Guarantee: Sub-$100 CPA by end of month 3 (measured from ads launch date of March 6, 2026), or month 4 management fee is waived. This guarantee is contingent on all assumptions above being met. Payment via ACH preferred. No long-term contract — engagement is month-to-month. Recommend minimum 3–4 months to see full optimization results.",
+
+  paymentLink: "https://pay.gocardless.com/BRT0004CNDE6DYT",
 };
