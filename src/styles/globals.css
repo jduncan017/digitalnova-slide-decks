@@ -3,6 +3,7 @@
 @theme {
   --font-sans: var(--font-nimbus-sans), "inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-playfair), "Georgia", "Times New Roman", serif;
 
   /* Theme Colors - Defaults here, overridden by ThemeProvider inline styles */
   /* Primary brand colors (Indigo - default) */
@@ -41,6 +42,28 @@
     transform: none !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+}
+
+/* One-Pager Document Print Styles */
+@media print {
+  .onepager-document {
+    padding: 0 !important;
+    background: white !important;
+    gap: 0 !important;
+  }
+
+  .onepager-page {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .onepager-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
   }
 }
 

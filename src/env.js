@@ -12,6 +12,8 @@ export const env = createEnv({
     RESEND_API_KEY: z.string().optional(),
     // Make.com webhook URL for CTA automation (optional - feature degrades gracefully)
     MAKE_WEBHOOK_URL: z.string().url().optional(),
+    // Unsplash API key for searching/downloading filler images (optional)
+    UNSPLASH_ACCESS_KEY: z.string().optional(),
   },
 
   /**
@@ -32,6 +34,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     MAKE_WEBHOOK_URL: process.env.MAKE_WEBHOOK_URL,
+    UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
   },
   /**

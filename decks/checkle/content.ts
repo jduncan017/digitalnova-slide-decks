@@ -105,21 +105,21 @@ export const deckContent: DeckDefinition = {
         steps: [
           {
             icon: "Video",
-            title: "Creative Testing",
+            title: "Creative & A/B Testing",
             description:
-              "Video variants with product splices, not just avatar swaps. Find what actually moves the needle.",
+              "Video variants with product splices. Lead forms vs demo booking, pricing offers, headline variations — systematic testing.",
           },
           {
-            icon: "MessageSquare",
-            title: "Copy & Offer Testing",
+            icon: "Users",
+            title: "Lookalike Audiences",
             description:
-              "Headlines, CTAs, and offer positioning (50% first month test). Systematic, not random.",
+              "Upload your existing customer list to build lookalike audiences. Target restaurant owners who match your best customers.",
           },
           {
-            icon: "Calendar",
-            title: "No-Show Mitigation",
+            icon: "Settings",
+            title: "Lead Nurturing Automation",
             description:
-              "Audit reminder sequences, tighten the funnel post-booking. Booked demos that actually show up.",
+              "N8N-powered sequences: follow-up emails, UpCall integration, and no-show mitigation. No lead falls through the cracks.",
           },
           {
             icon: "BarChart",
@@ -138,39 +138,41 @@ export const deckContent: DeckDefinition = {
       content: {
         label: "THE ROADMAP",
         title: "Timeline",
-        subtitle: "You keep running your current ads until I'm ready to take over.",
+        subtitle:
+          "You keep running your current ads until I'm ready to take over.",
         headerAlign: "left",
         layout: "arrow",
         steps: [
           {
-            period: "WEEK 1-2",
+            period: "FEB 23 – MAR 5",
             title: "Onboarding & Creative",
             icon: "Settings",
             highlight: true,
             items: [
               "Account audit & baseline metrics",
-              "Strategy alignment",
+              "Strategy alignment & lookalike audiences",
               "First creative batch in production",
+              "N8N lead nurturing automation setup",
             ],
           },
           {
-            period: "WEEK 3",
-            title: "Takeover",
+            period: "MAR 6",
+            title: "Ads Go Live",
             icon: "Rocket",
             items: [
               "I take over campaign management",
               "New creative variants go live",
-              "Testing begins",
+              "A/B testing: lead forms vs demo booking",
             ],
           },
           {
-            period: "WEEK 4+",
+            period: "MAR – MAY",
             title: "Optimize & Scale",
             icon: "TrendingUp",
             items: [
               "Weekly reporting & iteration",
               "Kill losers, scale winners",
-              "Adjust based on data",
+              "Scale ad spend once CPA target hit",
             ],
           },
         ],
@@ -186,17 +188,27 @@ export const deckContent: DeckDefinition = {
         subtitle:
           "Your stack is ready. We're jumping straight into optimization.",
         items: [
-          { icon: "Settings", text: "Campaign management & optimization" },
-          { icon: "Video", text: "Creative production (video variants)" },
-          { icon: "MessageSquare", text: "Copy & offer testing" },
+          {
+            icon: "MessageSquare",
+            text: "A/B testing: lead forms, demos, offers, copy",
+          },
+          {
+            icon: "Users",
+            text: "Lookalike audience targeting from your customer list",
+          },
+          {
+            icon: "Zap",
+            text: "N8N lead nurturing automation + UpCall integration",
+          },
           { icon: "BarChart", text: "Weekly reporting & analysis" },
         ],
         totals: [
           { label: "Monthly Management", value: "$1,500" },
+          { label: "Lead Nurturing (N8N)", value: "$50/mo" },
           { label: "Setup Fee", value: "$0" },
           { label: "Ad Spend (separate)", value: "$3,000/mo" },
         ],
-        note: "No long-term contract — month-to-month. Recommend 3-4 months to see full results. Scale ad spend once CPA target is hit.",
+        note: "No long-term contract — month-to-month. Recommend 3-4 months to see full results. Scale ad spend once CPA target is hit. Guarantee: sub-$100 CPA by end of month 3 or month 4 is free.",
       },
     },
 
@@ -207,7 +219,7 @@ export const deckContent: DeckDefinition = {
         label: "THE COMMITMENT",
         title: "Performance-Based Guarantee",
         subtitle:
-          "Sub-$150 CPA by end of month 3 (from ads launch), or month 4 is on me.",
+          "Sub-$100 CPA by end of month 3 (from ads launch), or month 4 is on me.",
         leftPanel: {
           icon: "Shield",
           title: "What Makes This Work",

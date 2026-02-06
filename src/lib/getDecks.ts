@@ -18,7 +18,10 @@ export function getDecks(): DeckInfo[] {
   return deckFolders
     .filter((folder) => {
       const deckPath = path.join(decksDirectory, folder);
-      return fs.statSync(deckPath).isDirectory();
+      return (
+        fs.statSync(deckPath).isDirectory() &&
+        fs.existsSync(path.join(deckPath, "deck.tsx"))
+      );
     })
     .map((folder) => ({
       id: folder,
