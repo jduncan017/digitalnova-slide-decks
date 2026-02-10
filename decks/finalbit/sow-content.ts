@@ -11,8 +11,8 @@ export const sowContent: SOWDefinition = {
   overview:
     "A complete B2B lead generation system to drive qualified studio demos through Meta ads. This engagement includes a conversion-focused landing page, video ad creative, CRM setup with automations, and ongoing campaign management to help FinalBit acquire indie studio customers.",
 
-  startDate: "February 10, 2025",
-  estimatedCompletion: "Ads live by March 3, 2025",
+  startDate: "February 10, 2026",
+  estimatedCompletion: "Ads live by March 3, 2026",
 
   deliverables: [
     {

@@ -11,8 +11,8 @@ export const sowContent: SOWDefinition = {
   overview:
     "DigitalNova Studio will design and develop a professional 5-page website for Veterans Benefit Software, along with a complete lead generation system including LinkedIn advertising, CRM setup, and automated follow-up sequences. The goal is to establish online presence and generate qualified demo bookings from elder law attorneys.",
 
-  startDate: "February 17, 2025",
-  estimatedCompletion: "March 21, 2025",
+  startDate: "February 17, 2026",
+  estimatedCompletion: "March 21, 2026",
 
   deliverables: [
     {

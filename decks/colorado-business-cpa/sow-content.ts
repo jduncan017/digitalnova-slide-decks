@@ -11,8 +11,8 @@ export const sowContent: SOWDefinition = {
   overview:
     "DigitalNova Studio will design and develop a modern, SEO-optimized 11-page website for Colorado Business CPA. The new site will clearly communicate services, improve search visibility, and convert visitors into leads — ready before peak tax season.",
 
-  startDate: "February 3, 2025",
-  estimatedCompletion: "March 7, 2025",
+  startDate: "February 3, 2026",
+  estimatedCompletion: "March 7, 2026",
 
   deliverables: [
     {

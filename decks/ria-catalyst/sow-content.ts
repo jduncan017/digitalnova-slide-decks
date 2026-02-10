@@ -12,8 +12,8 @@ export const sowContent: SOWDefinition = {
   overview:
     "A conversion-focused website rebuild and LinkedIn paid ads system to generate qualified demo bookings. This engagement includes a collaborative approach where Julien's team provides initial mockups and content structure, with DigitalNova providing strategic feedback, final development, imagery, and full ads management.",
 
-  startDate: "February 10, 2025",
-  estimatedCompletion: "March 2025 (ads launch)",
+  startDate: "February 10, 2026",
+  estimatedCompletion: "March 2026 (ads launch)",
 
   deliverables: [
     {
