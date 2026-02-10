@@ -321,8 +321,8 @@ export const deckContent: DeckDefinition = {
             id: "accelerate",
             label: "Accelerate",
             description:
-              "Strong initial response + aggressive optimization = exponential growth. This happens when messaging resonates immediately with your target audience.",
-            curve: "exponential",
+              "Strong initial response + aggressive optimization = rapid growth. This happens when messaging resonates immediately with your target audience.",
+            curve: "fast",
           },
         ],
         phases: [

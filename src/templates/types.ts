@@ -601,8 +601,8 @@ export interface ProjectionsSlideContent {
     label: string;
     /** Description shown when selected */
     description: string;
-    /** Curve type: exponential, steady, recovery */
-    curve: "exponential" | "steady" | "recovery";
+    /** Curve type: fast, steady, recovery */
+    curve: "fast" | "steady" | "recovery";
     /** Mark as default selected */
     default?: boolean;
   }[];
@@ -639,8 +639,8 @@ export interface ProjectionsInvSlideContent {
     label: string;
     /** Description shown when selected */
     description: string;
-    /** Curve type: exponential (fast drop), steady (linear), recovery (struggle then improve) */
-    curve: "exponential" | "steady" | "recovery";
+    /** Curve type: fast (fast drop), steady (linear), recovery (struggle then improve) */
+    curve: "fast" | "steady" | "recovery";
     /** Mark as default selected */
     default?: boolean;
   }[];

@@ -15,7 +15,7 @@ interface ProjectionsInvSlideProps {
 // Returns CPA values that decrease from ~currentCPA to ~targetCPA
 // Each scenario reaches target at different months, then levels off just below
 function generateCurvePoints(
-  type: "exponential" | "steady" | "recovery",
+  type: "fast" | "steady" | "recovery",
   totalMonths: number,
   currentCPA: number,
   targetCPA: number,
@@ -28,7 +28,7 @@ function generateCurvePoints(
   // Define when each scenario hits target (as fraction of totalMonths)
   // Accelerate: Month 2, Optimize: Month 3, Pivot: Month 4
   const targetMonth: Record<typeof type, number> = {
-    exponential: 2, // Accelerate hits target at month 2
+    fast: 2, // Accelerate hits target at month 2
     steady: 3,      // Optimize hits target at month 3
     recovery: 4,    // Pivot hits target at month 4
   };
@@ -41,7 +41,7 @@ function generateCurvePoints(
     let y: number;
 
     switch (type) {
-      case "exponential": {
+      case "fast": {
         // Fast initial drop, hits target at month 2, then levels off
         if (t <= hitTargetAt) {
           // Aggressive curve down to target

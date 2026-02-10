@@ -14,7 +14,7 @@ interface ProjectionsSlideProps {
 
 // Generate curve points based on type
 function generateCurvePoints(
-  type: "exponential" | "steady" | "recovery",
+  type: "fast" | "steady" | "recovery",
   totalMonths: number,
 ): { x: number; y: number }[] {
   const points: { x: number; y: number }[] = [];
@@ -26,16 +26,16 @@ function generateCurvePoints(
     let y: number;
 
     switch (type) {
-      case "exponential":
-        // Exponential growth: starts slow, accelerates
-        y = Math.pow(t, 2.5) * 100;
+      case "fast":
+        // Fast rise: crosses benchmark ~month 1, keeps growing
+        y = Math.pow(t, 0.8) * 100;
         break;
       case "steady":
         // S-curve: slow start, steady middle, plateau
         y = 100 / (1 + Math.exp(-8 * (t - 0.5)));
         break;
       case "recovery":
-        // Dip then recover: starts, dips at month 2, then exponential
+        // Dip then recover: starts, dips at month 2, then rises
         if (t < 0.15) {
           y = t * 100; // Initial rise
         } else if (t < 0.35) {
@@ -43,7 +43,7 @@ function generateCurvePoints(
           const dipProgress = (t - 0.15) / 0.2;
           y = 15 - dipProgress * 10;
         } else {
-          // Recovery and exponential
+          // Recovery and growth
           const recoveryT = (t - 0.35) / 0.65;
           y = 5 + Math.pow(recoveryT, 2) * 95;
         }

@@ -150,7 +150,8 @@ export const deckContent: DeckDefinition = {
             {
               icon: "Check",
               title: "reputation management software",
-              description: "2,400 searches/mo — broadest category, highest volume",
+              description:
+                "2,400 searches/mo — broadest category, highest volume",
             },
             {
               icon: "Check",
@@ -339,8 +340,8 @@ export const deckContent: DeckDefinition = {
             id: "accelerate",
             label: "Accelerate",
             description:
-              "Keywords and messaging click right away. We hit demo targets early and shift focus to scaling ad spend and expanding keyword coverage to drive volume higher.",
-            curve: "exponential",
+              "Keywords and messaging click right away. We hit targets early and scale ad spend and expand keyword coverage to drive volume higher.",
+            curve: "fast",
           },
         ],
         phases: [

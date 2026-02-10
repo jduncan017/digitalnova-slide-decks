@@ -158,7 +158,7 @@ Most slides share common props: `label` (section label), `title`, `subtitle`. Be
     subtitle: "Three scenarios based on market response and optimization speed.",
     scenarios: [
       { id: "optimize", label: "Optimize", description: "Steady, predictable growth as we refine targeting and messaging.", curve: "steady", default: true },
-      { id: "accelerate", label: "Accelerate", description: "Strong initial response + aggressive optimization = exponential growth.", curve: "exponential" },
+      { id: "accelerate", label: "Accelerate", description: "Strong initial response + aggressive optimization = rapid growth.", curve: "fast" },
       { id: "pivot", label: "Pivot & Recover", description: "Initial tests reveal needed pivots. We adjust strategy, then recover stronger.", curve: "recovery" },
     ],
     phases: [
