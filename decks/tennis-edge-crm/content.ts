@@ -33,7 +33,7 @@ export const deckContent: DeckDefinition = {
             icon: "Rocket",
           },
           {
-            text: "Personal contacts get you started — not scale",
+            text: "Personal contacts get you started, not scaling",
             subtext:
               "A handful of warm leads, but you need a repeatable channel.",
             icon: "Users",
@@ -74,9 +74,8 @@ export const deckContent: DeckDefinition = {
           highlight: "Limited",
           items: [
             "Relying on personal network and referrals",
-            "No way to reach clubs who don't know you exist",
-            "Can't scale — every deal requires a personal connection",
-            "Previous ad agency lost when product had to be rebuilt",
+            "Difficult to reach clubs who don't know you exist",
+            "Can't scale: every deal requires a personal connection",
           ],
         },
         after: {
@@ -128,33 +127,6 @@ export const deckContent: DeckDefinition = {
           },
         ],
         sideImage: "/images/tennis/tennis-3.webp",
-      },
-    },
-
-    // Slide 5: Competitive Landscape
-    {
-      type: "comparison",
-      content: {
-        label: "THE LANDSCAPE",
-        title: "How Tennis Edge Stacks Up",
-        subtitle:
-          "Most clubs are locked into systems built 15–20 years ago. Tennis Edge was built for how clubs operate today.",
-        columns: [
-          { name: "Jonas" },
-          { name: "Core Reserve" },
-          { name: "Tennis Edge", highlighted: true },
-        ],
-        features: [
-          { feature: "Built-in CRM", values: [false, false, true] },
-          { feature: "Lead follow-up automations", values: [false, false, true] },
-          { feature: "Automated appointment reminders", values: [false, true, true] },
-          { feature: "Member churn detection", values: [false, false, true] },
-          { feature: "Easy onboarding (minutes, not weeks)", values: [false, false, true] },
-          { feature: "Modern UI / 1–2 click booking", values: [false, true, true] },
-          { feature: "CRM included in base price", values: [false, false, true] },
-        ],
-        footnote:
-          "Core Reserve offers CRM as a $300/mo add-on. Jonas pricing starts at ~$2,000/mo.",
       },
     },
 
