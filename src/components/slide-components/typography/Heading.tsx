@@ -50,12 +50,12 @@ const animations = {
 
 // Heading sizes - override locally with className if needed
 const headingStyles: Record<HeadingLevel, string> = {
-  h1: "text-6xl leading-tight font-light",      // 3.75rem / 60px
-  h2: "text-5xl leading-tight font-bold",       // 3rem / 48px
-  h3: "text-3xl leading-snug font-bold",        // 1.875rem / 30px
-  h4: "text-2xl leading-snug font-semibold",    // 1.5rem / 24px
-  h5: "text-xl leading-snug font-semibold",     // 1.25rem / 20px
-  h6: "text-lg leading-normal font-semibold",   // 1.125rem / 18px
+  h1: "text-6xl leading-tighter font-light", // 3.75rem / 60px
+  h2: "text-5xl leading-tight font-bold", // 3rem / 48px
+  h3: "text-3xl leading-snug font-bold", // 1.875rem / 30px
+  h4: "text-2xl leading-snug font-semibold", // 1.5rem / 24px
+  h5: "text-xl leading-snug font-semibold", // 1.25rem / 20px
+  h6: "text-lg leading-normal font-semibold", // 1.125rem / 18px
 };
 
 export default function Heading({
@@ -81,7 +81,9 @@ export default function Heading({
         filter: textHover.transition,
       }}
     >
-      <Component className={`${baseStyles} ${className}`} style={style}>{children}</Component>
+      <Component className={`${baseStyles} ${className}`} style={style}>
+        {children}
+      </Component>
     </motion.div>
   );
 }

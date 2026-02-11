@@ -10,6 +10,7 @@ const decks = [
   { slug: "prosperly", name: "Prosperly", client: "Alexander Noren & Adam" },
   { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
+  { slug: "tennis-edge-crm", name: "Tennis Edge CRM", client: "Bruce Hartrich" },
   { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
 ];
 
