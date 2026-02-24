@@ -7,6 +7,7 @@ const decks = [
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },
+  { slug: "gulfway-lodge", name: "Gulfway Lodge", client: "Marcela Sabatino" },
   { slug: "prosperly", name: "Prosperly", client: "Alexander Noren & Adam" },
   { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
