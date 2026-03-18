@@ -51,7 +51,7 @@ export default function PageHeader({
       <Label className={`mb-2 text-gray-400 ${labelClassName}`}>{label}</Label>
       <Heading
         level="h1"
-        className={`${subtitle ? "mb-2" : ""} ${titleClassName}`}
+        className={`pb-1 ${subtitle ? "mb-2" : ""} ${titleClassName}`}
         style={finalTitleStyle}
       >
         {title}

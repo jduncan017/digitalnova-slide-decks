@@ -8,6 +8,7 @@ const decks = [
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },
   { slug: "gulfway-lodge", name: "Gulfway Lodge", client: "Marcela Sabatino" },
+  { slug: "lewis-brisbois", name: "Lewis Brisbois Retreat", client: "Leah Young / Access" },
   { slug: "prosperly", name: "Prosperly", client: "Alexander Noren & Adam" },
   { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
