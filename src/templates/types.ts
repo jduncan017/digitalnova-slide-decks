@@ -75,6 +75,8 @@ export interface HeroSlideContent {
   heroImage?: string;
   /** Prepared for client name (optional, falls back to theme.clientName) */
   preparedFor?: string;
+  /** Hide the DigitalNova bottom bar */
+  hideFooter?: boolean;
 }
 
 /**

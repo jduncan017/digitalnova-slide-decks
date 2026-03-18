@@ -40,7 +40,7 @@ export default function Slide({
       <div className={`slide-content w-full h-full ${contentPadding} max-w-[1540px]`}>{children}</div>
 
       {/* Standard chrome: logo left, line, number right - all at bottom */}
-      {chromeVariant === "standard" && (
+      {chromeVariant === "standard" && (showLogo || slideNumber) && (
         <div className="absolute z-0 bottom-4 w-full h-20 min-[1400px]:h-28 px-16 min-[1400px]:px-28 gap-6 min-[1400px]:gap-8 flex items-center max-w-[1540px]">
           {showLogo && (
             <>
@@ -48,8 +48,10 @@ export default function Slide({
                 <Image src={logoSrc} alt="DigitalNova Logo" width={220} height={31} className="min-[1400px]:w-[280px]" />
               </div>
               <div className={`h-px flex-1 ${lineColor}`} />
-              <p className={`${textColor} text-body-xl shrink-0`}>{slideNumber}</p>
             </>
+          )}
+          {slideNumber && (
+            <p className={`${textColor} text-body-xl shrink-0 ${showLogo ? "" : "ml-auto"}`}>{slideNumber}</p>
           )}
         </div>
       )}

@@ -2,7 +2,6 @@
 
 import Slide from "~/components/Slide";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import {
   Box,
   Heading,
@@ -11,89 +10,23 @@ import {
   PageHeader,
 } from "~/components/slide-components";
 import { Check, ArrowRight } from "lucide-react";
+import HeroSlideTemplate from "~/templates/slides/opening/HeroSlide";
 import CTASlideTemplate from "~/templates/slides/closing/CTASlide";
-import type { CTASlideContent } from "~/templates/types";
+import type { CTASlideContent, HeroSlideContent } from "~/templates/types";
 
 // ============================================
-// SLIDE 1: Title
+// SLIDE 1: Title (using Hero template)
 // ============================================
-const TitleSlide = (
-  <Slide key="title" showLogo={false}>
-    <div className="relative flex h-full items-center overflow-hidden">
-      <div className="relative z-10 flex w-full flex-col pb-28 pl-16">
-        <div className="w-full max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="pb-6"
-          >
-            <Image
-              src="/logos/cifernoise.webp"
-              alt="CiferNoise"
-              width={200}
-              height={65}
-              className="object-contain"
-            />
-          </motion.div>
+const heroContent: HeroSlideContent = {
+  title: "Silent Disco Experiences",
+  subtitle: "Lewis Brisbois Annual Retreat",
+  tagline: "Gaylord Rockies Resort & Convention Center — September 26th, 2026",
+  heroImage: "/images/purple/purple-2.webp",
+  preparedFor: "Leah Young, Senior Creative Associate, Access",
+  hideFooter: true,
+};
 
-          <Box
-            animation="slideUp"
-            delay={0.2}
-            hoverEffect="none"
-            className="mt-4"
-          >
-            <Heading level="h1" className="mb-2 text-gray-200">
-              Silent Disco Experiences
-            </Heading>
-
-            <div className="mt-6 space-y-2">
-              <Body size="lg" className="text-gray-400">
-                <span className="text-purple-300">Client:</span> Lewis Brisbois
-                — Annual Retreat
-              </Body>
-              <Body size="lg" className="text-gray-400">
-                <span className="text-purple-300">Location:</span> Gaylord
-                Rockies Resort & Convention Center
-              </Body>
-              <Body size="lg" className="text-gray-400">
-                <span className="text-purple-300">Date:</span> Saturday,
-                September 26th, 2026
-              </Body>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.4 }}
-              className="mt-8 border-t border-neutral-700/50 pt-4"
-            >
-              <Body size="base" className="text-gray-500">
-                Prepared for <span className="text-gray-300">Leah Young</span>,
-                Senior Creative Associate, Access
-              </Body>
-            </motion.div>
-          </Box>
-        </div>
-      </div>
-
-      <Box
-        animation="fade"
-        delay={0.3}
-        hoverEffect="none"
-        className="relative z-10 ml-auto h-full w-[45%] shrink-0"
-      >
-        <Image
-          src="/cifernoise/image-1.png"
-          alt="Silent disco co-working experience"
-          width={1000}
-          height={600}
-          className="h-full w-full rounded-l-2xl object-cover"
-        />
-      </Box>
-    </div>
-  </Slide>
-);
+const TitleSlide = <HeroSlideTemplate key="title" content={heroContent} />;
 
 // ============================================
 // SLIDE 2: Index / Table of Contents
@@ -145,19 +78,23 @@ const IndexSlide = (
 // ============================================
 const OpportunitySlide = (
   <Slide key="opportunity" showLogo={false} slideNumber={1}>
-    <div className="flex h-full items-center gap-10 px-16">
+    <div className="mx-auto flex h-full max-w-7xl items-center gap-10 px-16">
       <div className="flex-1">
-        <Box animation="slideUp" delay={0.1} hoverEffect="none">
+        <Box
+          animation="slideUp"
+          delay={0.1}
+          hoverEffect="none"
+          className="max-w-xl"
+        >
           <Label className="mb-3 text-purple-400">VISION & OPPORTUNITY</Label>
           <Heading level="h2" className="mb-6 text-gray-200">
             Set the Tone Before the First Session
           </Heading>
           <Body size="lg" className="mb-8 leading-relaxed text-gray-400">
-            Your executives arrive with energy to spare — give them an
-            intentional, immersive experience before the day begins. Silent
-            disco transforms the pre-session window into a curated moment that
-            energizes, focuses, and connects your audience — no additional
-            breakout rooms needed.
+            Your executives start their day with an intentional, immersive
+            experience to prepare for the day. Silent disco transforms the
+            pre-session window into a curated moment that energizes, focuses,
+            and connects your audience.
           </Body>
         </Box>
 
@@ -581,7 +518,7 @@ const PricingSlide = (
         className="mb-6"
       />
 
-      <div className="mx-auto grid max-w-5xl grid-cols-3 gap-5">
+      <div className="mx-auto mt-4 grid max-w-6xl grid-cols-3 gap-8">
         {[
           {
             title: "Playlist Experience",
@@ -616,7 +553,6 @@ const PricingSlide = (
               "1–2 channels with live instructor",
               "Remaining channels as curated playlists",
               "On-site technicians & event staff",
-              "Delivery, setup & breakdown",
             ],
             recommended: true,
           },
@@ -685,11 +621,12 @@ const EnhancementsSlide = (
           Suggested Enhancements
         </Heading>
         <Body size="lg" className="max-w-3xl text-gray-400">
-          A few ideas to elevate the morning beyond audio — pair these with any package to create something truly memorable.
+          A few ideas to elevate the morning beyond audio. Pair these with any
+          package to create something truly memorable.
         </Body>
       </Box>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid max-w-6xl grid-cols-3 gap-6">
         <Box
           animation="slideUp"
           delay={0.2}
@@ -769,12 +706,7 @@ const EnhancementsSlide = (
         </Box>
       </div>
 
-      <Box
-        animation="fade"
-        delay={0.6}
-        hoverEffect="none"
-        className="mt-6"
-      >
+      <Box animation="fade" delay={0.6} hoverEffect="none" className="mt-6">
         <Body size="base" className="text-gray-500">
           All enhancements priced individually. We&apos;ll help you build the
           right combination for your retreat.
@@ -809,7 +741,7 @@ const ctaContent: CTASlideContent = {
       href: "https://cifernoiseproductions.com",
     },
   ],
-  sideImage: "/images/silent-conference.png",
+  sideImage: "/images/rainbow/6.webp",
   hideBookCall: true,
   hideEmailForm: true,
 };

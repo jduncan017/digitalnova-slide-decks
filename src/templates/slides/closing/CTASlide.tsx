@@ -207,68 +207,74 @@ export default function CTASlide({
           )}
 
           {/* Email proposal form */}
-          {!content.hideEmailForm && <Box
-            animation="slideUp"
-            delay={0.6}
-            hoverEffect="none"
-            className="border-t border-neutral-700 pt-6"
-          >
-            <Body size="sm" className="mb-3 text-gray-500">
-              Send this proposal via email:
-            </Body>
-            <form onSubmit={handleSendEmail} className="flex gap-3" onKeyDown={(e) => e.stopPropagation()}>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onKeyDown={(e) => e.stopPropagation()}
-                placeholder="Name"
-                className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
-                disabled={status === "loading" || status === "success"}
-              />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => e.stopPropagation()}
-                placeholder="Email address"
-                className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
-                disabled={status === "loading" || status === "success"}
-              />
-              <button
-                type="submit"
-                disabled={
-                  !email || status === "loading" || status === "success"
-                }
-                className={`flex cursor-pointer items-center gap-2 rounded-xl px-6 py-3 font-semibold shadow-lg transition-all hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 ${
-                  status === "success"
-                    ? "bg-green-600 text-white shadow-green-600/20"
-                    : status === "error"
-                      ? "bg-red-600 text-white shadow-red-600/20 hover:bg-red-700"
-                      : "bg-primary hover:bg-primary/90 shadow-primary/20 hover:shadow-primary/30 text-white"
-                }`}
-              >
-                {status === "loading" && (
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                )}
-                {status === "success" && <CheckCircle className="h-5 w-5" />}
-                {status === "error" && <AlertCircle className="h-5 w-5" />}
-                {status === "idle" && <Send className="h-5 w-5" />}
-                {status === "loading"
-                  ? "Sending..."
-                  : status === "success"
-                    ? "Sent!"
-                    : status === "error"
-                      ? "Retry"
-                      : "Send"}
-              </button>
-            </form>
-            {status === "error" && errorMessage && (
-              <Body size="sm" className="mt-2 text-red-400">
-                {errorMessage}
+          {!content.hideEmailForm && (
+            <Box
+              animation="slideUp"
+              delay={0.6}
+              hoverEffect="none"
+              className="border-t border-neutral-700 pt-6"
+            >
+              <Body size="sm" className="mb-3 text-gray-500">
+                Send this proposal via email:
               </Body>
-            )}
-          </Box>}
+              <form
+                onSubmit={handleSendEmail}
+                className="flex gap-3"
+                onKeyDown={(e) => e.stopPropagation()}
+              >
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => e.stopPropagation()}
+                  placeholder="Name"
+                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
+                  disabled={status === "loading" || status === "success"}
+                />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => e.stopPropagation()}
+                  placeholder="Email address"
+                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
+                  disabled={status === "loading" || status === "success"}
+                />
+                <button
+                  type="submit"
+                  disabled={
+                    !email || status === "loading" || status === "success"
+                  }
+                  className={`flex cursor-pointer items-center gap-2 rounded-xl px-6 py-3 font-semibold shadow-lg transition-all hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 ${
+                    status === "success"
+                      ? "bg-green-600 text-white shadow-green-600/20"
+                      : status === "error"
+                        ? "bg-red-600 text-white shadow-red-600/20 hover:bg-red-700"
+                        : "bg-primary hover:bg-primary/90 shadow-primary/20 hover:shadow-primary/30 text-white"
+                  }`}
+                >
+                  {status === "loading" && (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  )}
+                  {status === "success" && <CheckCircle className="h-5 w-5" />}
+                  {status === "error" && <AlertCircle className="h-5 w-5" />}
+                  {status === "idle" && <Send className="h-5 w-5" />}
+                  {status === "loading"
+                    ? "Sending..."
+                    : status === "success"
+                      ? "Sent!"
+                      : status === "error"
+                        ? "Retry"
+                        : "Send"}
+                </button>
+              </form>
+              {status === "error" && errorMessage && (
+                <Body size="sm" className="mt-2 text-red-400">
+                  {errorMessage}
+                </Body>
+              )}
+            </Box>
+          )}
         </div>
 
         {/* Right side - Image */}
@@ -284,7 +290,7 @@ export default function CTASlide({
               alt="Illustration"
               width={500}
               height={500}
-              className="h-full rounded-2xl border border-neutral-800 object-cover shadow-xl"
+              className="h-full rounded-2xl border border-neutral-700/25 object-cover shadow-xl"
             />
           </Box>
         )}
