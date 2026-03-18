@@ -188,24 +188,26 @@ export default function CTASlide({
           )}
 
           {/* Book a call button */}
-          <Box
-            animation="slideUp"
-            delay={0.5}
-            hoverEffect="none"
-            className="mb-8"
-          >
-            <Button
-              as="a"
-              href="https://cal.com/digitalnovastudio/follow-up"
-              target="_blank"
-              icon={Calendar}
+          {!content.hideBookCall && (
+            <Box
+              animation="slideUp"
+              delay={0.5}
+              hoverEffect="none"
+              className="mb-8"
             >
-              Book a Follow-up Call
-            </Button>
-          </Box>
+              <Button
+                as="a"
+                href="https://cal.com/digitalnovastudio/follow-up"
+                target="_blank"
+                icon={Calendar}
+              >
+                Book a Follow-up Call
+              </Button>
+            </Box>
+          )}
 
           {/* Email proposal form */}
-          <Box
+          {!content.hideEmailForm && <Box
             animation="slideUp"
             delay={0.6}
             hoverEffect="none"
@@ -266,7 +268,7 @@ export default function CTASlide({
                 {errorMessage}
               </Body>
             )}
-          </Box>
+          </Box>}
         </div>
 
         {/* Right side - Image */}

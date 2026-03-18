@@ -359,6 +359,10 @@ export interface CTASlideContent {
   }[];
   /** Optional side image */
   sideImage?: string;
+  /** Hide the "Book a Follow-up Call" button */
+  hideBookCall?: boolean;
+  /** Hide the "Send this proposal via email" form */
+  hideEmailForm?: boolean;
 }
 
 /**
