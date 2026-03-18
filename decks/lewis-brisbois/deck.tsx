@@ -744,6 +744,7 @@ const ctaContent: CTASlideContent = {
   sideImage: "/images/rainbow/6.webp",
   hideBookCall: true,
   hideEmailForm: true,
+  hideFooter: true,
 };
 
 const CloseSlide = (

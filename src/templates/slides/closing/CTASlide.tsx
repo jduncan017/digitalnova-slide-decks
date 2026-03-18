@@ -94,8 +94,8 @@ export default function CTASlide({
   };
 
   return (
-    <Slide showLogo slideNumber={slideNumber}>
-      <div className="flex h-full items-center gap-20">
+    <Slide showLogo={!content.hideFooter} slideNumber={slideNumber}>
+      <div className="mx-auto flex h-full max-w-6xl items-center gap-20">
         {/* Left side - CTA text */}
         <div className="flex max-w-[640px] flex-col justify-center">
           <PageHeader

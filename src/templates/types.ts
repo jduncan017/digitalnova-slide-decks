@@ -365,6 +365,8 @@ export interface CTASlideContent {
   hideBookCall?: boolean;
   /** Hide the "Send this proposal via email" form */
   hideEmailForm?: boolean;
+  /** Hide the DigitalNova logo footer */
+  hideFooter?: boolean;
 }
 
 /**
