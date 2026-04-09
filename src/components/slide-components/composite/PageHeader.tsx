@@ -32,7 +32,8 @@ export default function PageHeader({
 
   // Default gradient style for title
   const defaultTitleStyle: CSSProperties = {
-    background: "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
+    background:
+      "linear-gradient(to bottom right, var(--color-primary), var(--color-primary-light))",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -57,7 +58,10 @@ export default function PageHeader({
         {title}
       </Heading>
       {subtitle && (
-        <Heading level="h5" className="text-gray-300">
+        <Heading
+          level="h5"
+          className={`max-w-[800px] text-gray-300 ${isCenter ? "mx-auto" : ""}`}
+        >
           {subtitle}
         </Heading>
       )}

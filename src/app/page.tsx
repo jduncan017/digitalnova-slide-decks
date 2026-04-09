@@ -4,14 +4,18 @@ import path from "path";
 
 const decks = [
   { slug: "checkle", name: "Checkle", client: "Cole Rickles" },
+  { slug: "construction-instruction", name: "Construction Instruction", client: "Construction Instruction" },
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },
   { slug: "gulfway-lodge", name: "Gulfway Lodge", client: "Marcela Sabatino" },
   { slug: "lewis-brisbois", name: "Lewis Brisbois Retreat", client: "Leah Young / Access" },
+  { slug: "manay-cpa", name: "Manay CPA", client: "Rocio Brandau" },
   { slug: "prosperly", name: "Prosperly", client: "Alexander Noren & Adam" },
+  { slug: "rize-exteriors", name: "Rize Exteriors", client: "Tara Burkhart & Unique Hernandez" },
   { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
+  { slug: "silent-disco-vail", name: "Silent Disco — Vail Resorts", client: "Cifernoise" },
   { slug: "tennis-edge-crm", name: "Tennis Edge CRM", client: "Bruce Hartrich" },
   { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
 ];

@@ -51,9 +51,24 @@ async function exportDeckToPDF(deckId: string) {
     // Wait for animations to complete (most animations are < 1.5s)
     await sleep(2000);
 
+    // Find the 16:9 slide container and clip to its bounds
+    const slideBox = await page.evaluate(() => {
+      const container = document.querySelector(
+        '[class*="from-slide-bg-from"]',
+      ) as HTMLElement | null;
+      if (!container) return null;
+      const rect = container.getBoundingClientRect();
+      return {
+        x: rect.x,
+        y: rect.y,
+        width: rect.width,
+        height: rect.height,
+      };
+    });
+
     const screenshot = await page.screenshot({
       type: "png",
-      clip: {
+      clip: slideBox ?? {
         x: 0,
         y: 0,
         width: VIEWPORT.width,
@@ -73,17 +88,19 @@ async function exportDeckToPDF(deckId: string) {
 
   for (const screenshot of screenshots) {
     const image = await pdfDoc.embedPng(screenshot);
-    const page = pdfDoc.addPage([VIEWPORT.width, VIEWPORT.height]);
+    const pageWidth = image.width;
+    const pageHeight = image.height;
+    const page = pdfDoc.addPage([pageWidth, pageHeight]);
     page.drawImage(image, {
       x: 0,
       y: 0,
-      width: VIEWPORT.width,
-      height: VIEWPORT.height,
+      width: pageWidth,
+      height: pageHeight,
     });
   }
 
   // Save PDF
-  const outputDir = path.join(process.cwd(), "exports");
+  const outputDir = path.join(process.env.HOME || "~", "Downloads");
   await fs.mkdir(outputDir, { recursive: true });
 
   const timestamp = new Date().toISOString().split("T")[0];
