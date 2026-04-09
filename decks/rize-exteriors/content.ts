@@ -240,7 +240,7 @@ export const deckContent: DeckDefinition = {
               name: "One-Time Setup Fee",
               price: "$1,000",
               description:
-                "Funnel & landing page build, reporting dashboard, CRM setup & automations, call tracking, Google review request automation, ad account structure.",
+                "Funnel & landing page build, reporting dashboard, CRM setup & automations, call tracking, review request system setup, ad account structure.",
             },
           ],
           optional: [
@@ -260,7 +260,7 @@ export const deckContent: DeckDefinition = {
             },
           ],
         },
-        note: "LSA charges and ad spend are paid directly to Google, separate from the retainer.",
+        note: "Ad spend is paid directly to Google — separate from the retainer. We recommend $2,000–5,000/mo in ad spend depending on your goals. LSA charges are also billed by Google on a pay-per-lead basis.",
       },
     },
 
@@ -276,9 +276,9 @@ export const deckContent: DeckDefinition = {
         benefits: [
           {
             icon: "Search",
-            title: "7–9 Leads/Month",
+            title: "Consistent Lead Flow",
             description:
-              "At $3,000–5,000/mo ad spend, a 5% conversion rate means roughly 7–9 qualified calls per month from search ads alone.",
+              "At $3,000–5,000/mo ad spend, expect a steady stream of qualified calls from search ads — plus additional leads from LSA on top.",
           },
           {
             icon: "DollarSign",
@@ -397,7 +397,7 @@ export const deckContent: DeckDefinition = {
     // ACT 2 — Rising Summit Premier Metals
     // =============================================
 
-    // Slide 9: Deliverables — Brand + Website
+    // Slide 10: Deliverables — Brand + Website
     {
       type: "deliverables",
       content: {
@@ -446,7 +446,7 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 10: Pricing — Website + Brand
+    // Slide 11: Pricing — Website + Brand
     {
       type: "pricingWithAddons",
       content: {
@@ -509,7 +509,7 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 12: Timeline — Rising Summit
+    // Slide 12: Timeline — Rising Summit Website
     {
       type: "timeline",
       content: {
