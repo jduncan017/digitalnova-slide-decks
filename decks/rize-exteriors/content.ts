@@ -14,7 +14,7 @@ export const deckContent: DeckDefinition = {
         title: "CLIENT ACQUISITION PROPOSAL",
         subtitle: "Rize Exteriors",
         tagline: "April 2026",
-        heroImage: "/images/construction/1.jpg",
+        heroImage: "/images/orange/orange-1.webp",
         preparedFor: "Tara Burkhart & Unique Hernandez",
       },
     },
@@ -66,32 +66,32 @@ export const deckContent: DeckDefinition = {
         label: "THE OPPORTUNITY",
         title: "THE MARKET IS WIDE OPEN",
         subtitle:
-          "Denver commercial roofing has strong search demand — and surprisingly few advertisers competing for it.",
+          "People are searching for roofers in Denver every day — and most of your competitors aren't running ads to capture them.",
         opportunities: [
           {
             icon: "Search",
-            factor: "Low Competition",
+            factor: "Fewer Advertisers Than You'd Think",
             result:
-              "Competition scores of 0.07–0.31 out of 1.0. Not many advertisers are fighting for these terms right now.",
+              "Most Denver roofers rely on referrals and yard signs. The ones showing up on Google Ads are a small group — there's room for you.",
           },
           {
             icon: "Calendar",
             factor: "Perfect Timing",
             result:
-              "Search volume spikes hard in summer (July–Sept). Starting in April means you're optimized and ready when it peaks.",
+              "Roofing searches spike hard in summer. Starting now means your campaigns are dialed in and optimized before peak season hits.",
           },
           {
             icon: "DollarSign",
-            factor: "High-Value Traffic",
+            factor: "You Don't Need Volume",
             result:
-              "Commercial roofing jobs run $50K–$500K+. You don't need volume — you need the right calls.",
+              "Commercial jobs run $15K–$80K. You're not chasing hundreds of leads — you need a handful of the right calls every month.",
           },
         ],
         callout: {
           icon: "TrendingUp",
-          title: "Two keywords with $0 competition right now.",
+          title: "High-value searches with almost no advertisers.",
           subtitle:
-            '"Flat roof repair Denver" and "commercial roof repair Denver" have real search volume and almost no one bidding on them.',
+            'Terms like "flat roof repair Denver" and "commercial roof repair Denver" have real search volume and very few companies bidding on them.',
         },
       },
     },
@@ -128,22 +128,82 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 5: Pricing — Google Ads Management
+    // Slide 5: LSA Explainer — Two Channels, One System
+    {
+      type: "growthEngine",
+      content: {
+        label: "TWO CHANNELS, ONE SYSTEM",
+        title: "GOOGLE ADS + LOCAL SERVICE ADS",
+        subtitle:
+          "We run both channels together so you're capturing leads at every level of Google search.",
+        leftPanel: {
+          icon: "Search",
+          title: "Google Search Ads",
+          sectionLabel: "TARGETED KEYWORDS",
+          items: [
+            {
+              icon: "Target",
+              title: "Precision Targeting",
+              description:
+                'Your ad shows when someone searches specific terms like "commercial roofing Denver" or "flat roof repair."',
+            },
+            {
+              icon: "Layout",
+              title: "Custom Landing Pages",
+              description:
+                "We build dedicated pages designed to turn clicks into calls — not just your homepage.",
+            },
+            {
+              icon: "BarChart",
+              title: "Full Control",
+              description:
+                "We choose the keywords, set the bids, and optimize based on what's actually driving jobs.",
+            },
+          ],
+        },
+        rightPanel: {
+          icon: "Shield",
+          title: "Local Service Ads",
+          sectionLabel: "PAY PER LEAD",
+          items: [
+            {
+              icon: "Star",
+              title: "Google Guaranteed",
+              description:
+                "A trust badge from Google that shows above your ad — builds credibility even without dozens of reviews.",
+            },
+            {
+              icon: "DollarSign",
+              title: "Only Pay for Real Leads",
+              description:
+                "You're charged per verified lead, not per click. Bad leads can be disputed and refunded.",
+            },
+            {
+              icon: "Home",
+              title: 'Dominates "Near Me" Searches',
+              description:
+                "LSAs show at the very top of Google — above regular ads. Huge for residential and local searches.",
+            },
+          ],
+        },
+      },
+    },
+
+    // Slide 6: Pricing — Google Ads Management
     {
       type: "pricing",
       content: {
-        label: "GOOGLE ADS MANAGEMENT",
-        title: "Choose Your Investment Level",
+        label: "AD MANAGEMENT",
+        title: "Choose Your Management Tier",
         subtitle:
-          "Both plans get weekly reporting. The difference is budget scale and advanced tactics.",
+          "Both tiers include weekly reporting and full campaign management. The difference is channels and optimization depth.",
         tiers: [
           {
             id: "ads-growth",
             title: "Growth",
-            subtitle: "$2,000–3,000/mo ad spend",
+            subtitle: "Google Search Ads",
             price: "$1,000/mo",
             priceLabel: "retainer",
-            recommended: true,
             features: [
               "Core Google Search campaigns",
               "Custom landing page build",
@@ -158,14 +218,15 @@ export const deckContent: DeckDefinition = {
           {
             id: "ads-scale",
             title: "Scale",
-            subtitle: "$3,500–5,000/mo ad spend",
+            subtitle: "Google Search Ads + LSA",
             price: "$1,500/mo",
             priceLabel: "retainer",
+            recommended: true,
             features: [
               "Everything in Growth",
-              "Google Local Service Ads (LSA)",
+              "LSA setup, management & lead disputes",
+              "Ongoing Google review request automation",
               "Retargeting campaigns",
-              "Automated Google review requests",
               "A/B testing on landing page",
               "Competitor keyword targeting",
               "Monthly strategy call",
@@ -197,85 +258,156 @@ export const deckContent: DeckDefinition = {
               description:
                 "Optimize your GBP listing to appear in 'roofer near me' searches and accelerate review collection.",
             },
-            {
-              id: "lsa",
-              name: "Google Local Service Ads (LSA)",
-              price: "$350",
-              description:
-                "Pay-per-verified-lead ads with a 'Google Guaranteed' badge. Includes verification coordination & account setup. Included in Scale plan.",
-            },
           ],
         },
-        note: "Ad spend is paid directly to Google — separate from the retainer. LSA ad spend is also billed directly by Google on a pay-per-verified-lead basis.",
+        note: "LSA charges and ad spend are paid directly to Google, separate from the retainer.",
       },
     },
 
-    // Slide 6: ROI
+    // Slide 7: ROI
     {
       type: "roi",
       content: {
         label: "THE MATH",
         title: "Why The Numbers Work",
         description:
-          "Commercial roofing jobs don't need volume — they need close rate. One deal changes everything.",
-        highlight: "One deal changes everything.",
+          "Roofing clicks aren't cheap — expect $15–$40+ per click depending on the keyword. But the math still works because of what each job is worth.",
+        highlight: "the math still works",
         benefits: [
           {
             icon: "Search",
             title: "7–9 Leads/Month",
             description:
-              "At $3,500–5,000/mo ad spend, you capture 140–180 clicks with a 5% conversion rate — roughly 7–9 qualified calls per month.",
+              "At $3,000–5,000/mo ad spend, a 5% conversion rate means roughly 7–9 qualified calls per month from search ads alone.",
           },
           {
             icon: "DollarSign",
-            title: "$50K+ per job",
+            title: "$15K–$80K per Job",
             description:
-              "Commercial roofing jobs are high-ticket by nature. Even a single mid-size install dwarfs months of ad spend.",
+              "A single residential install starts at $15K. A mid-size commercial job can hit $60K–$80K. Either one covers months of ad spend.",
           },
           {
-            icon: "TrendingUp",
-            title: "Low Competition Now",
+            icon: "Shield",
+            title: "LSA Leads Are Pre-Qualified",
             description:
-              "Competition scores of 0.07–0.31 out of 1.0 mean you can own these keywords before other advertisers catch on.",
+              "Local Service Ads only charge for verified leads — no wasted spend on random clicks. Bad leads get refunded.",
           },
           {
             icon: "Calendar",
             title: "Summer Peak Ahead",
             description:
-              "Search volume spikes July–September. Starting in April means your campaigns are dialed in right when demand hits.",
+              "Roofing searches spike July–September. Starting now means your campaigns are dialed in right when demand hits.",
           },
         ],
         metric: {
           value: "1",
-          label: "Job covers 12+ months of ads",
-          subtext: "At an average commercial job of $80K–$200K",
+          label: "Job covers 6+ months of ads",
+          subtext: "At an average job of $30K–$60K",
         },
       },
     },
 
-    // Slide 7: Deliverables — Rising Summit pivot
+    // =============================================
+    // ACT 1 CLOSE — Rize Exteriors Ads
+    // =============================================
+
+    // Slide 8: Timeline — Rize Ads
     {
-      type: "deliverables",
+      type: "timeline",
       content: {
-        label: "WHILE WE'RE AT IT",
-        title: "LET'S LAUNCH RISING SUMMIT TOO",
-        subtitle:
-          "Rising Summit Premier Metals just started taking jobs. Let's build the digital foundation before momentum stalls.",
-        deliverables: [
+        label: "RIZE EXTERIORS ROADMAP",
+        title: "ADS TIMELINE",
+        subtitle: "From kickoff to leads in 3 weeks.",
+        layout: "arrow",
+        steps: [
           {
-            number: "01",
-            title: "Custom Website",
-            icon: "Layout",
+            period: "WEEKS 1–3",
+            title: "Setup & Strategy",
+            icon: "FileText",
+            highlight: true,
             items: [
-              "5-page custom design",
-              "Mobile-first, fast load times",
-              "Contact forms & lead capture",
-              "On-page SEO optimization",
-              "Built to convert visitors into calls",
+              "Deposit & kickoff",
+              "Keyword research & targeting",
+              "Landing page design & build",
+              "CRM & booking automation",
+              "Call tracking & reporting dashboard",
             ],
           },
           {
-            number: "02",
+            period: "WEEK 3",
+            title: "Ads Go Live",
+            icon: "Rocket",
+            items: [
+              "Google Ads campaign launched",
+              "LSA account live (Scale tier)",
+              "Reporting dashboard active",
+              "First leads coming in",
+            ],
+          },
+          {
+            period: "ONGOING",
+            title: "Optimize & Scale",
+            icon: "BarChart",
+            items: [
+              "Weekly performance reports",
+              "Bid & keyword optimization",
+              "Lead dispute management (LSA)",
+              "Scale what's working",
+            ],
+          },
+        ],
+      },
+    },
+
+    // Slide 9: CTA #1 — Rize Exteriors
+    {
+      type: "cta",
+      content: {
+        label: "LET'S GO",
+        title: "NEXT STEPS",
+        subtitle:
+          "Let's turn your roofing work into your own client pipeline — starting now.",
+        profile: {
+          image: "/joshua-duncan.png",
+          name: "Josh Duncan",
+          title: "Founder, DigitalNova Studio",
+        },
+        contactItems: [
+          {
+            icon: "Mail",
+            text: "josh@digitalnovastudio.com",
+            href: "mailto:josh@digitalnovastudio.com",
+          },
+          {
+            icon: "Globe",
+            text: "digitalnovastudio.com",
+            href: "https://digitalnovastudio.com",
+          },
+          {
+            icon: "Phone",
+            text: "(315) 276-5928",
+            href: "tel:+13152765928",
+          },
+        ],
+        sideImage: "/images/orange/orange-2.webp",
+      },
+    },
+
+    // =============================================
+    // ACT 2 — Rising Summit Premier Metals
+    // =============================================
+
+    // Slide 9: Deliverables — Brand + Website
+    {
+      type: "deliverables",
+      content: {
+        label: "RISING SUMMIT PREMIER METALS",
+        title: "BUILD THE BRAND & THE SITE",
+        subtitle:
+          "Rising Summit just started taking jobs. Let's build the digital foundation before momentum stalls.",
+        deliverables: [
+          {
+            number: "01",
             title: "Brand Package",
             icon: "Sparkles",
             items: [
@@ -287,22 +419,34 @@ export const deckContent: DeckDefinition = {
             ],
           },
           {
-            number: "03",
-            title: "Why Us",
-            icon: "Shield",
+            number: "02",
+            title: "Custom Website",
+            icon: "Layout",
             items: [
-              "We've done this for roofing before",
-              "In-state partner who knows Colorado",
-              "Full-service — no juggling vendors",
-              "One contact for ads + web + brand",
-              "Built for growth, not just launch",
+              "5-page custom design",
+              "Mobile-first, fast load times",
+              "Contact forms & lead capture",
+              "On-page SEO optimization",
+              "Built to convert visitors into calls",
+            ],
+          },
+          {
+            number: "03",
+            title: "SEO & Marketing",
+            icon: "Search",
+            items: [
+              "Local keyword targeting",
+              "Google Business Profile setup",
+              "Review automation after every job",
+              "Content strategy & blog planning",
+              "Built to grow alongside paid ads",
             ],
           },
         ],
       },
     },
 
-    // Slide 7: Pricing — Website Build
+    // Slide 10: Pricing — Website + Brand
     {
       type: "pricingWithAddons",
       content: {
@@ -365,77 +509,61 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 9: Timeline
+    // Slide 12: Timeline — Rising Summit
     {
       type: "timeline",
       content: {
-        label: "THE ROADMAP",
-        title: "HOW WE GET STARTED",
-        subtitle: "Rize ads live fast. Rising Summit right behind it.",
-        layout: "grid",
+        label: "RISING SUMMIT ROADMAP",
+        title: "WEBSITE TIMELINE",
+        subtitle: "Brand first, then build.",
+        layout: "arrow",
         steps: [
           {
             period: "WEEK 1",
-            title: "Setup & Strategy",
-            icon: "FileText",
+            title: "Brand Discovery",
+            icon: "Sparkles",
             highlight: true,
             items: [
-              "Deposit & kickoff",
-              "Keyword research & targeting",
-              "Landing page design begins",
-              "CRM & booking automation",
-              "Call tracking configuration",
-            ],
-          },
-          {
-            period: "WEEK 2",
-            title: "Ads Go Live",
-            icon: "Rocket",
-            items: [
-              "Landing page launched",
-              "Google Ads campaign live",
-              "Reporting dashboard active",
-              "First leads coming in",
+              "Brand discovery workshop",
+              "Logo concepts & direction",
+              "Color palette & typography",
+              "Tone of voice & messaging",
             ],
           },
           {
             period: "WEEKS 2–4",
-            title: "Rising Summit Build",
+            title: "Website Build",
             icon: "Layout",
             items: [
-              "Brand discovery session",
-              "Logo & identity design",
-              "Website design & build",
+              "Custom design based on brand",
+              "5-page site build",
+              "SEO & lead capture setup",
               "Review rounds & QA",
             ],
           },
           {
-            period: "ONGOING",
-            title: "Optimize & Report",
-            icon: "BarChart",
+            period: "WEEK 4",
+            title: "Site Launch",
+            icon: "Rocket",
             items: [
-              "Regular performance reports",
-              "Bid & keyword optimization",
-              "Rising Summit site live",
-              "Scale what's working",
+              "Final review & approval",
+              "Site goes live",
+              "Google Business Profile setup",
+              "Handoff & training",
             ],
           },
         ],
-        note: {
-          highlight: "Target:",
-          text: "Rize ads live within 2 weeks. Rising Summit site launched by week 4.",
-        },
       },
     },
 
-    // Slide 10: CTA
+    // Slide 13: CTA #2 — Final Close
     {
       type: "cta",
       content: {
-        label: "LET'S GO",
-        title: "NEXT STEPS",
+        label: "LET'S BUILD",
+        title: "READY TO START",
         subtitle:
-          "Let's turn your roofing work into your own client pipeline — starting now.",
+          "Two companies, one partner. Let's get Rize generating leads and Rising Summit off the ground.",
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",
@@ -458,7 +586,7 @@ export const deckContent: DeckDefinition = {
             href: "tel:+13152765928",
           },
         ],
-        sideImage: "/images/orange/orange-2.webp",
+        sideImage: "/images/orange/orange-5.webp",
       },
     },
   ],
