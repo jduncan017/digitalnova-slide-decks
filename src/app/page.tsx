@@ -6,6 +6,7 @@ const decks = [
   { slug: "checkle", name: "Checkle", client: "Cole Rickles" },
   { slug: "construction-instruction", name: "Construction Instruction", client: "Construction Instruction" },
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
+  { slug: "elder-law-leads", name: "ElderLaw Leads", client: "Don Quante" },
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },
   { slug: "gulfway-lodge", name: "Gulfway Lodge", client: "Marcela Sabatino" },
@@ -16,6 +17,7 @@ const decks = [
   { slug: "ria-catalyst", name: "Ria Catalyst", client: "Julien Baneux" },
   { slug: "silent-disco", name: "Silent Disco V2", client: "Cifernoise" },
   { slug: "silent-disco-vail", name: "Silent Disco — Vail Resorts", client: "Cifernoise" },
+  { slug: "silent-disco-drawing-class", name: "Silent Disco Drawing Class", client: "Cifernoise" },
   { slug: "tennis-edge-crm", name: "Tennis Edge CRM", client: "Bruce Hartrich" },
   { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
 ];
