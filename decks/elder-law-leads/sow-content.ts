@@ -72,7 +72,7 @@ export const sowContent: SOWDefinition = {
   payments: [
     {
       description: "One-Time Setup Fee",
-      amount: "$2,000",
+      amount: "$2,500",
       due: "At kickoff",
     },
     {
@@ -87,7 +87,7 @@ export const sowContent: SOWDefinition = {
     },
   ],
 
-  totalInvestment: "$2,000 setup + $2,000/mo management + $2,500/mo ad spend",
+  totalInvestment: "$2,500 setup + $2,000/mo management + $2,500/mo ad spend",
 
   outOfScope: [
     "Organic social media management",
@@ -102,5 +102,5 @@ export const sowContent: SOWDefinition = {
     "3-month minimum evaluation window",
   ],
 
-  paymentLinkCC: "https://buy.stripe.com/cNiaEW0IDbKI3rm43kd7q02",
+  paymentLinkCC: "https://buy.stripe.com/bJeaEWcrl2a88LGarId7q01",
 };

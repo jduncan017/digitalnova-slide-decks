@@ -89,7 +89,7 @@ export const deckContent: DeckDefinition = {
         items: [
           {
             icon: "Rocket",
-            text: "$2,000 one-time setup — funnel, landing page, automations, reporting dashboard, ad account structure",
+            text: "$2,500 one-time setup — funnel, landing page, automations, reporting dashboard, ad account structure",
           },
           {
             icon: "Settings",
@@ -101,7 +101,7 @@ export const deckContent: DeckDefinition = {
           },
         ],
         totals: [
-          { label: "Setup (one-time)", value: "$2,000" },
+          { label: "Setup (one-time)", value: "$2,500" },
           { label: "Management (monthly)", value: "$2,000" },
           { label: "Recommended Ad Spend", value: "$2–3K/mo" },
         ],
