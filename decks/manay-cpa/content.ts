@@ -4,7 +4,7 @@ export const deckContent: DeckDefinition = {
   id: "manay-cpa",
   meta: {
     title: "Google Ads Lead Generation Proposal for Manay CPA",
-    preparedFor: "Rocio Brandau",
+    preparedFor: "Rocio Brandau & Team",
   },
   slides: [
     // Slide 1: Hero
@@ -12,8 +12,8 @@ export const deckContent: DeckDefinition = {
       type: "hero",
       content: {
         title: "Local Lead Generation",
-        subtitle: "Manay CPA",
-        tagline: "April 2026",
+        subtitle: "A Custom Growth Engine for Manay's U.S. Market",
+        tagline: "Custom proposal — happy to walk through live anytime.",
         heroImage: "/images/orange/orange-7.webp",
       },
     },
@@ -46,9 +46,9 @@ export const deckContent: DeckDefinition = {
             icon: "Target",
           },
           {
-            text: "Seasonal spikes, inconsistent pipeline",
+            text: "Inbound only — no proactive U.S. acquisition",
             subtext:
-              "60 new clients in tax season, dropping to 30-40 off-season — monthly recurring needs consistency.",
+              "Tax season spikes inbound to 60/mo, drops to 30-40 off-season. MRR growth needs a steady pipeline.",
             icon: "TrendingUp",
           },
         ],
@@ -91,9 +91,9 @@ export const deckContent: DeckDefinition = {
         ],
         callout: {
           icon: "DollarSign",
-          title: "One new bookkeeping client per month pays for the entire campaign.",
+          title: "Two bookkeeping clients in 60 days = full campaign payback.",
           subtitle:
-            "At $500/mo average client value, ROI is achievable from day one.",
+            "At $500/mo avg + upsell to payroll, tax planning, and HR — LTV easily clears $10K+ per client.",
         },
       },
     },
@@ -111,7 +111,7 @@ export const deckContent: DeckDefinition = {
             icon: "Search",
             title: "Targeted Google Ads",
             description:
-              "We run ads targeting high-intent keywords like 'bookkeeping services Marietta,' 'small business accountant Atlanta,' and 'monthly accounting near me.'",
+              "We run ads targeting keywords like 'bookkeeping services Marietta' and 'small business accountant Atlanta",
           },
           {
             icon: "Layout",
@@ -136,89 +136,84 @@ export const deckContent: DeckDefinition = {
       },
     },
 
-    // Slide 5: ROI
+    // Slide 5: Success Factors — addresses internal team pushback
+    {
+      type: "successFactors",
+      content: {
+        label: "WHY DIGITALNOVA",
+        title: "Built to Complement Your Team",
+        subtitle:
+          "Your internal team owns brand, content, and the Turkish market. We plug in as the U.S. paid acquisition specialists — no overlap, no waste.",
+        factors: [
+          {
+            factor: "Full creative agency, in-house",
+            result:
+              "Branding, design, dev, and ads all under one roof — every asset stays on-brand and high quality.",
+          },
+          {
+            factor: "Weekly partner cadence",
+            result:
+              "Not a 'set and forget' agency. We meet weekly with Rocio to review lead quality and adjust in real time.",
+          },
+          {
+            factor: "U.S. local market focus",
+            result:
+              "Marietta and metro Atlanta are our home turf — local geo-targeting, U.S. buyer language, and SMB funnels dialed.",
+          },
+          {
+            factor: "Accounting firm specialization",
+            result:
+              "We focus on lead gen for accounting firms — keywords, ad copy, and qualification logic are already proven.",
+          },
+        ],
+        differentiator: {
+          text: "Your team handles what they do best.",
+          highlight: "We handle the U.S. paid pipeline.",
+        },
+      },
+    },
+
+    // Slide 6: ROI
     {
       type: "roi",
       content: {
         label: "THE MATH",
         title: "Why This Works",
         description:
-          "At $500/mo per bookkeeping client, even conservative conversion rates deliver strong returns.",
+          "At $500/mo per bookkeeping client — plus payroll, HR, and tax planning upsells your team already runs — every new client compounds fast.",
         highlight:
-          "One new monthly client covers the cost of the starter campaign — everything after is profit.",
+          "Two new monthly clients in the first 60 days covers the entire campaign. Everything after is margin.",
         benefits: [
           {
             icon: "Target",
             title: "Laser-Focused Targeting",
             description:
-              "Only show ads to business owners actively searching for accounting help in your area.",
+              "Only show ads to U.S. business owners actively searching for bookkeeping help in metro Atlanta.",
           },
           {
             icon: "DollarSign",
-            title: "Compounding Revenue",
+            title: "Compounding MRR",
             description:
-              "Each $500/mo client adds $6,000+ annually — the value stacks month over month.",
+              "Each $500/mo client adds $6,000+ annually — month over month, the pipeline keeps stacking.",
           },
           {
             icon: "Users",
-            title: "Upsell Opportunity",
+            title: "Upsell-Ready Leads",
             description:
-              "New bookkeeping clients become candidates for payroll, tax planning, and HR services.",
+              "New bookkeeping clients feed your team's existing upsell motion — payroll, HR, tax planning.",
           },
           {
             icon: "TrendingUp",
-            title: "Prove Then Scale",
+            title: "Prove, Then Scale",
             description:
-              "Start with a small budget, validate the ROI, then increase spend to grow faster.",
+              "Start lean to validate ROI. Once the numbers work, ramp ad spend to grow faster.",
           },
         ],
         metric: {
-          value: "$6,000+",
-          label: "Annual Value Per Client",
-          subtext: "At $500/mo avg. bookkeeping retainer",
+          value: "$10K+",
+          label: "Realistic LTV Per Client",
+          subtext: "$500/mo bookkeeping × 12mo + upsell ladder",
         },
-      },
-    },
-
-    // Slide 6: Projections
-    {
-      type: "projections",
-      content: {
-        label: "THE TRAJECTORY",
-        title: "What Growth Looks Like",
-        subtitle:
-          "Three scenarios based on market response and optimization speed.",
-        scenarios: [
-          {
-            id: "optimize",
-            label: "Optimize",
-            description:
-              "Steady, predictable growth as we refine targeting and messaging.",
-            curve: "steady",
-            default: true,
-          },
-          {
-            id: "accelerate",
-            label: "Accelerate",
-            description:
-              "Strong initial response + aggressive optimization = rapid growth.",
-            curve: "fast",
-          },
-          {
-            id: "pivot",
-            label: "Pivot & Recover",
-            description:
-              "Initial tests reveal needed pivots. We adjust strategy, then recover stronger.",
-            curve: "recovery",
-          },
-        ],
-        phases: [
-          { month: 1, label: "Launch" },
-          { month: 2, label: "Learn" },
-          { month: 3, label: "Optimize" },
-          { month: 4, label: "Scale" },
-        ],
-        totalMonths: 6,
       },
     },
 
@@ -275,7 +270,7 @@ export const deckContent: DeckDefinition = {
             ],
           },
         ],
-        note: "$1,000 one-time setup fee applies to all plans • No long-term contracts",
+        note: "$1,000 one-time setup fee applies to all plans • No long-term contracts • Pricing flexible — happy to tailor based on Ocon's input",
       },
     },
 
@@ -336,8 +331,10 @@ export const deckContent: DeckDefinition = {
     {
       type: "cta",
       content: {
-        label: "LET'S GO",
-        title: "NEXT STEPS",
+        label: "LET'S RESCHEDULE",
+        title: "Pick Up Where We Left Off",
+        subtitle:
+          "Sorry we missed today — grab any time that works for you and Ocon and we'll walk through this live.",
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",

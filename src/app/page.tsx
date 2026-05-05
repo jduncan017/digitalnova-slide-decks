@@ -19,6 +19,7 @@ const decks = [
   { slug: "silent-disco-vail", name: "Silent Disco — Vail Resorts", client: "Cifernoise" },
   { slug: "silent-disco-drawing-class", name: "Silent Disco Drawing Class", client: "Cifernoise" },
   { slug: "tennis-edge-crm", name: "Tennis Edge CRM", client: "Bruce Hartrich" },
+  { slug: "travelmation", name: "Travelmation Corporate Platform", client: "Mandy Gonzales" },
   { slug: "veterans-benefit-software", name: "Veterans Benefit Software", client: "Don Anton" },
 ];
 

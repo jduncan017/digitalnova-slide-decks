@@ -1,7 +1,7 @@
 import type { SOWDefinition } from "~/lib/sowSchema";
 
 export const sowContent: SOWDefinition = {
-  projectTitle: "Meta Ads Management — Attorney & Home Care Campaigns",
+  projectTitle: "Meta Ads Management — Home Care Campaign",
 
   client: {
     name: "ElderLaw Leads",
@@ -9,19 +9,19 @@ export const sowContent: SOWDefinition = {
   },
 
   overview:
-    "DigitalNova Studio will build and manage two parallel Meta ad campaigns for ElderLaw Leads — one targeting elder law and VA-accredited attorneys, one targeting home care agency decision-makers. The goal is qualified demo appointments on your calendar for both audiences. Scope includes landing page rebuilds, ad creative, campaign management, booking automations, and weekly reporting against a single dashboard.",
+    "DigitalNova Studio will build and manage a Meta ad campaign for ElderLaw Leads targeting home care agency decision-makers. The goal is qualified demo appointments on your calendar. Scope includes landing page rebuild, ad creative, campaign management, booking automations, and weekly reporting against a single dashboard.",
 
   startDate: "April 27, 2026",
   estimatedCompletion: "Ongoing (month-to-month, 3-month evaluation window)",
 
   deliverables: [
     {
-      title: "Funnel & Landing Pages",
+      title: "Funnel & Landing Page",
       description:
-        "Rebuild existing attorney and home care landing pages on our stack so we can track, A/B test, and iterate without dependency on external platforms.",
+        "Rebuild the home care landing page on our stack so we can track, A/B test, and iterate without dependency on external platforms.",
       items: [
-        "Two landing pages rebuilt (attorney funnel + home care funnel)",
-        "Calendly booking integration for both calendars",
+        "Home care landing page rebuilt",
+        "Calendly booking integration",
         "Call tracking & attribution",
         "Marketing analytics & heatmap tools installed",
       ],
@@ -29,18 +29,18 @@ export const sowContent: SOWDefinition = {
     {
       title: "Meta Ads Management",
       description:
-        "Full management of Facebook and Instagram ad campaigns for both audiences.",
+        "Full management of Facebook and Instagram ad campaigns targeting home care agencies.",
       items: [
-        "Audience research & targeting for attorneys and home care decision-makers",
+        "Audience research & targeting for home care decision-makers",
         "Ad creative and copy production",
-        "Multiple ad sets tested in parallel per audience",
+        "Multiple ad sets tested in parallel",
         "Ongoing bid, creative, and audience optimization",
       ],
     },
     {
       title: "Automations & Reporting",
       description:
-        "Follow-up automations to protect show rate, plus a unified reporting dashboard across both campaigns.",
+        "Follow-up automations to protect show rate, plus a reporting dashboard for the campaign.",
       items: [
         "Booking confirmation & reminders",
         "Weekly reporting dashboard (spend, leads, bookings, show rate)",
@@ -98,7 +98,7 @@ export const sowContent: SOWDefinition = {
     "ElderLaw Leads maintains minimum $2,500/month ad spend for first 3 months",
     "Meta Business Manager access provided within the first week",
     "Creative and copy approvals provided within 48 hours",
-    "Calendly account for both audiences are live and accessible",
+    "Calendly account for home care campaign is live and accessible",
     "3-month minimum evaluation window",
   ],
 

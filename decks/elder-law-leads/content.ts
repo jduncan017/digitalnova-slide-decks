@@ -24,25 +24,25 @@ export const deckContent: DeckDefinition = {
         label: "THE ENGAGEMENT",
         title: "What We're Building",
         subtitle:
-          "Two parallel campaigns — one system, one reporting dashboard, one point of contact.",
+          "A focused home care agency campaign — one funnel, one reporting dashboard, one point of contact.",
         pillars: [
-          {
-            icon: "Briefcase",
-            title: "Elder Law Attorneys",
-            description:
-              "Fill your calendar with demo calls from elder law and VA-accredited attorneys interested in the ElderLaw Leads platform.",
-          },
           {
             icon: "Heart",
             title: "Home Care Agencies",
             description:
-              "Generate demo appointments with home care agencies evaluating the calculator tool and done-for-you advertising program.",
+              "Generate demo appointments with home care agency decision-makers evaluating the calculator tool and done-for-you advertising program.",
+          },
+          {
+            icon: "Target",
+            title: "Booking Funnel",
+            description:
+              "Rebuilt landing page, calendar integration, and follow-up automations that turn ad clicks into demos on your calendar.",
           },
           {
             icon: "BarChart",
             title: "One Reporting Layer",
             description:
-              "Both campaigns tracked in a single dashboard — ad spend, clicks, bookings, and show rate visible in real time.",
+              "Single dashboard — ad spend, clicks, bookings, and show rate visible in real time.",
           },
         ],
       },
@@ -60,13 +60,13 @@ export const deckContent: DeckDefinition = {
             icon: "Target",
             title: "Build the Funnel",
             description:
-              "Rebuild landing pages so we can track behavior, A/B test, and iterate on the fly. Install marketing software, call tracking, and automations that follow up with every booked demo.",
+              "Rebuild the landing page so we can track behavior, A/B test, and iterate on the fly. Install marketing software, call tracking, and automations that follow up with every booked demo.",
           },
           {
             icon: "Rocket",
             title: "Launch & Target",
             description:
-              "Run meta ads across Facebook and Instagram aimed at elder law attorneys and home care agency decision-makers.",
+              "Run meta ads across Facebook and Instagram aimed at home care agency decision-makers.",
           },
           {
             icon: "BarChart",
@@ -85,15 +85,15 @@ export const deckContent: DeckDefinition = {
         label: "INVESTMENT",
         title: "What It Costs",
         subtitle:
-          "One setup fee covers both campaigns. One monthly retainer covers ongoing management for both audiences.",
+          "One setup fee covers the full home care campaign build. One monthly retainer covers ongoing management.",
         items: [
           {
             icon: "Rocket",
-            text: "$2,000 one-time setup — funnels, landing pages, automations, reporting dashboard, ad account structure",
+            text: "$2,000 one-time setup — funnel, landing page, automations, reporting dashboard, ad account structure",
           },
           {
             icon: "Settings",
-            text: "$2,000/month retainer — ad management, creative iteration, weekly reporting, both campaigns",
+            text: "$2,000/month retainer — ad management, creative iteration, weekly reporting",
           },
           {
             icon: "DollarSign",
