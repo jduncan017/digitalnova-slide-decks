@@ -31,3 +31,4 @@ export { default as ProjectionsInvSlide } from "./slides/pricing/ProjectionsInvS
 
 // Closing Slides
 export { default as CTASlide } from "./slides/closing/CTASlide";
+export { default as CTAReviewSOWSlide } from "./slides/closing/CTAReviewSOWSlide";

@@ -370,6 +370,46 @@ export interface CTASlideContent {
 }
 
 /**
+ * CTA Review SOW Slide - Closing variant that drives to the SOW review/sign/pay flow
+ */
+export interface CTAReviewSOWSlideContent {
+  /** Section label (e.g., "GET STARTED") */
+  label: string;
+  /** Main title */
+  title: string;
+  /** Subtitle / call to action text */
+  subtitle?: string;
+  /** Numbered instructions shown around the button */
+  instructions?: {
+    title: string;
+    description?: string;
+  }[];
+  /** Review SOW button (defaults to "Review Scope of Work" / `/[deckId]/sow`) */
+  reviewButton?: {
+    text?: string;
+    href?: string;
+    icon?: IconName;
+    textColor?: string;
+  };
+  /** Profile section */
+  profile?: {
+    image: string;
+    name: string;
+    title: string;
+  };
+  /** Contact items */
+  contactItems?: {
+    icon: IconName;
+    text: string;
+    href: string;
+  }[];
+  /** Optional side image */
+  sideImage?: string;
+  /** Hide the DigitalNova logo footer */
+  hideFooter?: boolean;
+}
+
+/**
  * Growth Engine Slide - Detailed breakdown of strategy
  */
 export interface GrowthEngineSlideContent {

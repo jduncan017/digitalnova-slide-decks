@@ -1,10 +1,22 @@
 import puppeteer from "puppeteer";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFName, PDFString } from "pdf-lib";
 import fs from "fs/promises";
 import path from "path";
 
+interface PdfLink {
+  href: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 const VIEWPORT = { width: 1920, height: 1080, deviceScaleFactor: 2 };
 const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
+// Origin to rewrite captured PDF link hrefs onto (so PDFs link to production
+// even when capturing from localhost). Override with PDF_LINK_BASE_URL.
+const PDF_LINK_BASE_URL =
+  process.env.PDF_LINK_BASE_URL || "https://decks.digitalnovastudio.com";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -39,7 +51,7 @@ async function exportDeckToPDF(deckId: string) {
 
   console.log(`Found ${slideCount} slides\n`);
 
-  const screenshots: Buffer[] = [];
+  const screenshots: { buffer: Buffer; links: PdfLink[] }[] = [];
 
   // Capture each slide
   for (let i = 1; i <= slideCount; i++) {
@@ -66,6 +78,24 @@ async function exportDeckToPDF(deckId: string) {
       };
     });
 
+    // Capture link annotations for any [data-pdf-link] anchors inside the slide
+    const links = await page.evaluate((box) => {
+      if (!box) return [] as PdfLink[];
+      const anchors = document.querySelectorAll<HTMLAnchorElement>(
+        "[data-pdf-link] a[href]",
+      );
+      return Array.from(anchors).map((a) => {
+        const r = a.getBoundingClientRect();
+        return {
+          href: a.href,
+          x: r.x - box.x,
+          y: r.y - box.y,
+          width: r.width,
+          height: r.height,
+        };
+      });
+    }, slideBox);
+
     const screenshot = await page.screenshot({
       type: "png",
       clip: slideBox ?? {
@@ -76,7 +106,7 @@ async function exportDeckToPDF(deckId: string) {
       },
     });
 
-    screenshots.push(screenshot as Buffer);
+    screenshots.push({ buffer: screenshot as Buffer, links });
   }
 
   await browser.close();
@@ -85,18 +115,55 @@ async function exportDeckToPDF(deckId: string) {
   console.log(`\nGenerating PDF...`);
 
   const pdfDoc = await PDFDocument.create();
+  const scale = VIEWPORT.deviceScaleFactor;
 
-  for (const screenshot of screenshots) {
-    const image = await pdfDoc.embedPng(screenshot);
+  for (const { buffer, links } of screenshots) {
+    const image = await pdfDoc.embedPng(buffer);
     const pageWidth = image.width;
     const pageHeight = image.height;
-    const page = pdfDoc.addPage([pageWidth, pageHeight]);
-    page.drawImage(image, {
+    const pdfPage = pdfDoc.addPage([pageWidth, pageHeight]);
+    pdfPage.drawImage(image, {
       x: 0,
       y: 0,
       width: pageWidth,
       height: pageHeight,
     });
+
+    if (links.length > 0) {
+      const annotRefs = links.map((link) => {
+        // CSS px → image px (deviceScaleFactor) and flip Y (PDF origin = bottom-left)
+        const x1 = link.x * scale;
+        const x2 = (link.x + link.width) * scale;
+        const y2 = pageHeight - link.y * scale;
+        const y1 = pageHeight - (link.y + link.height) * scale;
+
+        // Rewrite captured href onto the production link origin
+        let finalHref = link.href;
+        try {
+          const u = new URL(link.href);
+          const target = new URL(PDF_LINK_BASE_URL);
+          u.protocol = target.protocol;
+          u.host = target.host;
+          finalHref = u.toString();
+        } catch {
+          // Leave non-absolute or unparseable hrefs as-is
+        }
+
+        const annotation = pdfDoc.context.obj({
+          Type: "Annot",
+          Subtype: "Link",
+          Rect: [x1, y1, x2, y2],
+          Border: [0, 0, 0],
+          A: {
+            Type: "Action",
+            S: "URI",
+            URI: PDFString.of(finalHref),
+          },
+        });
+        return pdfDoc.context.register(annotation);
+      });
+      pdfPage.node.set(PDFName.of("Annots"), pdfDoc.context.obj(annotRefs));
+    }
   }
 
   // Save PDF

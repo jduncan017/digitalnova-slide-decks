@@ -11,6 +11,7 @@ import type {
   PricingWithAddonsSlideContent,
   TimelineSlideContent,
   CTASlideContent,
+  CTAReviewSOWSlideContent,
   GrowthEngineSlideContent,
   BeforeAfterSlideContent,
   ProcessFlowSlideContent,
@@ -34,6 +35,7 @@ export type SlideDefinition =
   | { type: "pricingWithAddons"; content: PricingWithAddonsSlideContent }
   | { type: "timeline"; content: TimelineSlideContent }
   | { type: "cta"; content: CTASlideContent }
+  | { type: "ctaReviewSOW"; content: CTAReviewSOWSlideContent }
   | { type: "growthEngine"; content: GrowthEngineSlideContent }
   | { type: "beforeAfter"; content: BeforeAfterSlideContent }
   | { type: "processFlow"; content: ProcessFlowSlideContent }

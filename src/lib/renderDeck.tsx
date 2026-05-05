@@ -12,6 +12,7 @@ import {
   PricingWithAddonsSlide,
   TimelineSlide,
   CTASlide,
+  CTAReviewSOWSlide,
   GrowthEngineSlide,
   BeforeAfterSlide,
   ProcessFlowSlide,
@@ -56,6 +57,8 @@ function renderSlide(slide: SlideDefinition, index: number, meta: DeckMeta): Rea
       return <TimelineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "cta":
       return <CTASlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} deckTitle={meta.title} preparedFor={meta.preparedFor} />;
+    case "ctaReviewSOW":
+      return <CTAReviewSOWSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "growthEngine":
       return <GrowthEngineSlide key={`slide-${index}`} content={slide.content} slideNumber={slideNumber} />;
     case "beforeAfter":

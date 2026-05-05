@@ -238,12 +238,33 @@ export const deckContent: DeckDefinition = {
     },
 
     {
-      type: "cta",
+      type: "ctaReviewSOW",
       content: {
         label: "LET'S GO",
         title: "NEXT STEPS",
         subtitle:
-          "Sign off on the proposal, kickoff this week, ads live in about two weeks.",
+          "Three steps to kick this off. Ads live in about two weeks from signature.",
+        instructions: [
+          {
+            title: "Review the Scope of Work",
+            description:
+              "Full deliverables, timeline, payment schedule, and assumptions.",
+          },
+          {
+            title: "Sign the Contract",
+            description:
+              "Linked from the SOW page. Takes a couple of minutes.",
+          },
+          {
+            title: "Make Payment to Get Started",
+            description:
+              "ACH or credit card. Setup begins as soon as payment clears.",
+          },
+        ],
+        reviewButton: {
+          text: "Review Scope of Work",
+          icon: "FileText",
+        },
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",
@@ -254,11 +275,6 @@ export const deckContent: DeckDefinition = {
             icon: "Mail",
             text: "josh@digitalnovastudio.com",
             href: "mailto:josh@digitalnovastudio.com",
-          },
-          {
-            icon: "Globe",
-            text: "digitalnovastudio.com",
-            href: "https://digitalnovastudio.com",
           },
           {
             icon: "Phone",
