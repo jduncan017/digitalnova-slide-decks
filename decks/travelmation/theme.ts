@@ -1,11 +1,11 @@
 import { createTheme } from "~/lib/theme";
 
 // Light theme for Travelmation Corporate Travel Platform deck
-// Teal/turquoise primary matching travelmation.com brand on white slate background
+// Sky blue primary matching the Travelmation wordmark
 export const theme = createTheme({
-  primary: "#22B5C2",
-  primaryLight: "#5DD3DC",
-  primaryDark: "#0F8995",
+  primary: "#3B95E0",
+  primaryLight: "#6BB1EB",
+  primaryDark: "#1E78C7",
 
   slideBg: {
     from: "#ffffff",

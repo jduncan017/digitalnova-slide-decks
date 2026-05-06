@@ -150,7 +150,11 @@ export interface OpportunitySlideContent {
   callout?: {
     icon: IconName;
     title: string;
-    subtitle: string;
+    subtitle?: string;
+    /** Optional bulleted list shown below the subtitle */
+    bullets?: string[];
+    /** Optional closing line shown below the bullets */
+    closer?: string;
   };
 }
 
@@ -171,6 +175,8 @@ export interface DeliverablesSlideContent {
     icon: IconName;
     items: string[];
   }[];
+  /** Connector symbol between deliverable cards (default "arrow"). Use "none" to render no connector. */
+  connector?: "arrow" | "plus" | "none";
   /** Optional implementation options */
   options?: {
     icon: IconName;
@@ -594,6 +600,8 @@ export interface PricingWithAddonsSlideContent {
   };
   /** Optional add-ons section */
   addOns?: {
+    /** Section header text (e.g., "OPTIONAL ADD-ONS"). Omit or pass empty string to hide. */
+    label?: string;
     /** Featured add-on (larger card) */
     featured?: {
       /** Unique identifier for selection tracking */

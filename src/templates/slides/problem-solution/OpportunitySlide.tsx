@@ -84,9 +84,26 @@ export default function OpportunitySlide({
               <Body size="lg" className="font-semibold text-gray-300">
                 {content.callout.title}
               </Body>
-              <Body size="base" className="text-gray-400">
-                {content.callout.subtitle}
-              </Body>
+              {content.callout.subtitle && (
+                <Body size="base" className="text-gray-400">
+                  {content.callout.subtitle}
+                </Body>
+              )}
+              {content.callout.bullets && content.callout.bullets.length > 0 && (
+                <ul className="mt-2 space-y-1">
+                  {content.callout.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-2 text-sm text-gray-400">
+                      <span className="text-primary">•</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {content.callout.closer && (
+                <Body size="sm" className="mt-2 text-gray-300 italic">
+                  {content.callout.closer}
+                </Body>
+              )}
             </div>
           </motion.div>
         )}

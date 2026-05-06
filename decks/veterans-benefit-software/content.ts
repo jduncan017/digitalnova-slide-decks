@@ -214,7 +214,7 @@ export const deckContent: DeckDefinition = {
             subtitle: "Get demos on your calendar. Fast.",
             price: "$2,500",
             priceLabel: "Setup",
-            monthly: "$2,000/mo",
+            monthly: "+ $2,000/mo retainer",
             features: [
               "Demo booking funnel",
               "CRM setup + automations",
@@ -228,7 +228,7 @@ export const deckContent: DeckDefinition = {
             subtitle: "Website + funnel + ads. The full system.",
             price: "$6,500",
             priceLabel: "Setup",
-            monthly: "$2,000/mo",
+            monthly: "+ $2,000/mo retainer",
             features: [
               "Everything in Launch",
               "Professional website (5 pages)",

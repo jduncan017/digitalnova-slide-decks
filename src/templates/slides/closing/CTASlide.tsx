@@ -130,79 +130,80 @@ export default function CTASlide({
             </Box>
           )}
 
-          {/* Profile */}
-          {content.profile && (
+          {/* Profile + Contact + Book a Call (one unit) */}
+          {(content.profile ??
+            (content.contactItems && content.contactItems.length > 0
+              ? content.contactItems
+              : null)) && (
             <Box
               animation="fade"
               delay={0.6}
-              className="mb-8 flex items-center gap-4"
-              hoverEffect="highlight"
-            >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-700">
-                <Image
-                  src={content.profile.image}
-                  alt={content.profile.name}
-                  className="rounded-full"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div>
-                <Heading level="h3" className="text-xl font-bold text-gray-300">
-                  {content.profile.name}
-                </Heading>
-                <Body size="sm" className="text-gray-400">
-                  {content.profile.title}
-                </Body>
-              </div>
-            </Box>
-          )}
-
-          {/* Contact links */}
-          {content.contactItems && content.contactItems.length > 0 && (
-            <Box
-              animation="slideUp"
-              delay={0.4}
-              className="mb-8 space-y-5"
               hoverEffect="none"
+              className="mb-4 flex flex-col gap-5 rounded-2xl border border-neutral-700 bg-neutral-800/50 p-7"
             >
-              {content.contactItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    item.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="hover:text-primary flex items-center gap-4 text-gray-300 transition-colors"
+              <div className="flex items-center justify-between gap-6">
+                {content.profile && (
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-700">
+                      <Image
+                        src={content.profile.image}
+                        alt={content.profile.name}
+                        className="rounded-full"
+                        width={100}
+                        height={100}
+                      />
+                    </div>
+                    <div>
+                      <Heading
+                        level="h3"
+                        className="text-xl font-bold text-gray-300"
+                      >
+                        {content.profile.name}
+                      </Heading>
+                      <Body size="sm" className="text-gray-400">
+                        {content.profile.title}
+                      </Body>
+                    </div>
+                  </div>
+                )}
+
+                {content.contactItems && content.contactItems.length > 0 && (
+                  <div className="flex flex-col gap-3">
+                    {content.contactItems.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="hover:text-primary flex items-center gap-3 text-gray-300 transition-colors"
+                      >
+                        {getIcon(item.icon)}
+                        <Body size="sm" as="span" className="hover:underline">
+                          {item.text}
+                        </Body>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {!content.hideBookCall && (
+                <Button
+                  as="a"
+                  href="https://cal.com/digitalnovastudio/follow-up"
+                  target="_blank"
+                  icon={Calendar}
+                  className="self-start"
                 >
-                  {getIcon(item.icon)}
-                  <Body size="lg" as="span" className="hover:underline">
-                    {item.text}
-                  </Body>
-                </a>
-              ))}
-            </Box>
-          )}
-
-          {/* Book a call button */}
-          {!content.hideBookCall && (
-            <Box
-              animation="slideUp"
-              delay={0.5}
-              hoverEffect="none"
-              className="mb-8"
-            >
-              <Button
-                as="a"
-                href="https://cal.com/digitalnovastudio/follow-up"
-                target="_blank"
-                icon={Calendar}
-              >
-                Book a Follow-up Call
-              </Button>
+                  Book a Follow-up Call
+                </Button>
+              )}
             </Box>
           )}
 
@@ -212,7 +213,7 @@ export default function CTASlide({
               animation="slideUp"
               delay={0.6}
               hoverEffect="none"
-              className="border-t border-neutral-700 pt-6"
+              className="rounded-2xl border border-neutral-700 bg-neutral-800/50 p-7"
             >
               <Body size="sm" className="mb-3 text-gray-500">
                 Send this proposal via email:
@@ -228,7 +229,7 @@ export default function CTASlide({
                   onChange={(e) => setName(e.target.value)}
                   onKeyDown={(e) => e.stopPropagation()}
                   placeholder="Name"
-                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
+                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-600 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
                   disabled={status === "loading" || status === "success"}
                 />
                 <input
@@ -237,7 +238,7 @@ export default function CTASlide({
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => e.stopPropagation()}
                   placeholder="Email address"
-                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
+                  className="focus:border-primary focus:ring-primary flex-1 rounded-lg border border-neutral-700 bg-neutral-600 px-4 py-3 text-gray-300 placeholder-gray-500 transition-colors focus:ring-1 focus:outline-none"
                   disabled={status === "loading" || status === "success"}
                 />
                 <button

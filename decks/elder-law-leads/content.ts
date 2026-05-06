@@ -277,9 +277,9 @@ export const deckContent: DeckDefinition = {
             href: "mailto:josh@digitalnovastudio.com",
           },
           {
-            icon: "Phone",
-            text: "(315) 276-5928",
-            href: "tel:+13152765928",
+            icon: "Globe",
+            text: "digitalnovastudio.com",
+            href: "https://digitalnovastudio.com",
           },
         ],
         sideImage: "/images/blue/blue-2.jpg",

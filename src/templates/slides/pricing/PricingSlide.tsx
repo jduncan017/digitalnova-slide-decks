@@ -69,8 +69,7 @@ export default function PricingSlide({
                   </div>
                   {tier.monthly && (
                     <div className="mt-2 text-lg text-gray-400">
-                      + {tier.monthly}{" "}
-                      <span className="text-gray-500">retainer</span>
+                      {tier.monthly}
                     </div>
                   )}
                 </div>

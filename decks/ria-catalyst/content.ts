@@ -182,7 +182,7 @@ export const deckContent: DeckDefinition = {
             subtitle: "You've got a solid brand and website. You just need leads.",
             price: "$2,500",
             priceLabel: "Setup",
-            monthly: "$1,500/mo",
+            monthly: "+ $1,500/mo retainer",
             features: [
               "LinkedIn ad campaigns",
               "Landing page/funnel",
@@ -196,7 +196,7 @@ export const deckContent: DeckDefinition = {
             subtitle: "You need a conversion-focused website AND a lead engine.",
             price: "$5,000",
             priceLabel: "Setup",
-            monthly: "$1,500/mo",
+            monthly: "+ $1,500/mo retainer",
             features: [
               "Everything in Paid Acquisition",
               "Website (5 pages)",
@@ -210,7 +210,7 @@ export const deckContent: DeckDefinition = {
             subtitle: "Starting fresh or your brand isn't working? We rebuild everything.",
             price: "$6,500",
             priceLabel: "Setup",
-            monthly: "$1,500/mo",
+            monthly: "+ $1,500/mo retainer",
             features: [
               "Everything in Growth System",
               "Brand strategy",

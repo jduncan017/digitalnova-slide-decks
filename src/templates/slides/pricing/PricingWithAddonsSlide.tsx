@@ -76,7 +76,9 @@ export default function PricingWithAddonsSlide({ content, slideNumber }: Pricing
           {/* Add-ons Section */}
           {addOns && (addOns.featured !== undefined || addOns.items !== undefined) && (
             <Box animation="slideUp" delay={0.4} hoverEffect="none" className="mb-4">
-              <Label className="text-gray-500 mb-3">OPTIONAL ADD-ONS</Label>
+              {addOns.label && (
+                <Label className="text-gray-500 mb-3">{addOns.label}</Label>
+              )}
               <div className="grid grid-cols-2 gap-4">
                 {/* Featured Add-on */}
                 {addOns.featured && (
@@ -99,7 +101,7 @@ export default function PricingWithAddonsSlide({ content, slideNumber }: Pricing
                       <Heading level="h4" className="text-primary">{addOns.featured.price}</Heading>
                       <Body size="sm" className="text-gray-500">{addOns.featured.priceLabel}</Body>
                       {addOns.featured.monthly && (
-                        <Body size="sm" className="text-gray-400">+ {addOns.featured.monthly}</Body>
+                        <Body size="sm" className="text-gray-400">{addOns.featured.monthly}</Body>
                       )}
                     </div>
                     <ul className="space-y-1.5">
@@ -122,11 +124,11 @@ export default function PricingWithAddonsSlide({ content, slideNumber }: Pricing
                         animation="slideLeft"
                         delay={0.6 + i * 0.1}
                         hoverEffect="highlight"
-                        className="flex items-center justify-between p-4 rounded-xl bg-neutral-800/20 border border-neutral-700/50"
+                        className="flex items-center justify-between gap-6 p-4 rounded-xl bg-neutral-800/20 border border-neutral-700/50"
                       >
                         <div>
                           <Body size="base" className="text-gray-300 font-medium">{addon.name}</Body>
-                          <Body size="xs" className="text-gray-500">{addon.description}</Body>
+                          <Body size="sm" className="text-gray-500">{addon.description}</Body>
                         </div>
                         <Body size="base" className="text-primary font-semibold">{addon.price}</Body>
                       </Box>

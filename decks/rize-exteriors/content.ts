@@ -470,6 +470,7 @@ export const deckContent: DeckDefinition = {
           ],
         },
         addOns: {
+          label: "OPTIONAL ADD-ONS",
           featured: {
             id: "brand-package",
             icon: "Sparkles",

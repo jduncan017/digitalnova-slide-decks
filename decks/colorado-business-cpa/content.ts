@@ -228,13 +228,14 @@ export const deckContent: DeckDefinition = {
           ],
         },
         addOns: {
+          label: "OPTIONAL ADD-ONS",
           featured: {
             icon: "Target",
             title: "Paid Ads Setup",
             subtitle: "Google or Meta campaigns",
             price: "$2,500",
             priceLabel: "setup",
-            monthly: "$1,500/mo",
+            monthly: "+ $1,500/mo retainer",
             features: [
               "Funnel landing pages",
               "CRM setup (Go High Level)",

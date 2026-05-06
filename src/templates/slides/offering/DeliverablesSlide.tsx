@@ -9,7 +9,7 @@ import {
 } from "~/components/slide-components";
 import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import type { DeliverablesSlideContent, IconName } from "../../types";
 
 interface DeliverablesSlideProps {
@@ -33,7 +33,11 @@ export default function DeliverablesSlide({ content, slideNumber }: Deliverables
         />
 
         {/* Deliverables grid with visual flow */}
-        <div className="flex items-stretch justify-center gap-2 max-w-[1200px] mb-8">
+        <div
+          className={`flex items-stretch justify-center max-w-[1200px] mb-8 ${
+            content.connector === "none" ? "gap-6" : "gap-2"
+          }`}
+        >
           {content.deliverables.map((item, index) => (
             <div key={index} className="flex items-stretch">
               <Box
@@ -68,17 +72,22 @@ export default function DeliverablesSlide({ content, slideNumber }: Deliverables
                 </ul>
               </Box>
 
-              {/* Arrow between deliverables */}
-              {index < content.deliverables.length - 1 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.7 + index * 0.1 }}
-                  className="flex items-center px-2"
-                >
-                  <ArrowRight className="h-6 w-6 text-gray-500/50" />
-                </motion.div>
-              )}
+              {/* Connector between deliverables */}
+              {index < content.deliverables.length - 1 &&
+                content.connector !== "none" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 + index * 0.1 }}
+                    className="flex items-center px-2"
+                  >
+                    {content.connector === "plus" ? (
+                      <Plus className="h-6 w-6 text-gray-500/50" />
+                    ) : (
+                      <ArrowRight className="h-6 w-6 text-gray-500/50" />
+                    )}
+                  </motion.div>
+                )}
             </div>
           ))}
         </div>

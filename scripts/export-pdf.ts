@@ -143,7 +143,8 @@ async function exportDeckToPDF(deckId: string) {
           const u = new URL(link.href);
           const target = new URL(PDF_LINK_BASE_URL);
           u.protocol = target.protocol;
-          u.host = target.host;
+          u.hostname = target.hostname;
+          u.port = target.port;
           finalHref = u.toString();
         } catch {
           // Leave non-absolute or unparseable hrefs as-is
