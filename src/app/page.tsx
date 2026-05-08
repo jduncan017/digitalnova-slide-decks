@@ -6,6 +6,7 @@ const decks = [
   { slug: "checkle", name: "Checkle", client: "Cole Rickles" },
   { slug: "construction-instruction", name: "Construction Instruction", client: "Construction Instruction" },
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },
+  { slug: "couples-therapy-services", name: "Couples Therapy Services", client: "Brianna Brunner" },
   { slug: "elder-law-leads", name: "ElderLaw Leads", client: "Don Quante" },
   { slug: "eventcombo", name: "EventCombo", client: "Saroosh Gull" },
   { slug: "finalbit", name: "Finalbit", client: "Finalbit" },

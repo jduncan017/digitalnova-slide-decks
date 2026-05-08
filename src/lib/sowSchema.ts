@@ -18,6 +18,20 @@ export interface SOWPayment {
   due: string;
 }
 
+export interface SOWLineItem {
+  description: string;
+  amount: string;
+  note?: string;
+}
+
+export interface SOWInvestmentBreakdown {
+  items: SOWLineItem[];
+  subtotal?: string;
+  discount?: { label: string; amount: string };
+  total: string;
+  recurring?: SOWLineItem[];
+}
+
 export interface SOWDefinition {
   /** Project title */
   projectTitle: string;
@@ -43,6 +57,9 @@ export interface SOWDefinition {
 
   /** Timeline/milestones */
   timeline?: SOWMilestone[];
+
+  /** Investment breakdown (line items, subtotal, discount, total, optional recurring) */
+  investmentBreakdown?: SOWInvestmentBreakdown;
 
   /** Payment schedule */
   payments: SOWPayment[];

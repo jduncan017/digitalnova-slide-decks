@@ -146,7 +146,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
         </header>
 
         {/* Body */}
-        <div className="px-4 md:px-8 py-6 md:py-8 space-y-8 md:space-y-10">
+        <div className="px-4 md:px-8 py-6 md:py-8 space-y-8 md:space-y-10 max-w-[720px] mx-auto">
           {/* Overview */}
           <section>
             <h2
@@ -263,6 +263,169 @@ export function SOWDocument({ content }: SOWDocumentProps) {
                   </div>
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* Investment Breakdown */}
+          {content.investmentBreakdown && (
+            <section>
+              <h2
+                className="text-xl font-bold mb-4 flex items-center gap-2"
+                style={{ color: theme.gray[300] }}
+              >
+                <span
+                  className="w-1 h-6 rounded-full"
+                  style={{ backgroundColor: theme.primary }}
+                />
+                Investment Breakdown
+              </h2>
+              <div
+                className="rounded-lg overflow-hidden"
+                style={{ backgroundColor: theme.neutral[800] }}
+              >
+                <table className="w-full">
+                  <thead>
+                    <tr style={{ backgroundColor: theme.neutral[700] }}>
+                      <th
+                        className="text-left px-4 py-3 text-xs uppercase tracking-wide font-semibold"
+                        style={{ color: theme.gray[400] }}
+                      >
+                        Line Item
+                      </th>
+                      <th
+                        className="text-right px-4 py-3 text-xs uppercase tracking-wide font-semibold"
+                        style={{ color: theme.gray[400] }}
+                      >
+                        Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {content.investmentBreakdown.items.map((item, index) => (
+                      <tr
+                        key={index}
+                        style={{
+                          borderTop: index > 0 ? `1px solid ${theme.neutral[700]}` : undefined,
+                        }}
+                      >
+                        <td className="px-4 py-3" style={{ color: theme.gray[300] }}>
+                          <div>{item.description}</div>
+                          {item.note && (
+                            <div className="text-xs mt-0.5" style={{ color: theme.gray[500] }}>
+                              {item.note}
+                            </div>
+                          )}
+                        </td>
+                        <td
+                          className="px-4 py-3 text-right font-medium align-top"
+                          style={{ color: theme.gray[300] }}
+                        >
+                          {item.amount}
+                        </td>
+                      </tr>
+                    ))}
+                    {content.investmentBreakdown.subtotal && (
+                      <tr style={{ borderTop: `1px solid ${theme.neutral[700]}` }}>
+                        <td
+                          className="px-4 py-3 text-right text-sm uppercase tracking-wide"
+                          style={{ color: theme.gray[500] }}
+                        >
+                          Subtotal
+                        </td>
+                        <td
+                          className="px-4 py-3 text-right font-medium"
+                          style={{ color: theme.gray[300] }}
+                        >
+                          {content.investmentBreakdown.subtotal}
+                        </td>
+                      </tr>
+                    )}
+                    {content.investmentBreakdown.discount && (
+                      <tr style={{ borderTop: `1px solid ${theme.neutral[700]}` }}>
+                        <td
+                          className="px-4 py-3 text-right text-sm"
+                          style={{ color: theme.gray[400] }}
+                        >
+                          {content.investmentBreakdown.discount.label}
+                        </td>
+                        <td
+                          className="px-4 py-3 text-right font-medium"
+                          style={{ color: theme.primary }}
+                        >
+                          {content.investmentBreakdown.discount.amount}
+                        </td>
+                      </tr>
+                    )}
+                    <tr
+                      style={{
+                        borderTop: `2px solid ${theme.neutral[700]}`,
+                        backgroundColor: theme.neutral[700],
+                      }}
+                    >
+                      <td
+                        className="px-4 py-3 text-right text-sm uppercase tracking-wide font-semibold"
+                        style={{ color: theme.gray[300] }}
+                      >
+                        Total
+                      </td>
+                      <td
+                        className="px-4 py-3 text-right text-lg font-bold"
+                        style={{ color: theme.primary }}
+                      >
+                        {content.investmentBreakdown.total}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {content.investmentBreakdown.recurring &&
+                content.investmentBreakdown.recurring.length > 0 && (
+                  <div className="mt-4">
+                    <p
+                      className="text-xs uppercase tracking-wide font-semibold mb-2"
+                      style={{ color: theme.gray[500] }}
+                    >
+                      Optional Ongoing
+                    </p>
+                    <div
+                      className="rounded-lg overflow-hidden"
+                      style={{ backgroundColor: theme.neutral[800] }}
+                    >
+                      <table className="w-full">
+                        <tbody>
+                          {content.investmentBreakdown.recurring.map((item, index) => (
+                            <tr
+                              key={index}
+                              style={{
+                                borderTop:
+                                  index > 0 ? `1px solid ${theme.neutral[700]}` : undefined,
+                              }}
+                            >
+                              <td className="px-4 py-3" style={{ color: theme.gray[300] }}>
+                                <div>{item.description}</div>
+                                {item.note && (
+                                  <div
+                                    className="text-xs mt-0.5"
+                                    style={{ color: theme.gray[500] }}
+                                  >
+                                    {item.note}
+                                  </div>
+                                )}
+                              </td>
+                              <td
+                                className="px-4 py-3 text-right font-medium align-top"
+                                style={{ color: theme.primary }}
+                              >
+                                {item.amount}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
             </section>
           )}
 
@@ -470,7 +633,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
           className="px-4 md:px-8 py-5 md:py-6 border-t"
           style={{ borderColor: theme.neutral[700], backgroundColor: theme.neutral[900] }}
         >
-          <p className="text-sm" style={{ color: theme.gray[500] }}>
+          <p className="text-sm max-w-[720px] mx-auto" style={{ color: theme.gray[500] }}>
             This Statement of Work is governed by the DigitalNova Service Agreement.
             Electronic acceptance of this SOW indicates agreement to the terms outlined above.
           </p>
