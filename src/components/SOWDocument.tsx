@@ -386,7 +386,7 @@ export function SOWDocument({ content }: SOWDocumentProps) {
                       className="text-xs uppercase tracking-wide font-semibold mb-2"
                       style={{ color: theme.gray[500] }}
                     >
-                      Optional Ongoing
+                      Required Ongoing
                     </p>
                     <div
                       className="rounded-lg overflow-hidden"
