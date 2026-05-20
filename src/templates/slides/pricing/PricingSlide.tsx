@@ -135,9 +135,16 @@ export default function PricingSlide({
                           key={i}
                           className="flex items-start justify-between gap-2"
                         >
-                          <Body size="sm" className="text-gray-400">
-                            {addon.name}
-                          </Body>
+                          <div className="min-w-0 flex-1">
+                            <Body size="sm" className="text-gray-400">
+                              {addon.name}
+                            </Body>
+                            {addon.description && (
+                              <Body size="xs" className="mt-0.5 text-gray-500">
+                                {addon.description}
+                              </Body>
+                            )}
+                          </div>
                           <Body
                             size="sm"
                             className="text-primary shrink-0 font-medium"
@@ -166,9 +173,16 @@ export default function PricingSlide({
                           key={i}
                           className="flex items-start justify-between gap-2"
                         >
-                          <Body size="sm" className="text-gray-400">
-                            {addon.name}
-                          </Body>
+                          <div className="min-w-0 flex-1">
+                            <Body size="sm" className="text-gray-400">
+                              {addon.name}
+                            </Body>
+                            {addon.description && (
+                              <Body size="xs" className="mt-0.5 text-gray-500">
+                                {addon.description}
+                              </Body>
+                            )}
+                          </div>
                           <Body
                             size="sm"
                             className="text-primary shrink-0 font-medium"

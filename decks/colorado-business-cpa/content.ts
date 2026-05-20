@@ -3,335 +3,224 @@ import type { DeckDefinition } from "~/lib/deckSchema";
 export const deckContent: DeckDefinition = {
   id: "colorado-business-cpa",
   meta: {
-    title: "Website Redesign Proposal for Colorado Business CPA",
-    preparedFor: "Natalya Itu",
+    title: "Marketing Funnel Proposal for Colorado Business CPA",
+    preparedFor: "Natalya Itu & Aidan",
   },
   slides: [
     // Slide 1: Hero
     {
       type: "hero",
       content: {
-        title: "Website Redesign Proposal",
+        title: "Marketing Funnel Proposal",
         subtitle: "Colorado Business CPA",
-        tagline: "January 2026",
+        tagline: "May 2026",
         heroImage: "/images/blue/blue-7.jpg",
       },
     },
 
-    // Slide 2: The Timing
+    // Slide 3: The Opportunity
     {
       type: "opportunity",
       content: {
-        label: "THE TIMING",
-        title: "A GOOD TIME TO REFRESH",
-        subtitle: "Tax season is your highest-traffic window of the year.",
+        label: "The Plan",
+        title: "Replace Tax Prep Revenue With Advisory",
         opportunities: [
           {
-            icon: "Calendar",
-            factor: "Tax Season is Coming",
-            result: "Business owners are actively searching for CPAs in Q1.",
+            icon: "Filter",
+            factor: "Qualify Before The Call",
+            result:
+              "Auto-route low-revenue leads to your affiliate firm. Aidan's calendar fills with real prospects only.",
           },
           {
-            icon: "Search",
-            factor: "Peak Search Volume",
-            result: "More people looking means more potential leads.",
+            icon: "DollarSign",
+            factor: "Sell On Tangible Savings",
+            result:
+              'Rainwater-style framing: "clients save $X on average" makes $6K advisory an obvious yes.',
           },
           {
-            icon: "TrendingUp",
-            factor: "Momentum Builds",
-            result: "A site that converts captures leads all season long.",
-          },
-        ],
-        callout: {
-          icon: "Clock",
-          title: "The timing works well.",
-          subtitle: "Get in front of business owners actively searching for help.",
-        },
-      },
-    },
-
-    // Slide 3: The Problem
-    {
-      type: "problem",
-      content: {
-        label: "WHAT WE FOUND",
-        title: "The Problem",
-        subtitle: "Your current site isn't working as hard as it could for you.",
-        challenges: [
-          {
-            text: "Visitors can't tell you're a CPA firm",
-            subtext: "Homepage doesn't clearly communicate what you do or who you serve.",
-            icon: "Monitor",
-          },
-          {
-            text: "Service packages are confusing",
-            subtext: "'Growth Package?' 'Strategic CFO?' — visitors don't know where to start.",
-            icon: "Target",
-          },
-          {
-            text: "Poor URL structure hurting SEO",
-            subtext: "URLs like '/general-6' aren't helping Google understand your site.",
-            icon: "Globe",
-          },
-          {
-            text: "No clear customer pathways",
-            subtext: "Visitors have to work to find what they need — most won't.",
-            icon: "Users",
-          },
-          {
-            text: "Outdated content",
-            subtext: "Team photos, book edition, and tax guides need refreshing.",
-            icon: "RefreshCw",
-          },
-        ],
-        sideImage: "/images/blue/blue-4.jpg",
-        statsOverlay: {
-          label: "Bottom Line",
-          value: "Site isn't ready",
-          subtext: "for paid traffic or serious leads",
-        },
-      },
-    },
-
-    // Slide 4: The Opportunity
-    {
-      type: "opportunity",
-      content: {
-        label: "THE UPSIDE",
-        title: "THE OPPORTUNITY",
-        subtitle: "A few strategic fixes unlock major potential.",
-        opportunities: [
-          {
-            icon: "MessageSquare",
-            factor: "Clear Messaging",
-            result: "Visitors instantly understand who you are and what you do = higher conversion.",
-          },
-          {
-            icon: "Search",
-            factor: "SEO Service Pages",
-            result: "Rank for 'Denver CPA,' 'Colorado business tax help,' and more.",
-          },
-          {
-            icon: "Target",
-            factor: "Proper Site Structure",
-            result: "Foundation for paid ads when you're ready to scale.",
+            icon: "Rocket",
+            factor: "Own Your Pipeline",
+            result:
+              "Paid ads + qualified funnel = predictable advisory leads, not just word-of-mouth tax prep.",
           },
         ],
         callout: {
           icon: "TrendingUp",
-          title: "Even without paid ads, a better site converts more of your existing traffic.",
-          subtitle: "Every visitor is more likely to become a lead.",
+          title:
+            "Replace 300 exiting tax-prep clients with advisory retainers.",
+          subtitle:
+            "Same revenue, multiples of the margin, a fraction of the season pressure.",
         },
       },
     },
 
-    // Slide 5: The Plan - Overview
-    {
-      type: "deliverables",
-      content: {
-        label: "THE PLAN",
-        title: "WHAT WE'LL BUILD",
-        subtitle: "Based on our call — these are recommendations, and I'm happy to adjust.",
-        deliverables: [
-          {
-            number: "01",
-            title: "New Website",
-            icon: "Layout",
-            items: [
-              "11 pages, SEO-optimized",
-              "Modern, professional design",
-              "Mobile responsive",
-              "Fast load times",
-            ],
-          },
-          {
-            number: "02",
-            title: "Clear Services",
-            icon: "FileText",
-            items: [
-              "Tax Planning & Tax Preparation",
-              "Accounting & Bookkeeping (CAS)",
-              "Tax Advisory Service (TAS)",
-              "CFO Services",
-              "Business Valuations",
-            ],
-          },
-          {
-            number: "03",
-            title: "SEO Foundation",
-            icon: "Search",
-            items: [
-              "Clean URL structure",
-              "Schema markup",
-              "All redirects handled",
-              "No SEO traffic loss",
-            ],
-          },
-        ],
-      },
-    },
-
-    // Slide 6: The Plan - Sitemap (Two-panel view)
+    // Slide 6: Phase Breakdown
     {
       type: "growthEngine",
       content: {
-        label: "SITE STRUCTURE",
-        title: "NEW SITEMAP",
-        subtitle: "Clear navigation paths for every visitor type.",
+        label: "Two Phases",
+        title: "Aligned With Current Availability",
         leftPanel: {
-          icon: "Layout",
-          title: "Main Pages",
-          sectionLabel: "Core Site Structure",
+          icon: "Filter",
+          title: "Phase 1: Smart Contact Form",
+          sectionLabel: "May — Stop the Spam",
           items: [
-            { icon: "Globe", title: "Homepage", description: "Clear value prop + service overview" },
-            { icon: "FileText", title: "Services Index", description: "Overview of all offerings" },
-            { icon: "Users", title: "About / Team", description: "All 15 team members featured" },
-            { icon: "BookOpen", title: "Resources", description: "Tax guides, tools, blog" },
-            { icon: "Briefcase", title: "Careers", description: "Attract top talent" },
-            { icon: "Mail", title: "Contact", description: "Book a discovery call" },
+            {
+              icon: "FileText",
+              title: "Qualification Flow",
+              description:
+                "Multi-step form captures revenue, service interest, and timeline upfront.",
+            },
+            {
+              icon: "UserX",
+              title: "Affiliate Redirect",
+              description: "Non-fit prospects get referred to affiliate.",
+            },
+            {
+              icon: "Share",
+              title: "Referral Tracking",
+              description:
+                "Referrals logged so you can verify what they actually close.",
+            },
+            {
+              icon: "Database",
+              title: "CRM Handoff",
+              description:
+                "Qualified leads hit your CRM with full context. Aidan opens his calendar to real prospects only.",
+            },
           ],
         },
         rightPanel: {
-          icon: "FileText",
-          title: "Service Pages",
-          sectionLabel: "Dedicated Landing Pages",
+          icon: "Rocket",
+          title: "Phase 2: Funnel + Ads",
+          sectionLabel: "June — Build the engine",
           items: [
-            { icon: "DollarSign", title: "Tax Planning & Prep", description: "Planning & preparation" },
-            { icon: "BarChart", title: "Accounting (CAS)", description: "Client accounting services" },
-            { icon: "Lightbulb", title: "Tax Advisory (TAS)", description: "Strategic tax advisory" },
-            { icon: "PieChart", title: "CFO Services", description: "Fractional CFO support" },
-            { icon: "TrendingUp", title: "Business Valuations", description: "Sales & acquisitions advisory" },
+            {
+              icon: "Layout",
+              title: "Funnel Landing Page",
+              description: "Dedicated page built for cold paid traffic.",
+            },
+            {
+              icon: "Target",
+              title: "Meta Ads",
+              description: "Interrupt-style Meta ads for advisory prospects.",
+            },
+            {
+              icon: "DollarSign",
+              title: "Tangible-Savings Hook",
+              description:
+                '"Clients save $X on average" framing, inspired by Rainwater ads.',
+            },
+            {
+              icon: "LineChart",
+              title: "Conversion Tracking",
+              description:
+                "Every click, lead, and close attributed back to channel and campaign.",
+            },
           ],
         },
       },
     },
 
-    // Slide 7: Pricing
+    // Slide 9: Pricing
     {
-      type: "pricingWithAddons",
+      type: "pricing",
       content: {
         label: "INVESTMENT",
-        title: "Pricing",
-        basePackage: {
-          label: "BASE PACKAGE",
-          title: "Website Redesign",
-          description: "Everything you need to convert visitors into leads.",
-          price: "$5,000",
-          priceLabel: "One-time",
-          features: [
-            "11 pages, SEO-optimized",
-            "Modern responsive design",
-            "All redirects handled (no SEO loss)",
-            "Schema markup for Google",
-            "Built on Framer (easy self-editing)",
-            "Mobile & tablet optimized",
-          ],
-        },
-        addOns: {
-          label: "OPTIONAL ADD-ONS",
-          featured: {
-            icon: "Target",
-            title: "Paid Ads Setup",
-            subtitle: "Google or Meta campaigns",
-            price: "$2,500",
-            priceLabel: "setup",
-            monthly: "+ $1,500/mo retainer",
+        title: "Investment Breakdown",
+        tiers: [
+          {
+            id: "phase-1",
+            title: "Smart Contact Form",
+            subtitle: "Funnel & track leads from the start.",
+            price: "$750",
+            priceLabel: "Setup",
             features: [
-              "Funnel landing pages",
-              "CRM setup (Go High Level)",
-              "Lead qualification flows",
-              "Weekly reporting",
-            ],
-          },
-          items: [
-            { name: "Blog Setup", description: "SEO content targeting your keywords", price: "$500" },
-            { name: "Google Business Profile", description: "Show up in 'CPA near me' searches", price: "$250" },
-          ],
-        },
-        note: "Required: $30/mo for hosting • You retain full access to edit your site",
-      },
-    },
-
-    // Slide 9: Timeline
-    {
-      type: "timeline",
-      content: {
-        label: "THE ROADMAP",
-        title: "ONBOARDING & TIMELINE",
-        subtitle: "Goal: Live before peak tax season hits.",
-        headerAlign: "left",
-        layout: "grid",
-        steps: [
-          {
-            period: "WEEK 1",
-            title: "Discovery & Strategy",
-            icon: "FileText",
-            highlight: true,
-            items: [
-              "Deposit to kick off",
-              "Discovery call",
-              "Service list finalized",
-              "Sitemap & SEO audit",
-              "Content collection",
+              "Qualification flow on contact page",
+              "Affiliate redirect pop-up + tracking",
+              "CRM integration (Pipedrive)",
+              "Lead routing + email notifications",
+              "1 - 2 weeks to ship",
             ],
           },
           {
-            period: "WEEKS 2-3",
-            title: "Design & Build",
-            icon: "Layout",
-            items: [
-              "Homepage design",
-              "Service page designs",
-              "Mobile optimization",
-              "Your feedback & revisions",
-            ],
-          },
-          {
-            period: "WEEKS 3-4",
-            title: "Development",
-            icon: "Code",
-            items: [
-              "Full site build in Framer",
-              "SEO implementation",
-              "Forms & integrations",
-              "Testing & QA",
-            ],
-          },
-          {
-            period: "WEEK 5",
-            title: "Launch",
-            icon: "Rocket",
-            items: [
-              "Final review",
-              "URL redirects",
-              "DNS transfer (5-10 min)",
-              "Post-launch check",
+            id: "phase-2",
+            title: "Funnel & Ads Setup",
+            subtitle: "Lead Gen Funnel + Ads",
+            price: "$1,250",
+            priceLabel: "Setup",
+            monthly: "+ $1,500/mo management",
+            features: [
+              "Dedicated funnel landing page",
+              "Meta Ads campaign build",
+              "Conversion tracking + attribution",
+              "Weekly reporting + optimization",
+              "Ad spend billed separately (~$2.5K/mo recommended)",
             ],
           },
         ],
-        note: {
-          highlight: "Target:",
-          text: "Live by mid-February — well before peak tax season.",
-          subtext: "I can start as soon as January 26th.",
+        addOns: {
+          optional: [
+            {
+              id: "seo-reports",
+              name: "Monthly SEO Reports",
+              price: "$100/mo",
+              description:
+                "Keyword tracking, competitor movement, and content gap analysis. Feeds your Claude blog workflow.",
+            },
+            {
+              id: "ad-video-editing",
+              name: "Meta Ad Video Editing",
+              price: "$250/video",
+              description:
+                "Editing, effects, and subtitles for ad creative. Recording not included — you provide raw footage.",
+            },
+          ],
         },
+        note: "Ad spend goes directly to Meta — not billed through DigitalNova.",
       },
     },
 
-    // Slide 10: Closing / CTA
+    // Slide 10: CTA
     {
-      type: "cta",
+      type: "ctaReviewSOW",
       content: {
         label: "LET'S GO",
         title: "NEXT STEPS",
-        subtitle: "Let's get your site converting before tax season peaks.",
+        subtitle:
+          "Click below to approve the scope of work we can get started!",
+        instructions: [
+          {
+            title: "Review the Scope of Work",
+            description:
+              "Full deliverables, timeline, payment schedule, and assumptions.",
+          },
+          {
+            title: "Submit Payment to Get Started",
+            description:
+              "ACH or credit card. Phase 1 build starts as soon as payment clears.",
+          },
+        ],
+        reviewButton: {
+          text: "Review Scope of Work",
+          icon: "FileText",
+        },
         profile: {
           image: "/joshua-duncan.png",
           name: "Josh Duncan",
-          title: "Founder, Digital Nova Studio",
+          title: "Founder, DigitalNova Studio",
         },
         contactItems: [
-          { icon: "Mail", text: "josh@digitalnovastudio.com", href: "mailto:josh@digitalnovastudio.com" },
-          { icon: "Globe", text: "digitalnovastudio.com", href: "https://digitalnovastudio.com" },
+          {
+            icon: "Mail",
+            text: "josh@digitalnovastudio.com",
+            href: "mailto:josh@digitalnovastudio.com",
+          },
+          {
+            icon: "Globe",
+            text: "digitalnovastudio.com",
+            href: "https://digitalnovastudio.com",
+          },
           { icon: "Phone", text: "(315) 276-5928", href: "tel:+13152765928" },
         ],
         sideImage: "/images/blue/blue-2.jpg",

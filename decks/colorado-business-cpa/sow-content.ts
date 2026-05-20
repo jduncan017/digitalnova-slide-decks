@@ -1,7 +1,7 @@
 import type { SOWDefinition } from "~/lib/sowSchema";
 
 export const sowContent: SOWDefinition = {
-  projectTitle: "Website Redesign",
+  projectTitle: "Marketing Funnel",
 
   client: {
     name: "Colorado Business CPA",
@@ -9,122 +9,121 @@ export const sowContent: SOWDefinition = {
   },
 
   overview:
-    "DigitalNova Studio will design and develop a modern, SEO-optimized 11-page website for Colorado Business CPA. The new site will clearly communicate services, improve search visibility, and convert visitors into leads — ready before peak tax season.",
+    "We'll build a marketing funnel that qualifies leads upfront and turns paid traffic into advisory clients. We'll start with a smart contact form on the existing site, then add a dedicated funnel landing page and Meta Ads campaign.",
 
-  startDate: "February 3, 2026",
-  estimatedCompletion: "March 7, 2026",
+  startDate: "May 26, 2026",
+  estimatedCompletion: "June 30, 2026",
 
   deliverables: [
     {
-      title: "Website Redesign (11 Pages)",
+      title: "Smart Contact Form",
       description:
-        "Modern, professional website built on Framer with SEO foundation.",
+        "Embedded upgrade to the existing contact page with qualification, routing, and tracking.",
       items: [
-        "Homepage with clear value proposition",
-        "Services index page",
-        "About / Team page (all 15 team members)",
-        "Resources page (tax guides, tools)",
-        "Careers page",
-        "Contact page with discovery call booking",
+        "Multi-step form on existing contact page",
+        "Revenue + service + timeline qualification logic",
+        "Auto pop-up redirect for non-fits to affiliate firm)",
+        "Affiliate referral tracking + dashboard",
+        "Qualified-lead handoff into Pipedrive CRM",
+        "Email notifications + lead routing rules",
       ],
     },
     {
-      title: "Service Pages (5 Pages)",
+      title: "Funnel Landing Page",
       description:
-        "Dedicated landing pages for each service line, optimized for SEO.",
+        "Dedicated landing page built for paid traffic, separate from organic website flow.",
       items: [
-        "Tax Planning and Tax Preparation",
-        "Accounting and Bookkeeping (CAS - Client Accounting Services)",
-        "Tax Advisory Service (TAS)",
-        "CFO Services",
-        "Business Valuations (advisory on business sales and acquisitions)",
+        "Custom funnel page (advisory-focused messaging)",
+        "Tangible-savings hook (Rainwater-style framing)",
+        "Lead qualification baked into the funnel",
+        "Conversion tracking + attribution",
       ],
     },
     {
-      title: "SEO Foundation",
-      description:
-        "Technical SEO setup to maintain and improve search rankings.",
+      title: "Meta Ads Campaign Build",
+      description: "Meta Ads setup, launch, and ongoing optimization.",
       items: [
-        "Clean, semantic URL structure",
-        "Schema markup for local business",
-        "All redirects from old URLs handled",
-        "Meta titles and descriptions",
-        "Mobile and tablet optimization",
+        "Interrupt-style creative for advisory prospects",
+        "Pixel + conversion tracking installation",
+        "Audience setup + initial creative direction",
+        "Weekly performance reporting",
       ],
     },
     {
-      title: "Site Features",
-      description: "Functionality and integrations.",
+      title: "Optional Add-On — Monthly SEO Reports",
+      description:
+        "Reporting layer to feed your in-house Claude blog workflow.",
       items: [
-        "Contact forms with email notifications",
-        "Discovery call booking integration",
-        "Built on Framer for easy self-editing",
-        "Fast load times",
+        "Keyword ranking tracking",
+        "Competitor movement analysis",
+        "Content gap identification",
+        "Delivered monthly — $100/mo",
       ],
     },
   ],
 
   timeline: [
     {
-      title: "Week 1: Kickoff & Assets",
+      title: "Late May: Contact Form Build",
       description:
-        "Kickoff call, Google Analytics setup, assets collected (logo, photos, content).",
-      payment: "50% deposit due",
+        "Setup payment received, form logic + affiliate redirect + CRM integration built and tested.",
+      payment: "$750 due to kick off",
     },
     {
-      title: "Week 2: Design & Approval",
+      title: "Early June: Contact Form Live",
       description:
-        "Homepage design, service page layouts, your feedback & approval.",
+        "Smart form goes live on contact page. Tracking dashboards confirmed. Funnel + ads scoping kicks off.",
     },
     {
-      title: "Weeks 3-4: Build & Optimize",
+      title: "June: Funnel + Ads Build",
       description:
-        "Full site build in Framer, mobile responsiveness, SEO implementation, forms & integrations.",
+        "Funnel landing page design + build, ad creative direction, Meta campaign setup, conversion tracking wired in.",
+      payment: "$1,250 due at kickoff",
     },
     {
-      title: "Week 5: Launch & Training",
+      title: "Late June: Funnel + Ads Launch",
       description:
-        "Final review, URL redirects, DNS transfer, Framer editing walkthrough.",
-      payment: "Remaining 50% due",
+        "Funnel goes live, ads launch, algorithm training begins. Optimization runs through July, ready for August extension wave.",
+      payment: "$1,500/mo retainer begins",
     },
   ],
 
   payments: [
     {
-      description: "Deposit (50%)",
-      amount: "$2,500",
-      due: "Upon signing",
+      description: "Contact form setup",
+      amount: "$750",
+      due: "Upon approval (kicks off build)",
     },
     {
-      description: "Final payment (50%)",
-      amount: "$2,500",
-      due: "At website launch",
+      description: "Funnel + ads setup",
+      amount: "$1,250",
+      due: "At funnel + ads kickoff (~early June)",
     },
     {
-      description: "Hosting & Maintenance",
-      amount: "$30/mo",
-      due: "Monthly, starting at launch",
+      description: "Monthly ads management",
+      amount: "$1,500/mo",
+      due: "Monthly, starting at ads launch (~late June)",
     },
   ],
 
-  totalInvestment: "$5,000",
+  totalInvestment: "$2,000 setup + $1,500/mo (ads management)",
 
   outOfScope: [
-    "Google Business Profile optimization (opted out)",
-    "Blog setup and content (opted out)",
-    "Logo design or brand identity work",
-    "Ongoing SEO services or link building",
+    "Video recording for ad creative (editing available as add-on; raw footage provided by client)",
+    "CRM subscription fees (Pipedrive seat, if applicable)",
   ],
 
   assumptions: [
-    "Client will provide timely feedback within 5 business days per the Service Agreement",
-    "Client will provide team photos, headshots, and any required imagery",
-    "Client will provide or approve copy for service descriptions",
-    "Client will provide access to domain registrar for DNS transfer at launch",
-    "Two rounds of design revisions are included per the Service Agreement",
-    "Existing content (tax guides, resources) will be provided or approved for migration",
+    "Client will provide timely feedback within 5 business days per the existing Service Agreement",
+    "Two rounds of revisions per deliverable are included per the existing Service Agreement",
+    "Funnel + ads scope may be adjusted after the contact form launches",
   ],
 
   notes:
-    "Timeline targets launch before peak tax season. Site will be built on Framer, giving you full access to make simple edits yourself after launch.",
+    "Colorado Business CPA is an existing DigitalNova client — work is covered under the original Service Agreement, no new contract required. Monthly ads management is a rolling engagement and can be paused with 30 days' notice.",
+
+  hideContract: true,
+
+  closingMessage:
+    "Let me know when you've reviewed and I'll submit the deposit payment via ACH.",
 };

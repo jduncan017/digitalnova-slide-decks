@@ -14,7 +14,7 @@ export const deckContent: DeckDefinition = {
         title: "Travelmation Corporate Travel Platform",
         subtitle: "The software your corporate division has been missing.",
         tagline: "V1 Build Proposal",
-        preparedFor: "Mandy Gonzales · Head of Corporate Travel",
+        preparedFor: "Mandy Gonzales · Corporate Travel Lead",
         heroImage: "/images/blue/blue-7.jpg",
       },
     },
@@ -26,7 +26,7 @@ export const deckContent: DeckDefinition = {
         label: "WHERE YOU ARE",
         title: "What Today's Stack Can't Do",
         subtitle:
-          "Email, text, phone, Traveljoy. They all work for booking a Disney trip — and fall apart when a 50-employee company asks how their travel spend broke down last quarter.",
+          "Email, text, phone, Traveljoy. They all work for booking a FIT trip, and fall apart when a 50-employee company asks how their travel spend broke down last quarter.",
         challenges: [
           {
             text: "Email and spreadsheets don't impress corporate buyers",
@@ -66,7 +66,7 @@ export const deckContent: DeckDefinition = {
           "Three players dominate corporate travel software. Travelmation slots into the gap none of them serve well: small and mid-size companies that want a real human, not an app.",
         columns: [
           { name: "Navan" },
-          { name: "TravelPerk" },
+          { name: "Perk Travel" },
           { name: "ATPI" },
           { name: "Travelmation Corp (V1)", highlighted: true },
         ],
@@ -93,7 +93,7 @@ export const deckContent: DeckDefinition = {
           },
         ],
         footnote:
-          "Navan and TravelPerk are apps with no humans. ATPI has humans but only takes huge enterprise clients. Travelmation is the human option for the everyday business.",
+          "Navan and Perk Travel are apps with no humans. ATPI has humans but only takes huge enterprise clients. Travelmation is the human option for the everyday business.",
       },
     },
 

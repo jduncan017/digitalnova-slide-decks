@@ -79,6 +79,12 @@ export interface SOWDefinition {
   /** Contract signing link (e.g., Jotform, DocuSign) */
   contractLink?: string;
 
+  /** Hide the "Sign Contract" button (e.g., for existing clients under an active Service Agreement) */
+  hideContract?: boolean;
+
+  /** Override the default copy in the closing "Ready to Get Started?" section */
+  closingMessage?: string;
+
   /** Payment link for ACH (e.g., GoCardless) - only shown if provided */
   paymentLink?: string;
 
