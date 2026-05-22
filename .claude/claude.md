@@ -15,6 +15,7 @@ Next.js platform for Digital Nova Studio. Takes discovery call transcripts → e
 7. **Always set `clientName`** in `theme.ts` and `client.name` in `sow-content.ts`
 8. **Always use the current year** for dates — never assume dates from training data
 9. **Require logo and brand color** before building — ask if not provided
+10. **NEVER use em dashes (—) or en dashes (–) in deck/SOW copy** — use commas, periods, colons, parentheses, or restructure. Applies to all visible strings in `content.ts` and `sow-content.ts` (titles, subtitles, body, list items, notes). For ranges use "Weeks 2 to 4" or "Weeks 2-4" (regular hyphen). Hyphens in compound words ("as-is", "mobile-first") are fine. Reason: em dashes read as AI-generated copy.
 
 ---
 
