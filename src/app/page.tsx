@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const decks = [
+  { slug: "bradley-law", name: "The Bradley Law Firm", client: "J. Anthony Bradley" },
   { slug: "checkle", name: "Checkle", client: "Cole Rickles" },
   { slug: "construction-instruction", name: "Construction Instruction", client: "Construction Instruction" },
   { slug: "colorado-business-cpa", name: "Colorado Business CPA", client: "CBCPA" },

@@ -37,7 +37,7 @@ Ask before building: brand color? logo file? pricing tiers? pain points to empha
 | `hero` | Opening branding | Always first |
 | `problem` | Pain points | Clear pain points exist |
 | `opportunity` | The upside | Strong ROI/growth story |
-| `projections` | Growth trajectory | **Every deck** |
+| `projections` | Growth trajectory | **Cold pitches only** (see note below) |
 | `pricing` | Investment tiers | Presenting options |
 | `cta` | Next steps | Always last |
 
@@ -65,12 +65,13 @@ Ask before building: brand color? logo file? pricing tiers? pain points to empha
 5. **Specifics** → `opportunity` (can use multiple)
 6. **Proof** → `roi`, `portfolio`, `successFactors`
 7. **Roadmap** → `timeline`
-8. **Trajectory** → `projections` (always include)
+8. **Trajectory** → `projections` (cold pitches only, skip for warm leads)
 9. **Investment** → `pricing`, `valueStack`, `pricingWithAddons`
 10. **Close** → `cta`
 
 **Example structures:**
-- *Lead gen:* hero → problem → beforeAfter → processFlow → opportunity x2 → roi → timeline → projections → pricing → cta
+- *Lead gen (cold):* hero → problem → beforeAfter → processFlow → opportunity x2 → roi → timeline → projections → pricing → cta
+- *Warm lead / referral:* hero → problem → beforeAfter → opportunity → processFlow → growthEngine → roi → timeline → valueStack → cta
 - *SaaS:* hero → problem → opportunity → deliverables → projections → pricing → timeline → cta
 - *Agency:* hero → problem → pillars → portfolio → projections → pricing → cta
 
@@ -145,11 +146,16 @@ Most slides share common props: `label` (section label), `title`, `subtitle`. Be
 | `valueStack` | items[]{icon, text}, totals?[]{label, value}, note? | Single package alt |
 | `roi` | description, highlight?, benefits[4]{icon, title, description}, metric{value, label, subtext} | Big number focus |
 | `timeline` | steps[], layout?("arrow"\|"grid"), note? | arrow=3 steps, grid=4 |
-| `projections` | scenarios[], phases[], totalMonths? | **Always include** (see standard setup below) |
+| `projections` | scenarios[], phases[], totalMonths? | Cold pitches only (see standard setup below) |
 | `cta` | ctaButton?, profile?, contactItems[], sideImage? | |
 | `portfolio` | (check types.ts) | Visual showcases |
 
-### Projections Standard Setup (copy for every deck)
+### Projections Standard Setup (cold pitches only)
+
+**When to include:** cold outbound and competitive pitches, where the prospect does not yet trust the process and a growth curve does useful work.
+
+**When to skip:** warm leads and referrals. Someone who already wants to work with you reads a speculative growth chart as a sales tactic, and it makes the whole deck feel like a pitch instead of a plan. Default to omitting it unless the deck is genuinely cold.
+
 ```ts
 {
   type: "projections",
