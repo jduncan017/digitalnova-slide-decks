@@ -23,33 +23,44 @@ interface StartEngagementResponse {
   error?: string;
 }
 
-// Registry of deck content - dynamically imported at build time
-// Add new decks here as they are created
-const deckRegistry: Record<string, () => Promise<{ deckContent: DeckDefinition }>> = {
-  eventcombo: () => import("../../../../decks/eventcombo/content"),
-  "ria-catalyst": () => import("../../../../decks/ria-catalyst/content"),
-  finalbit: () => import("../../../../decks/finalbit/content"),
-  "veterans-benefit-software": () => import("../../../../decks/veterans-benefit-software/content"),
-  "colorado-business-cpa": () => import("../../../../decks/colorado-business-cpa/content"),
-};
+// Decks allowed to start an engagement - add new decks here as they are created.
+// Content is resolved from decks/[id] or decks/archived/[id], so archiving a deck
+// does not break its engagement flow.
+const engagementDecks = [
+  "eventcombo",
+  "ria-catalyst",
+  "finalbit",
+  "veterans-benefit-software",
+  "colorado-business-cpa",
+];
 
-const sowRegistry: Record<string, () => Promise<{ sowContent: SOWDefinition }>> = {
-  "ria-catalyst": () => import("../../../../decks/ria-catalyst/sow-content"),
-  "veterans-benefit-software": () => import("../../../../decks/veterans-benefit-software/sow-content"),
-  "colorado-business-cpa": () => import("../../../../decks/colorado-business-cpa/sow-content"),
-};
+const engagementSOWs = [
+  "ria-catalyst",
+  "veterans-benefit-software",
+  "colorado-business-cpa",
+];
 
 /**
- * Dynamically load deck content from the decks folder
+ * Dynamically load deck content from the decks folder (or the archive)
  */
 async function loadDeckContent(
   deckId: string
 ): Promise<DeckDefinition | null> {
-  const loader = deckRegistry[deckId];
-  if (!loader) return null;
+  if (!engagementDecks.includes(deckId)) return null;
 
   try {
-    const deckModule = await loader();
+    const deckModule = (await import(
+      `../../../../decks/${deckId}/content`
+    )) as { deckContent: DeckDefinition };
+    return deckModule.deckContent;
+  } catch {
+    // Not in the active folder - try the archive
+  }
+
+  try {
+    const deckModule = (await import(
+      `../../../../decks/archived/${deckId}/content`
+    )) as { deckContent: DeckDefinition };
     return deckModule.deckContent;
   } catch {
     return null;
@@ -57,14 +68,24 @@ async function loadDeckContent(
 }
 
 /**
- * Dynamically load SOW content from the decks folder
+ * Dynamically load SOW content from the decks folder (or the archive)
  */
 async function loadSOWContent(deckId: string): Promise<SOWDefinition | null> {
-  const loader = sowRegistry[deckId];
-  if (!loader) return null;
+  if (!engagementSOWs.includes(deckId)) return null;
 
   try {
-    const sowModule = await loader();
+    const sowModule = (await import(
+      `../../../../decks/${deckId}/sow-content`
+    )) as { sowContent: SOWDefinition };
+    return sowModule.sowContent;
+  } catch {
+    // Not in the active folder - try the archive
+  }
+
+  try {
+    const sowModule = (await import(
+      `../../../../decks/archived/${deckId}/sow-content`
+    )) as { sowContent: SOWDefinition };
     return sowModule.sowContent;
   } catch {
     return null;

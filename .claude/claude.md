@@ -81,6 +81,14 @@ Ask before building: brand color? logo file? pricing tiers? pain points to empha
 3. Run `npm run build`
 4. Add deck to directory in `src/app/page.tsx` (add to `decks` array)
 
+### Archiving a Deck
+Move the folder: `git mv decks/[client-slug] decks/archived/[client-slug]`
+
+Nothing else changes. The URL stays `/[client-slug]` (route loaders check `decks/` then
+`decks/archived/`), so links already sent to clients keep working, and the directory page
+moves it into the collapsed "Archived" dropdown automatically. Leave its entry in the
+`decks` array in `src/app/page.tsx` alone. Move the folder back to unarchive.
+
 ---
 
 ## File Structure

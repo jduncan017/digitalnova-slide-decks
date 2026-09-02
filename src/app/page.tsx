@@ -1,6 +1,8 @@
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import ArchivedDecks from "~/components/ArchivedDecks";
+import { getArchivedDeckIds } from "~/lib/getDecks";
 
 const decks = [
   { slug: "bradley-law", name: "The Bradley Law Firm", client: "J. Anthony Bradley" },
@@ -66,6 +68,12 @@ function getDocPages() {
 export default function Home() {
   const docPages = getDocPages();
 
+  // A deck is archived by moving its folder into decks/archived - its entry below
+  // stays put and moves itself into the collapsed section.
+  const archivedIds = getArchivedDeckIds();
+  const activeDecks = decks.filter((deck) => !archivedIds.has(deck.slug));
+  const archivedDecks = decks.filter((deck) => archivedIds.has(deck.slug));
+
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-900 to-neutral-950 px-6 py-12">
       <div className="mx-auto max-w-4xl">
@@ -75,7 +83,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {decks.map((deck) => (
+          {activeDecks.map((deck) => (
             <Link
               key={deck.slug}
               href={`/${deck.slug}`}
@@ -88,6 +96,8 @@ export default function Home() {
             </Link>
           ))}
         </div>
+
+        <ArchivedDecks decks={archivedDecks} />
 
         {docPages.length > 0 && (
           <>

@@ -4,20 +4,22 @@ import path from "path";
 export interface DeckInfo {
   id: string;
   name: string;
+  archived: boolean;
+  /** Absolute path to the deck folder */
+  dir: string;
 }
 
-export function getDecks(): DeckInfo[] {
-  const decksDirectory = path.join(process.cwd(), "decks");
+export const ARCHIVED_DIR = "archived";
 
-  if (!fs.existsSync(decksDirectory)) {
+function readDeckFolders(dir: string, archived: boolean): DeckInfo[] {
+  if (!fs.existsSync(dir)) {
     return [];
   }
 
-  const deckFolders = fs.readdirSync(decksDirectory);
-
-  return deckFolders
+  return fs
+    .readdirSync(dir)
     .filter((folder) => {
-      const deckPath = path.join(decksDirectory, folder);
+      const deckPath = path.join(dir, folder);
       return (
         fs.statSync(deckPath).isDirectory() &&
         fs.existsSync(path.join(deckPath, "deck.tsx"))
@@ -26,5 +28,25 @@ export function getDecks(): DeckInfo[] {
     .map((folder) => ({
       id: folder,
       name: folder.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      archived,
+      dir: path.join(dir, folder),
     }));
+}
+
+export function getDecks(): DeckInfo[] {
+  const decksDirectory = path.join(process.cwd(), "decks");
+
+  return [
+    ...readDeckFolders(decksDirectory, false),
+    ...readDeckFolders(path.join(decksDirectory, ARCHIVED_DIR), true),
+  ];
+}
+
+/** Slugs of decks that live in `decks/archived/` */
+export function getArchivedDeckIds(): Set<string> {
+  return new Set(
+    getDecks()
+      .filter((deck) => deck.archived)
+      .map((deck) => deck.id)
+  );
 }
